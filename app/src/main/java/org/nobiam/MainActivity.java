@@ -15,25 +15,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // ВКЛЮЧАЕМ нормальный edge-to-edge (как в документации)
+        // edge-to-edge
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         setContentView(R.layout.activity_main);
 
-        View root = findViewById(android.R.id.content);
+        View root = findViewById(R.id.root);
 
         ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
             Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
 
-            // ❗ КЛЮЧ: НЕ ТРОГАЕМ ЛЕВО/ПРАВО
-            v.setPadding(
-                0,
-                bars.top,
-                0,
-                bars.bottom
-            );
+            // ❗ НИЧЕГО НЕ ДВИГАЕМ — УБИРАЕМ ВЫСТУПЫ ПОЛНОСТЬЮ
+            v.setPadding(0, 0, 0, 0);
 
-            return insets;
+            return insets; // не consumed!
         });
     }
 }

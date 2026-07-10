@@ -1,30 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/container"
+    android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#0B0F1A">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NOBIAM"
-            android:textSize="28sp"
-            android:textColor="#00D4FF"/>
-
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:text="START"
-            android:layout_marginTop="20dp"/>
-
-    </LinearLayout>
-
+    <!-- ТВОЙ UI -->
+    
 </FrameLayout>
