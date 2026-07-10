@@ -1,6 +1,22 @@
 <resources>
-    <style name="Theme.Nobiam" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Базовая тема -->
+    <style name="Theme.Nobiam" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/bg_main</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Полноэкранная тема (без системных баров) -->
+    <style name="Theme.Nobiam.Fullscreen" parent="Theme.Nobiam">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 </resources>

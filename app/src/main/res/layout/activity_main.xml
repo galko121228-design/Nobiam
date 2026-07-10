@@ -1,15 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WORKING"
-        android:textSize="24sp"
-        android:textColor="#FFFFFF"
-        android:layout_gravity="center"/>
+    <!-- SIDEBAR -->
+    <LinearLayout
+        android:layout_width="220dp"
+        android:layout_height="match_parent"
+        android:background="#0f172a"
+        android:orientation="vertical"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="20dp">
 
-</FrameLayout>
+        <!-- Лого -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nobiam"
+            android:textColor="#00D4FF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <!-- Home (активна по умолчанию) -->
+        <Button
+            android:id="@+id/navHome"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="🏠 Home"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/nav_active"
+            android:gravity="center_vertical|start"
+            android:paddingStart="16dp"
+            android:stateListAnimator="@null"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Settings -->
+        <Button
+            android:id="@+id/navSettings"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="⚙️ Settings"
+            android:textSize="16sp"
+            android:textColor="#94A3B8"
+            android:background="@drawable/nav_inactive"
+            android:gravity="center_vertical|start"
+            android:paddingStart="16dp"
+            android:stateListAnimator="@null"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- About -->
+        <Button
+            android:id="@+id/navAbout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="❓ About"
+            android:textSize="16sp"
+            android:textColor="#94A3B8"
+            android:background="@drawable/nav_inactive"
+            android:gravity="center_vertical|start"
+            android:paddingStart="16dp"
+            android:stateListAnimator="@null"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Spacer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Версия -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v1.0"
+            android:textColor="#6B7280"
+            android:textSize="11sp"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+    <!-- CONTENT CONTAINER -->
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#0A0E1A"
+        android:padding="24dp"/>
+
+</LinearLayout>
