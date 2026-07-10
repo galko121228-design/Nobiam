@@ -1,8 +1,14 @@
 <resources>
-    <color name="active">#00D4FF</color>
-    <color name="inactive">#6B7280</color>
-    <color name="bg">#0A0E1A</color>
-    <color name="surface">#111827</color>
+    <color name="bg_main">#0A0E1A</color>
+    <color name="glass">#1A2233</color>
+    <color name="glass_border">#2A3A55</color>
+
+    <color name="neon_blue">#00D4FF</color>
+    <color name="neon_blue_dark">#0099CC</color>
+
     <color name="text_primary">#FFFFFF</color>
     <color name="text_secondary">#9CA3AF</color>
+
+    <color name="active">#00D4FF</color>
+    <color name="inactive">#6B7280</color>
 </resources>
