@@ -1,31 +1,4 @@
-plugins {
-    id 'com.android.application'
-}
-
-android {
-    namespace 'org.nobiam'
-    compileSdk 34
-
-    defaultConfig {
-        applicationId "org.nobiam"
-        minSdk 21
-        targetSdk 34
-        versionCode 1
-        versionName "1.0"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
-    }
-}
-
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.12.0'
 }
-
-dependencies {
-    implementation 'com.google.android.material:material:1.11.0'
-}
-

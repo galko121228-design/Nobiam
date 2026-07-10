@@ -4,33 +4,36 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
+import androidx.core.graphics.Insets;
 
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // ВКЛЮЧАЕМ нормальный edge-to-edge (как в документации)
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
         setContentView(R.layout.activity_main);
 
-        // УБИРАЕМ ВСЕ системные отступы
-        View decorView = getWindow().getDecorView();
+        View root = findViewById(android.R.id.content);
 
-        WindowInsetsControllerCompat controller =
-                ViewCompat.getWindowInsetsController(decorView);
+        ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
+            Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
 
-        if (controller != null) {
-            controller.hide(WindowInsetsCompat.Type.systemBars());
-            controller.setSystemBarsBehavior(
-                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            // ❗ КЛЮЧ: НЕ ТРОГАЕМ ЛЕВО/ПРАВО
+            v.setPadding(
+                0,
+                bars.top,
+                0,
+                bars.bottom
             );
-        }
 
-        // УБИРАЕМ inset padding вообще
-        ViewCompat.setOnApplyWindowInsetsListener(decorView, (v, insets) -> {
-            return WindowInsetsCompat.CONSUMED;
+            return insets;
         });
     }
 }
