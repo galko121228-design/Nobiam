@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#0A0E1A"
-    android:padding="24dp">
+    android:background="@drawable/neon_card"
+android:padding="24dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +37,8 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="#111827"
-            android:padding="16dp"
+            android:background="@drawable/neon_card"
+android:padding="16dp"
             android:layout_marginEnd="12dp">
 
             <TextView
@@ -62,7 +64,8 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="#111827"
-            android:padding="16dp"
+            android:background="@drawable/neon_card"
+android:padding="16dp"
             android:layout_marginStart="12dp">
 
             <TextView
