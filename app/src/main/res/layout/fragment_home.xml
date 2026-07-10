@@ -17,7 +17,7 @@ android:padding="24dp">
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:layout_marginBottom="4dp"/>
+        android:layout_marginBottom="0dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,7 +25,7 @@ android:padding="24dp">
         android:text="Your Minecraft Bedrock Client"
         android:textColor="#9CA3AF"
         android:textSize="14sp"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="0dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@ android:padding="16dp"
                 android:textColor="#00D4FF"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="4dp"/>
+                android:layout_marginBottom="0dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -78,7 +78,7 @@ android:padding="16dp"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="4dp"/>
+                android:layout_marginBottom="0dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -94,8 +94,8 @@ android:padding="16dp"
                 android:textColor="#00D4FF"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="12dp"/>
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -111,7 +111,7 @@ android:padding="16dp"
                 android:text="• Enhanced Security"
                 android:textColor="#9CA3AF"
                 android:textSize="12sp"
-                android:layout_marginTop="2dp"/>
+                android:layout_marginTop="0dp"/>
 
             <TextView
                 android:layout_width="wrap_content"

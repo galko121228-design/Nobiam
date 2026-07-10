@@ -15,6 +15,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+getWindow().setDecorFitsSystemWindows(false);
+android.view.WindowInsetsController controller = getWindow().getInsetsController();
+if (controller != null) {
+    controller.hide(android.view.WindowInsets.Type.statusBars() | android.view.WindowInsets.Type.navigationBars());
+    controller.setSystemBarsBehavior(
+        android.view.WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+    );
+}
         setContentView(R.layout.activity_main);
 getWindow().getDecorView().setSystemUiVisibility(
     android.view.View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY 
