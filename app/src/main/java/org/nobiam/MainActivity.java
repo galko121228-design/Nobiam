@@ -2,12 +2,12 @@ package org.nobiam;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
-import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.core.graphics.Insets;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,20 +15,36 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // edge-to-edge
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        Window window = getWindow();
+
+        // ❗ Отключаем safe area полностью
+        WindowCompat.setDecorFitsSystemWindows(window, false);
 
         setContentView(R.layout.activity_main);
 
-        View root = findViewById(R.id.root);
+        hideSystemBars();
+    }
 
-        ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
-            Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+    private void hideSystemBars() {
+        Window window = getWindow();
 
-            // ❗ НИЧЕГО НЕ ДВИГАЕМ — УБИРАЕМ ВЫСТУПЫ ПОЛНОСТЬЮ
-            v.setPadding(0, 0, 0, 0);
+        WindowInsetsControllerCompat controller =
+                new WindowInsetsControllerCompat(window, window.getDecorView());
 
-            return insets; // не consumed!
-        });
+        // ❗ СКРЫВАЕМ ВСЁ
+        controller.hide(WindowInsetsCompat.Type.systemBars());
+
+        // ❗ ВАЖНО: чтобы не возвращались
+        controller.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // ❗ Android любит возвращать бары → прячем снова
+        hideSystemBars();
     }
 }
