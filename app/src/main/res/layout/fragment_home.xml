@@ -22,22 +22,23 @@
             android:textStyle="bold"
             android:layout_marginBottom="20dp"/>
 
-        <!-- Card 1: с неоновым свечением -->
-        <LinearLayout
+        <!-- Card 1 -->
+        <com.linwg1988.LCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/bg_card_glow"
-            android:padding="4dp">
+            app:cornerRadius="20dp"
+            app:shadowColor="#00D4FF"
+            app:shadowAlpha="80"
+            app:shadowSize="16dp"
+            app:elevation="8dp"
+            app:cardBackground="@drawable/bg_card_neon">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#1A2233"
                 android:orientation="vertical"
-                android:padding="20dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp">
+                android:padding="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -121,24 +122,25 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </LinearLayout>
+        </com.linwg1988.LCardView>
 
-        <!-- Card 2: с неоновым свечением -->
-        <LinearLayout
+        <!-- Card 2 -->
+        <com.linwg1988.LCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/bg_card_glow"
-            android:padding="4dp">
+            app:cornerRadius="20dp"
+            app:shadowColor="#00D4FF"
+            app:shadowAlpha="80"
+            app:shadowSize="16dp"
+            app:elevation="8dp"
+            app:cardBackground="@drawable/bg_card_neon">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#1A2233"
                 android:orientation="vertical"
-                android:padding="20dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp">
+                android:padding="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -230,7 +232,7 @@
                     android:textSize="13sp"/>
 
             </LinearLayout>
-        </LinearLayout>
+        </com.linwg1988.LCardView>
 
     </LinearLayout>
 </ScrollView>
