@@ -2,7 +2,7 @@ package org.nobiam;
 
 import android.os.Bundle;
 import android.view.Window;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment homeFragment;
     private Fragment settingsFragment;
     private Fragment aboutFragment;
-    private Button navHome, navSettings, navAbout;
+    private ImageButton navHome, navSettings, navAbout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         Window window = getWindow();
 
-        // ❗ Отключаем safe area полностью
+        // Отключаем safe area полностью
         WindowCompat.setDecorFitsSystemWindows(window, false);
 
         setContentView(R.layout.activity_main);
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         hideSystemBars();
 
-        // ===== ИНИЦИАЛИЗАЦИЯ ФРАГМЕНТОВ =====
+        // ИНИЦИАЛИЗАЦИЯ ФРАГМЕНТОВ
         homeFragment = new HomeFragment();
         settingsFragment = new SettingsFragment();
         aboutFragment = new AboutFragment();
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             .commit();
         updateNavState(navHome);
 
-        // ===== НАВИГАЦИЯ =====
+        // НАВИГАЦИЯ
         navHome.setOnClickListener(v -> {
             getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, homeFragment)
@@ -77,32 +77,30 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // ===== ОБНОВЛЕНИЕ СОСТОЯНИЯ КНОПОК =====
-    private void updateNavState(Button activeButton) {
+    // ОБНОВЛЕНИЕ СОСТОЯНИЯ КНОПОК (для ImageButton)
+    private void updateNavState(ImageButton activeButton) {
         // Сброс всех кнопок в неактивное состояние
         navHome.setBackgroundResource(R.drawable.nav_inactive);
-        navHome.setTextColor(getColor(R.color.text_inactive));
+        navHome.setColorFilter(getColor(R.color.text_inactive));
         navSettings.setBackgroundResource(R.drawable.nav_inactive);
-        navSettings.setTextColor(getColor(R.color.text_inactive));
+        navSettings.setColorFilter(getColor(R.color.text_inactive));
         navAbout.setBackgroundResource(R.drawable.nav_inactive);
-        navAbout.setTextColor(getColor(R.color.text_inactive));
+        navAbout.setColorFilter(getColor(R.color.text_inactive));
 
         // Активация выбранной кнопки
         activeButton.setBackgroundResource(R.drawable.nav_active);
-        activeButton.setTextColor(getColor(R.color.text_primary));
+        activeButton.setColorFilter(getColor(R.color.text_primary));
     }
 
-    // ===== СКРЫТИЕ СИСТЕМНЫХ ПАНЕЛЕЙ =====
+    // СКРЫТИЕ СИСТЕМНЫХ ПАНЕЛЕЙ
     private void hideSystemBars() {
         Window window = getWindow();
 
         WindowInsetsControllerCompat controller =
                 new WindowInsetsControllerCompat(window, window.getDecorView());
 
-        // ❗ СКРЫВАЕМ ВСЁ
         controller.hide(WindowInsetsCompat.Type.systemBars());
 
-        // ❗ ВАЖНО: чтобы не возвращались
         controller.setSystemBarsBehavior(
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         );
@@ -111,8 +109,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        // ❗ Android любит возвращать бары → прячем снова
         hideSystemBars();
     }
 }

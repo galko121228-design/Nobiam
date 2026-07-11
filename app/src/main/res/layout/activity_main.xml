@@ -2,75 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical"
+    android:background="#0A0E1A">
 
-    <!-- SIDEBAR -->
+    <!-- Верхняя панель -->
     <LinearLayout
-        android:layout_width="220dp"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
         android:background="#0f172a"
-        android:orientation="vertical"
-        android:paddingHorizontal="12dp"
-        android:paddingVertical="20dp">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
 
         <!-- Лого -->
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Nobiam"
             android:textColor="#00D4FF"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="24dp"
-            android:layout_gravity="center_horizontal"/>
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
-        <!-- Home (активна по умолчанию) -->
-        <Button
+        <!-- Home -->
+        <ImageButton
             android:id="@+id/navHome"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="🏠 Home"
-            android:textSize="16sp"
-            android:textColor="#FFFFFF"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_home"
             android:background="@drawable/nav_active"
-            android:gravity="center_vertical|start"
-            android:paddingStart="16dp"
-            android:stateListAnimator="@null"
-            android:layout_marginBottom="4dp"/>
+            android:scaleType="center"
+            android:padding="8dp"
+            android:stateListAnimator="@null"/>
 
         <!-- Settings -->
-        <Button
+        <ImageButton
             android:id="@+id/navSettings"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="⚙️ Settings"
-            android:textSize="16sp"
-            android:textColor="#94A3B8"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_settings"
             android:background="@drawable/nav_inactive"
-            android:gravity="center_vertical|start"
-            android:paddingStart="16dp"
-            android:stateListAnimator="@null"
-            android:layout_marginBottom="4dp"/>
+            android:scaleType="center"
+            android:padding="8dp"
+            android:stateListAnimator="@null"/>
 
         <!-- About -->
-        <Button
+        <ImageButton
             android:id="@+id/navAbout"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="❓ About"
-            android:textSize="16sp"
-            android:textColor="#94A3B8"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_about"
             android:background="@drawable/nav_inactive"
-            android:gravity="center_vertical|start"
-            android:paddingStart="16dp"
-            android:stateListAnimator="@null"
-            android:layout_marginBottom="4dp"/>
-
-        <!-- Spacer -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:scaleType="center"
+            android:padding="8dp"
+            android:stateListAnimator="@null"/>
 
         <!-- Версия -->
         <TextView
@@ -79,17 +64,16 @@
             android:text="v1.0"
             android:textColor="#6B7280"
             android:textSize="11sp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_marginStart="8dp"/>
 
     </LinearLayout>
 
-    <!-- CONTENT CONTAINER -->
+    <!-- Контейнер для фрагментов -->
     <FrameLayout
         android:id="@+id/container"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:background="#0A0E1A"
-        android:padding="24dp"/>
+        android:padding="16dp"/>
 
 </LinearLayout>
