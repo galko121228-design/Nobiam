@@ -21,7 +21,6 @@ android {
         }
     }
 
-    // ✅ РЕШАЕМ КОНФЛИКТ KOTLIN
     configurations.all {
         resolutionStrategy {
             force "org.jetbrains.kotlin:kotlin-stdlib:1.8.20"
@@ -33,16 +32,10 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.fragment:fragment:1.6.2'
-    
-    // ✅ ТОЛЬКО ОДНА ВЕРСИЯ KOTLIN
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.8.20'
 }
 
-// ✅ ИСКЛЮЧАЕМ ВСЕ КОНФЛИКТНЫЕ МОДУЛИ
 configurations.all {
     exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
     exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
 }
-
-// LCardView для цветных теней
-implementation 'com.github.linwg1988:LCardView:1.0.0'
