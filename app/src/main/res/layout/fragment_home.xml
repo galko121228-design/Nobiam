@@ -22,7 +22,6 @@
             android:textStyle="bold"
             android:layout_marginBottom="20dp"/>
 
-        <!-- Карточка -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,14 +35,12 @@
                 android:orientation="vertical"
                 android:padding="24dp">
 
-                <!-- Верхняя строка -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
 
-                    <!-- Левая часть: MINECRAFT -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -70,14 +67,12 @@
 
                     </LinearLayout>
 
-                    <!-- Правая часть: Instance + Launch -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
 
-                        <!-- Блок Current Instance -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -105,7 +100,6 @@
                                 android:gravity="center_vertical"
                                 android:layout_marginTop="2dp">
 
-                                <!-- Иконка Minecraft слева -->
                                 <ImageView
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
@@ -121,19 +115,15 @@
                                     android:textSize="16sp"
                                     android:textStyle="bold"/>
 
-                                <!-- Стрелка справа -->
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="▼"
-                                    android:textColor="#6B7280"
-                                    android:textSize="12sp"
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:src="@drawable/ic_arrow_down"
                                     android:layout_marginStart="6dp"/>
 
                             </LinearLayout>
                         </LinearLayout>
 
-                        <!-- Кнопка Launch -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -148,9 +138,8 @@
                             android:focusable="true"
                             android:id="@+id/btnLaunch">
 
-                            <!-- Ракета слева -->
                             <ImageView
-                                android:layout_width="20dp
+                                android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:src="@drawable/ic_rocket"
                                 android:layout_marginEnd="8dp"/>
@@ -169,7 +158,6 @@
 
                 </LinearLayout>
 
-                <!-- Подсказка с лампочкой -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -177,11 +165,10 @@
                     android:gravity="center_vertical"
                     android:layout_marginTop="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="💡"
-                        android:textSize="16sp"
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_lightbulb"
                         android:layout_marginEnd="8dp"/>
 
                     <TextView
