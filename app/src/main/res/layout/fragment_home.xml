@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:hm="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0A0E1A"
@@ -22,20 +23,23 @@
             android:textStyle="bold"
             android:layout_marginBottom="20dp"/>
 
-        <!-- Card 1 -->
-        <androidx.cardview.widget.CardView
+        <!-- Card 1: HMShadowCardView с неоновой тенью -->
+        <com.yuan.hmcardview.HMShadowCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="20dp"
-            app:cardBackgroundColor="#1A2233"
-            app:cardElevation="8dp">
+            android:padding="20dp"
+            hm:hm_card_color="#1A2233"
+            hm:hm_card_corner="20dp"
+            hm:hm_shadowColor="#00D4FF"
+            hm:hm_shadowEffect="25dp"
+            hm:hm_dx="0dp"
+            hm:hm_dy="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -119,22 +123,25 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.yuan.hmcardview.HMShadowCardView>
 
-        <!-- Card 2 -->
-        <androidx.cardview.widget.CardView
+        <!-- Card 2: HMShadowCardView с неоновой тенью -->
+        <com.yuan.hmcardview.HMShadowCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="20dp"
-            app:cardBackgroundColor="#1A2233"
-            app:cardElevation="8dp">
+            android:padding="20dp"
+            hm:hm_card_color="#1A2233"
+            hm:hm_card_corner="20dp"
+            hm:hm_shadowColor="#00D4FF"
+            hm:hm_shadowEffect="25dp"
+            hm:hm_dx="0dp"
+            hm:hm_dy="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -226,7 +233,7 @@
                     android:textSize="13sp"/>
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.yuan.hmcardview.HMShadowCardView>
 
     </LinearLayout>
 </ScrollView>
