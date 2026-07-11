@@ -19,7 +19,6 @@
         android:orientation="vertical"
         android:padding="15dp">
 
-        <!-- Верхняя строка: Minecraft + Instance + Launch -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,7 +133,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Tip (уменьшен отступ) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -159,7 +157,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Три колонки в ряд -->
+    <!-- Три колонки -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -167,7 +165,6 @@
         android:layout_marginTop="8dp"
         android:orientation="horizontal">
 
-        <!-- 1. Mods Card -->
         <LinearLayout
             android:id="@+id/mods_card"
             android:layout_width="0dp"
@@ -215,7 +212,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- 2. Content Management Card -->
         <LinearLayout
             android:id="@+id/content_mgmt_card"
             android:layout_width="0dp"
@@ -270,7 +266,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Worlds -->
                     <LinearLayout
                         android:id="@+id/content_worlds_row"
                         android:layout_width="match_parent"
@@ -315,7 +310,6 @@
                             android:textSize="12sp"/>
                     </LinearLayout>
 
-                    <!-- Resource Packs -->
                     <LinearLayout
                         android:id="@+id/content_resource_packs_row"
                         android:layout_width="match_parent"
@@ -363,7 +357,6 @@
             </ScrollView>
         </LinearLayout>
 
-        <!-- 3. Miscellaneous Card -->
         <LinearLayout
             android:id="@+id/misc_card"
             android:layout_width="0dp"
@@ -407,7 +400,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- CurseForge -->
                     <LinearLayout
                         android:id="@+id/misc_curseforge_row"
                         android:layout_width="match_parent"
@@ -442,7 +434,6 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
 
-                    <!-- Microsoft Accounts -->
                     <LinearLayout
                         android:id="@+id/misc_accounts_row"
                         android:layout_width="match_parent"
@@ -459,3 +450,14 @@
                             android:layout_height="14dp"
                             android:src="@drawable/ic_account"
                             android:scaleType="fitCenter"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="6dp"
+                            android:text="Microsoft Accounts"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp"/>
+
+                
