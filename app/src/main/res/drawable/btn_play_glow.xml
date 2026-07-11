@@ -1,0 +1,24 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Свечение -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#00D4FF44" />
+            <size
+                android:width="72dp"
+                android:height="72dp" />
+        </shape>
+    </item>
+    <!-- Кнопка -->
+    <item
+        android:left="8dp"
+        android:top="8dp"
+        android:right="8dp"
+        android:bottom="8dp">
+        <shape android:shape="oval">
+            <solid android:color="#00D4FF" />
+            <size
+                android:width="56dp"
+                android:height="56dp" />
+        </shape>
+    </item>
+</layer-list>

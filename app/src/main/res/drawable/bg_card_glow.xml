@@ -1,0 +1,23 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Тень-свечение -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00D4FF33" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+    <!-- Основной фон -->
+    <item
+        android:left="3dp"
+        android:top="3dp"
+        android:right="3dp"
+        android:bottom="3dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#1A2233" />
+            <corners android:radius="18dp" />
+            <stroke
+                android:width="1.5dp"
+                android:color="#00D4FF66" />
+        </shape>
+    </item>
+</layer-list>
