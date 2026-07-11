@@ -1,25 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Внешнее свечение -->
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="#00D4FF33" />
-            <corners android:radius="24dp" />
-        </shape>
-    </item>
-    
-    <!-- Основная карточка с неоновой обводкой -->
-    <item
-        android:left="4dp"
-        android:top="4dp"
-        android:right="4dp"
-        android:bottom="4dp">
-        <shape android:shape="rectangle">
-            <solid android:color="#1A2233" />
-            <corners android:radius="20dp" />
-            <stroke
-                android:width="2dp"
-                android:color="#00D4FF" />
-        </shape>
-    </item>
-</layer-list>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#00D4FF33" />
+    <corners android:radius="24dp" />
+</shape>
