@@ -5,16 +5,16 @@
     android:orientation="vertical"
     android:background="#0A0E1A">
 
-    <!-- Верхняя панель -->
+    <!-- Верхняя панель с закруглением снизу -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="#0f172a"
+        android:background="@drawable/bg_topbar"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="8dp">
 
-        <!-- Лого -->
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -24,7 +24,6 @@
             android:textSize="20sp"
             android:textStyle="bold"/>
 
-        <!-- Home -->
         <ImageButton
             android:id="@+id/navHome"
             android:layout_width="40dp"
@@ -35,7 +34,6 @@
             android:padding="8dp"
             android:stateListAnimator="@null"/>
 
-        <!-- Settings -->
         <ImageButton
             android:id="@+id/navSettings"
             android:layout_width="40dp"
@@ -46,7 +44,6 @@
             android:padding="8dp"
             android:stateListAnimator="@null"/>
 
-        <!-- About -->
         <ImageButton
             android:id="@+id/navAbout"
             android:layout_width="40dp"
@@ -57,7 +54,6 @@
             android:padding="8dp"
             android:stateListAnimator="@null"/>
 
-        <!-- Версия -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +64,6 @@
 
     </LinearLayout>
 
-    <!-- Контейнер для фрагментов -->
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
