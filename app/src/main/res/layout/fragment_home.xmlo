@@ -10,7 +10,6 @@
     android:paddingTop="8dp"
     android:paddingBottom="12dp">
 
-    <!-- Main Card -->
     <LinearLayout
         android:id="@+id/main_card"
         android:layout_width="match_parent"
@@ -47,6 +46,7 @@
                     android:text="Bedrock Edition"
                     android:textColor="#9CA3AF"
                     android:textSize="14sp"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -98,6 +98,7 @@
                             android:textStyle="bold"
                             android:singleLine="true"
                             android:ellipsize="end"/>
+
                     </LinearLayout>
 
                     <ImageView
@@ -106,6 +107,7 @@
                         android:layout_marginStart="4dp"
                         android:src="@drawable/ic_arrow_down"
                         app:tint="#6B7280"/>
+
                 </LinearLayout>
 
                 <Button
@@ -130,7 +132,9 @@
                     android:textAllCaps="false"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"/>
+
             </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -154,10 +158,11 @@
                 android:text="Settings lets you adjust theme, color, background, and other appearance options to match your setup."
                 android:textColor="#9CA3AF"
                 android:textSize="11sp"/>
+
         </LinearLayout>
+
     </LinearLayout>
 
-    <!-- Три колонки -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -209,7 +214,9 @@
                     android:textSize="9sp"
                     android:textStyle="bold"
                     android:textAllCaps="false"/>
+
             </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -249,6 +256,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"/>
+
             </LinearLayout>
 
             <ScrollView
@@ -308,6 +316,7 @@
                             android:text="›"
                             android:textColor="#6B7280"
                             android:textSize="12sp"/>
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -352,9 +361,13 @@
                             android:text="›"
                             android:textColor="#6B7280"
                             android:textSize="12sp"/>
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </ScrollView>
+
         </LinearLayout>
 
         <LinearLayout
@@ -383,6 +396,7 @@
                     android:textStyle="bold"
                     android:drawableStart="@drawable/ic_archive"
                     android:drawablePadding="4dp"/>
+
             </LinearLayout>
 
             <ScrollView
@@ -432,6 +446,7 @@
                             android:text="›"
                             android:textColor="#6B7280"
                             android:textSize="14sp"/>
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -460,4 +475,22 @@
                             android:textColor="#FFFFFF"
                             android:textSize="12sp"/>
 
-                
+                                                <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="›"
+                            android:textColor="#6B7280"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+             
