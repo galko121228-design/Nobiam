@@ -50,7 +50,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="MINECRAFT"
+                            android:text="Minecraft"
                             android:textColor="#00D4FF"
                             android:textSize="40sp"
                             android:textStyle="bold"
@@ -73,63 +73,75 @@
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
 
-                        <LinearLayout
+                        <!-- Блок Current Instance -->
+                        <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
                             android:background="#2A3A55"
-                            android:paddingStart="12dp"
-                            android:paddingEnd="10dp"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
                             android:paddingTop="10dp"
                             android:paddingBottom="10dp"
                             android:layout_marginEnd="12dp"
-                            android:minWidth="140dp">
+                            android:minWidth="160dp">
 
-                            <TextView
+                            <!-- Иконка слева, центрирована по вертикали -->
+                            <ImageView
+                                android:id="@+id/ivMinecraftIcon"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_minecraft_block"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentStart="true"/>
+
+                            <!-- Текстовый блок (две строки) -->
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Current Instance"
-                                android:textColor="#6B7280"
-                                android:textSize="11sp"
-                                android:textStyle="normal"/>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="center_vertical"
-                                android:layout_marginTop="2dp">
-
-                                <ImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:src="@drawable/ic_minecraft_block"
-                                    android:layout_marginEnd="8dp"/>
+                                android:orientation="vertical"
+                                android:layout_toEndOf="@id/ivMinecraftIcon"
+                                android:layout_marginStart="10dp"
+                                android:layout_centerVertical="true">
 
                                 <TextView
-                                    android:layout_width="0dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
+                                    android:text="Current Instance"
+                                    android:textColor="#6B7280"
+                                    android:textSize="11sp"
+                                    android:textStyle="normal"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:text="Minecraft"
                                     android:textColor="#FFFFFF"
                                     android:textSize="16sp"
-                                    android:textStyle="bold"/>
-
-                                <ImageView
-                                    android:layout_width="16dp"
-                                    android:layout_height="16dp"
-                                    android:src="@drawable/ic_arrow_down"
-                                    android:layout_marginStart="6dp"/>
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="2dp"
+                                    android:maxLines="1"/>
 
                             </LinearLayout>
-                        </LinearLayout>
 
+                            <!-- Стрелка справа, центрирована по вертикали -->
+                            <ImageView
+                                android:id="@+id/ivArrow"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_arrow_down"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="12dp"/>
+
+                        </RelativeLayout>
+
+                        <!-- Кнопка Launch -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/btn_launch"
-                            android:paddingStart="18dp"
-                            android:paddingEnd="18dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
                             android:paddingTop="14dp"
                             android:paddingBottom="14dp"
                             android:gravity="center"
