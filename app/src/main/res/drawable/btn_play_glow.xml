@@ -1,24 +1,66 @@
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Свечение -->
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <shape android:shape="oval">
-            <solid android:color="#00D4FF44" />
-            <size
-                android:width="72dp"
-                android:height="72dp" />
-        </shape>
+        <layer-list>
+            <!-- Внешнее свечение (градиент + прозрачность) -->
+            <item android:right="5dp" android:top="0dp">
+                <shape>
+                    <corners android:radius="50dp" />
+                    <gradient
+                        android:centerX="70%"
+                        android:startColor="#804CD6FF"
+                        android:centerColor="#8004485C"
+                        android:endColor="#804CD6FF"
+                        android:type="linear" />
+                </shape>
+            </item>
+            
+            <!-- Основная кнопка со свечением по краям -->
+            <item android:bottom="5dp" android:left="6dp" android:right="10dp" android:top="5dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="50dp" />
+                    <gradient
+                        android:angle="90"
+                        android:centerX="30%"
+                        android:centerColor="#00000000"
+                        android:startColor="#8008c3fa"
+                        android:endColor="#00000000"
+                        android:type="linear" />
+                    <size
+                        android:width="56dp"
+                        android:height="56dp" />
+                    <stroke
+                        android:width="2.5dp"
+                        android:color="#08c3fa" />
+                </shape>
+            </item>
+            
+            <!-- Свечение снизу -->
+            <item android:bottom="5dp" android:left="6dp" android:right="10dp" android:top="5dp">
+                <shape android:shape="rectangle">
+                    <corners android:radius="50dp" />
+                    <gradient
+                        android:angle="90"
+                        android:centerX="70%"
+                        android:centerColor="#00000000"
+                        android:startColor="#00000000"
+                        android:endColor="#8008c3fa"
+                        android:type="linear" />
+                    <size
+                        android:width="56dp"
+                        android:height="56dp" />
+                </shape>
+            </item>
+            
+            <!-- Сплошной цвет кнопки -->
+            <item android:bottom="8dp" android:left="8dp" android:right="8dp" android:top="8dp">
+                <shape android:shape="oval">
+                    <solid android:color="#00D4FF" />
+                    <size
+                        android:width="40dp"
+                        android:height="40dp" />
+                </shape>
+            </item>
+        </layer-list>
     </item>
-    <!-- Кнопка -->
-    <item
-        android:left="8dp"
-        android:top="8dp"
-        android:right="8dp"
-        android:bottom="8dp">
-        <shape android:shape="oval">
-            <solid android:color="#00D4FF" />
-            <size
-                android:width="56dp"
-                android:height="56dp" />
-        </shape>
-    </item>
-</layer-list>
+</selector>
