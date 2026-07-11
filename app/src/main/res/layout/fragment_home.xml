@@ -23,20 +23,18 @@
             android:layout_marginBottom="20dp"/>
 
         <!-- Card 1 -->
-        <com.linwg1988.LCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cornerRadius="20dp"
-            app:shadowColor="#00D4FF"
-            app:shadowAlpha="80"
-            app:shadowSize="16dp"
-            app:elevation="8dp"
-            app:cardBackground="@drawable/bg_card_neon">
+            android:background="@drawable/bg_card_glow"
+            android:orientation="vertical"
+            android:padding="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#1A2233"
                 android:orientation="vertical"
                 android:padding="20dp">
 
@@ -122,23 +120,21 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </com.linwg1988.LCardView>
+        </LinearLayout>
 
         <!-- Card 2 -->
-        <com.linwg1988.LCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cornerRadius="20dp"
-            app:shadowColor="#00D4FF"
-            app:shadowAlpha="80"
-            app:shadowSize="16dp"
-            app:elevation="8dp"
-            app:cardBackground="@drawable/bg_card_neon">
+            android:background="@drawable/bg_card_glow"
+            android:orientation="vertical"
+            android:padding="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#1A2233"
                 android:orientation="vertical"
                 android:padding="20dp">
 
@@ -232,7 +228,7 @@
                     android:textSize="13sp"/>
 
             </LinearLayout>
-        </com.linwg1988.LCardView>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
