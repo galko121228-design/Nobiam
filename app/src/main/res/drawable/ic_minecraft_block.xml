@@ -1,15 +1,41 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="20dp"
-    android:height="20dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    
+    <!-- Верхняя грань (тёмно-зелёная) -->
     <path
-        android:fillColor="#8BC34A"
-        android:pathData="M4,4h16v4H4zM4,10h16v4H4zM4,16h16v4H4z"/>
+        android:fillColor="#4CAF50"
+        android:pathData="M6,6 L26,6 L26,14 L6,14 Z"/>
+    
+    <!-- Левая грань (тёмно-коричневая) -->
     <path
-        android:fillColor="#689F38"
-        android:pathData="M4,8h4v4H4zM12,8h4v4H12z"/>
+        android:fillColor="#8D6E63"
+        android:pathData="M6,6 L6,22 L14,26 L14,10 Z"/>
+    
+    <!-- Правая грань (светло-коричневая) -->
     <path
-        android:fillColor="#33691E"
-        android:pathData="M8,8h4v4H8zM16,8h4v4H16z"/>
+        android:fillColor="#A1887F"
+        android:pathData="M14,10 L14,26 L26,22 L26,6 Z"/>
+    
+    <!-- Текстура травы на верхней грани -->
+    <path
+        android:fillColor="#66BB6A"
+        android:pathData="M8,8 L10,8 L10,10 L8,10 Z"/>
+    <path
+        android:fillColor="#66BB6A"
+        android:pathData="M14,8 L16,8 L16,10 L14,10 Z"/>
+    <path
+        android:fillColor="#66BB6A"
+        android:pathData="M20,8 L22,8 L22,10 L20,10 Z"/>
+    <path
+        android:fillColor="#66BB6A"
+        android:pathData="M12,10 L14,10 L14,12 L12,12 Z"/>
+    <path
+        android:fillColor="#66BB6A"
+        android:pathData="M18,10 L20,10 L20,12 L18,12 Z"/>
+    <path
+        android:fillColor="#66BB6A"
+        android:pathData="M24,10 L26,10 L26,12 L24,12 Z"/>
 </vector>
