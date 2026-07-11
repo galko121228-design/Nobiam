@@ -5,6 +5,8 @@
     <application
         android:allowBackup="true"
         android:label="Nobiam"
+        android:icon="@drawable/logo"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Nobiam"
         tools:targetApi="31">
