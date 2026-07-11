@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="#0A0E1A"
     android:padding="16dp"
-    android:fillViewport="true"
-    android:scrollY="0">
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
