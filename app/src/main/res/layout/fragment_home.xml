@@ -1,197 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0A0E1A"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="20dp"
-        app:cardBackgroundColor="#1A2233"
-        app:cardElevation="8dp">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Карточка -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="#1A2233"
+            app:cardElevation="8dp">
 
-            <!-- Шапка: Nobiam -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:orientation="vertical"
+                android:padding="24dp">
 
+                <!-- Верхняя строка -->
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                    <TextView
+                    <!-- Левая часть: MINECRAFT -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MINECRAFT"
+                            android:textColor="#00D4FF"
+                            android:textSize="40sp"
+                            android:textStyle="bold"
+                            android:lineSpacingExtra="0dp"
+                            android:includeFontPadding="false"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Bedrock Edition"
+                            android:textColor="#9CA3AF"
+                            android:textSize="18sp"
+                            android:layout_marginTop="2dp"/>
+
+                    </LinearLayout>
+
+                    <!-- Правая часть: Instance + Launch -->
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nobiam Client"
-                        android:textColor="#FFFFFF"
-                        android:textSize="22sp"
-                        android:textStyle="bold"/>
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Minecraft Bedrock Edition"
-                        android:textColor="#9CA3AF"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp"/>
+                        <!-- Блок Current Instance -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="#2A3A55"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginEnd="12dp"
+                            android:minWidth="140dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Current Instance"
+                                android:textColor="#6B7280"
+                                android:textSize="11sp"
+                                android:textStyle="normal"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_marginTop="2dp">
+
+                                <!-- Иконка Minecraft слева -->
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/ic_minecraft_block"
+                                    android:layout_marginEnd="8dp"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Minecraft"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"/>
+
+                                <!-- Стрелка справа -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="▼"
+                                    android:textColor="#6B7280"
+                                    android:textSize="12sp"
+                                    android:layout_marginStart="6dp"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Кнопка Launch -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/btn_launch"
+                            android:paddingStart="18dp"
+                            android:paddingEnd="18dp"
+                            android:paddingTop="14dp"
+                            android:paddingBottom="14dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:id="@+id/btnLaunch">
+
+                            <!-- Ракета слева -->
+                            <ImageView
+                                android:layout_width="20dp
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_rocket"
+                                android:layout_marginEnd="8dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Launch"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/ic_minecraft"
-                    android:alpha="0.8"/>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A3A55"
-                android:layout_marginVertical="16dp"/>
-
-            <!-- Версия -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Version"
-                    android:textColor="#9CA3AF"
-                    android:textSize="14sp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" 1.0.0"
-                    android:textColor="#00D4FF"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-            <!-- Minecraft + Play -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="#00D4FF0A"
-                android:padding="12dp"
-                android:layout_marginBottom="12dp">
-
+                <!-- Подсказка с лампочкой -->
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Minecraft"
-                        android:textColor="#FFFFFF"
-                        android:textSize="18sp"
-                        android:textStyle="bold"/>
+                        android:text="💡"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="8dp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Recommended version"
+                        android:text="Settings lets you adjust theme, color, background, and other appearance options to match your setup."
                         android:textColor="#9CA3AF"
-                        android:textSize="13sp"
-                        android:layout_marginTop="2dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1.21.30"
-                        android:textColor="#00D4FF"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="4dp"/>
+                        android:textSize="13sp"/>
 
                 </LinearLayout>
 
-                <ImageButton
-                    android:id="@+id/btnPlay"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
-                    android:src="@drawable/ic_play"
-                    android:background="@drawable/btn_play"
-                    android:scaleType="center"
-                    android:padding="16dp"
-                    android:stateListAnimator="@null"/>
-
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A3A55"
-                android:layout_marginVertical="12dp"/>
-
-            <!-- Статус -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Status:"
-                    android:textColor="#9CA3AF"
-                    android:textSize="14sp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" Ready"
-                    android:textColor="#00D4FF"
-                    android:textSize="14sp"
-                    android:textStyle="bold"/>
-
-                <View
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:background="@drawable/dot_ready"
-                    android:layout_marginStart="8dp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
