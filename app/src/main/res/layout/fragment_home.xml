@@ -8,15 +8,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,13 +21,14 @@
             android:orientation="vertical"
             android:padding="24dp">
 
+            <!-- Верхняя строка: Minecraft + Instance + Launch -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
-                <!-- Левая часть -->
+                <!-- Левая часть: Minecraft -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -63,24 +55,23 @@
 
                 </LinearLayout>
 
-                <!-- Правая часть -->
+                <!-- Правая часть: Instance + Launch -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
 
-                    <!-- Current Instance -->
+                    <!-- Current Instance (компактный) -->
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="#2A3A55"
-                        android:paddingStart="14dp"
-                        android:paddingEnd="14dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:layout_marginEnd="12dp"
-                        android:minWidth="160dp">
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginEnd="12dp">
 
                         <ImageView
                             android:id="@+id/ivMinecraftIcon"
@@ -134,10 +125,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_launch"
-                        android:paddingStart="20dp"
-                        android:paddingEnd="20dp"
-                        android:paddingTop="14dp"
-                        android:paddingBottom="14dp"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="18dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:gravity="center"
                         android:orientation="horizontal"
                         android:clickable="true"
