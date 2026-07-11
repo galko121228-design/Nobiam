@@ -13,7 +13,6 @@
         android:maxWidth="800dp"
         android:layout_gravity="center_horizontal">
 
-        <!-- Заголовок -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,13 +22,13 @@
             android:textStyle="bold"
             android:layout_marginBottom="20dp"/>
 
-        <!-- Welcome Card -->
+        <!-- Card 1: Glassmorphism -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="24dp"
-            app:cardBackgroundColor="#1A2233"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="#1A2233CC"
             app:cardElevation="8dp">
 
             <LinearLayout
@@ -37,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="24dp">
+                android:padding="20dp"
+                android:background="@drawable/bg_glass">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -48,158 +48,186 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Welcome to Nobiam"
+                        android:text="Nobiam Client"
                         android:textColor="#FFFFFF"
-                        android:textSize="26sp"
+                        android:textSize="22sp"
                         android:textStyle="bold"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Enhanced Minecraft Bedrock Experience"
+                        android:text="Minecraft Bedrock Edition"
                         android:textColor="#9CA3AF"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Version 1.0.0"
+                        android:textColor="#00D4FF"
+                        android:textSize="13sp"
+                        android:layout_marginTop="8dp"/>
+
                 </LinearLayout>
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_minecraft"
+                    android:alpha="0.8"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card 2: Glassmorphism -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="#1A2233CC"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="@drawable/bg_glass">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Minecraft"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recommended version"
+                            android:textColor="#9CA3AF"
+                            android:textSize="13sp"
+                            android:layout_marginTop="2dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1.21.30"
+                            android:textColor="#00D4FF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"/>
+
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/btnPlay"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:src="@drawable/ic_play"
+                        android:background="@drawable/btn_play_gradient"
+                        android:scaleType="center"
+                        android:padding="16dp"
+                        android:stateListAnimator="@null"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#2A3A55"
+                    android:layout_marginVertical="16dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="✨"
-                    android:textSize="32sp"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- Grid 2 колонки -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <!-- Левая карточка -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                app:cardCornerRadius="20dp"
-                app:cardBackgroundColor="#1A2233"
-                app:cardElevation="4dp">
+                    android:text="Features"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="What's this?"
-                        android:textColor="#00D4FF"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="8dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Клиент для Bedrock, без мусора и рекламы."
-                        android:textColor="#9CA3AF"
-                        android:textSize="14sp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Правая карточка -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                app:cardCornerRadius="20dp"
-                app:cardBackgroundColor="#1A2233"
-                app:cardElevation="4dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="MINECRAFT"
-                        android:textColor="#FFFFFF"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="4dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Recommended version"
-                        android:textColor="#9CA3AF"
-                        android:textSize="13sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1.21.30"
-                        android:textColor="#00D4FF"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="12dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Game Features:"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp"
-                        android:textStyle="bold"/>
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="• Enhanced Security"
                         android:textColor="#9CA3AF"
-                        android:textSize="12sp"
-                        android:layout_marginTop="2dp"/>
+                        android:textSize="13sp"
+                        android:layout_marginBottom="4dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="• Performance Boost"
+                        android:text="• Performance Optimization"
                         android:textColor="#9CA3AF"
-                        android:textSize="12sp"/>
+                        android:textSize="13sp"
+                        android:layout_marginBottom="4dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="• Module Support"
+                        android:text="• QoL Modules Support"
                         android:textColor="#9CA3AF"
-                        android:textSize="12sp"/>
+                        android:textSize="13sp"/>
 
-                    <!-- Play Button -->
-                    <Button
-                        android:id="@+id/btnPlay"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="12dp"
-                        android:text="▶"
-                        android:textSize="22sp"
-                        android:textColor="#FFFFFF"
-                        android:background="@drawable/btn_play_gradient"
-                        android:padding="0dp"
-                        android:gravity="center"
-                        android:stateListAnimator="@null"/>
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card 3: Status -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="#1A2233CC"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="@drawable/bg_glass">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ready"
+                    android:textColor="#00D4FF"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 </ScrollView>
