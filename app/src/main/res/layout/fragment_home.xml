@@ -8,7 +8,7 @@
     android:paddingStart="4dp"
     android:paddingEnd="4dp"
     android:paddingTop="4dp"
-    android:paddingBottom="12dp">
+    android:paddingBottom="4dp">
 
     <LinearLayout
         android:id="@+id/main_card"
@@ -17,7 +17,7 @@
         android:background="@drawable/card_background"
         android:orientation="vertical"
         android:paddingTop="10dp"
-        android:paddingBottom="12dp"
+        android:paddingBottom="4dp"
         android:paddingStart="15dp"
         android:paddingEnd="15dp">
 
