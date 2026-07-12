@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Основной фон хедера (тёмный) -->
     <item>
         <shape>
-            <solid android:color="#141414" />
+            <solid android:color="#0A0A0A" />
         </shape>
     </item>
+    <!-- Тонкая линия снизу (светло-серая) -->
     <item android:bottom="1dp">
         <shape>
-            <solid android:color="#4A4A4A" />
+            <solid android:color="#6B7280" />
         </shape>
     </item>
 </layer-list>
