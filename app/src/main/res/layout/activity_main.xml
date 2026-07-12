@@ -6,7 +6,7 @@
     android:background="#0A0A0A"
     android:padding="16dp">
 
-    <!-- Хедер как карточка с обводкой -->
+    <!-- Хедер -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"
@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:paddingHorizontal="16dp"
-        android:layout_marginBottom="12dp">
+        android:layout_marginBottom="2dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -24,8 +24,8 @@
             android:gravity="center_vertical">
 
             <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/nobiam_logo"
                 android:layout_marginEnd="10dp"/>
 
