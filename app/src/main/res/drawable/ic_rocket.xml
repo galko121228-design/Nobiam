@@ -5,16 +5,14 @@
     android:viewportHeight="24">
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M12,2 L12,2 C12,2 4,8 4,16 L8,16 L8,20 L16,20 L16,16 L20,16 C20,8 12,2 12,2 Z"/>
+        android:pathData="M12,2 C12,2 4,8 4,16 L8,16 L8,20 L16,20 L16,16 L20,16 C20,8 12,2 12,2 Z"/>
     <path
         android:fillColor="#00D4FF"
         android:pathData="M8,20 L8,22 L16,22 L16,20 Z"/>
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M10,10 L10,14 L14,14 L14,10 Z"/>
-    <circle
+        android:pathData="M10,9 L10,13 L14,13 L14,9 Z"/>
+    <path
         android:fillColor="#00D4FF"
-        android:cx="12"
-        android:cy="12"
-        android:radius="1.5"/>
+        android:pathData="M11,11 L13,11 L13,12 L11,12 Z"/>
 </vector>
