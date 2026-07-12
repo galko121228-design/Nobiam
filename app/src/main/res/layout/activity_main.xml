@@ -3,17 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#0A0A0A">
+    android:background="#0A0A0A"
+    android:padding="16dp">
 
-    <!-- Хедер с тонкой линией снизу (через drawable) -->
+    <!-- Хедер как карточка с обводкой -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:layout_marginHorizontal="16dp"
         android:background="@drawable/header_background"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="12dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -83,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#0A0A0A"
-        android:padding="16dp"
-        android:paddingTop="8dp"/>
+        android:padding="0dp"
+        android:paddingTop="0dp"/>
 
 </LinearLayout>
