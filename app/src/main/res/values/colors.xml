@@ -1,8 +1,8 @@
 <resources>
     <!-- Фоны -->
-    <color name="bg_main">#121212</color>
-    <color name="bg_sidebar">#1E1E1E</color>
-    <color name="bg_glass">#1E1E1E</color>
+    <color name="bg_main">#0A0A0A</color>
+    <color name="bg_sidebar">#141414</color>
+    <color name="bg_glass">#141414</color>
     
     <!-- Неоновый голубой (акцент) -->
     <color name="neon_blue">#00D4FF</color>
