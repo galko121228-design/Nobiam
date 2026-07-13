@@ -17,8 +17,8 @@
             android:id="@+id/settings_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
-            android:textColor="#00D4FF"
+            android:text="@string/settings_title"
+            android:textColor="@color/neon_blue"
             android:textSize="28sp"
             android:textStyle="bold"
             android:layout_marginBottom="4dp"/>
@@ -26,8 +26,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Customize your experience"
-            android:textColor="#6B7280"
+            android:text="@string/settings_subtitle"
+            android:textColor="@color/text_secondary"
             android:textSize="14sp"
             android:layout_marginBottom="20dp"/>
 
@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Theme"
+                android:text="@string/theme_title"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -55,7 +55,6 @@
                 android:orientation="horizontal"
                 android:gravity="center_horizontal">
 
-                <!-- Light -->
                 <LinearLayout
                     android:id="@+id/theme_light"
                     android:layout_width="0dp"
@@ -78,14 +77,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Light"
+                        android:text="@string/theme_light"
                         android:textColor="?android:attr/textColorSecondary"
                         android:textSize="12sp"
                         android:layout_marginTop="4dp"/>
 
                 </LinearLayout>
 
-                <!-- Dark -->
                 <LinearLayout
                     android:id="@+id/theme_dark"
                     android:layout_width="0dp"
@@ -108,14 +106,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dark"
+                        android:text="@string/theme_dark"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp"
                         android:layout_marginTop="4dp"/>
 
                 </LinearLayout>
 
-                <!-- System -->
                 <LinearLayout
                     android:id="@+id/theme_system"
                     android:layout_width="0dp"
@@ -138,7 +135,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="System"
+                        android:text="@string/theme_system"
                         android:textColor="?android:attr/textColorSecondary"
                         android:textSize="12sp"
                         android:layout_marginTop="4dp"/>
@@ -149,7 +146,7 @@
 
         </LinearLayout>
 
-        <!-- Accent Color Card -->
+        <!-- Language Card (новая стильная карточка) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -161,155 +158,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Accent Color"
-                android:textColor="?android:attr/textColorPrimary"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <!-- Синий -->
-                <FrameLayout
-                    android:id="@+id/color_blue"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:background="@drawable/color_circle_active"
-                    android:layout_marginEnd="12dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <View
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/color_blue"/>
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_check"
-                        app:tint="#FFFFFF"/>
-
-                </FrameLayout>
-
-                <!-- Фиолетовый -->
-                <FrameLayout
-                    android:id="@+id/color_purple"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:background="@drawable/color_circle"
-                    android:layout_marginEnd="12dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <View
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/color_purple"/>
-
-                </FrameLayout>
-
-                <!-- Зелёный -->
-                <FrameLayout
-                    android:id="@+id/color_green"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:background="@drawable/color_circle"
-                    android:layout_marginEnd="12dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <View
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/color_green"/>
-
-                </FrameLayout>
-
-                <!-- Оранжевый -->
-                <FrameLayout
-                    android:id="@+id/color_orange"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:background="@drawable/color_circle"
-                    android:layout_marginEnd="12dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <View
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/color_orange"/>
-
-                </FrameLayout>
-
-                <!-- Розовый -->
-                <FrameLayout
-                    android:id="@+id/color_pink"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:background="@drawable/color_circle"
-                    android:layout_marginEnd="12dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <View
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/color_pink"/>
-
-                </FrameLayout>
-
-                <!-- Красный -->
-                <FrameLayout
-                    android:id="@+id/color_red"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:background="@drawable/color_circle"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <View
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/color_red"/>
-
-                </FrameLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- Language Card -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/card_background"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginBottom="12dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Language"
+                android:text="@string/language"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -318,27 +167,28 @@
             <LinearLayout
                 android:id="@+id/language_selector"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="48dp"
                 android:background="@drawable/bg_instance_selector"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="12dp"
+                android:paddingHorizontal="16dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground">
 
                 <TextView
-                    android:id="@+id/language_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:id="@+id/language_text"
                     android:text="Русский"
                     android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="14sp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
                 <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:src="@drawable/ic_arrow_down"
                     app:tint="?android:attr/textColorSecondary"/>
 
@@ -346,11 +196,39 @@
 
         </LinearLayout>
 
+        <!-- Accent Color Card -->
+        <LinearLayout
+            android:id="@+id/accent_color_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_background"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accent_color"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <LinearLayout
+                android:id="@+id/color_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp"/>
+
+        </LinearLayout>
+
         <!-- Version -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Version 1.0"
+            android:text="@string/version"
             android:textColor="#6B7280"
             android:textSize="12sp"
             android:layout_gravity="center_horizontal"

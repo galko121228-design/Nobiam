@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Nobiam</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_subtitle">Customize your experience</string>
+    <string name="language">Language</string>
+    <string name="theme_title">Theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_system">System</string>
+    <string name="accent_color">Accent Color</string>
+    <string name="version">Version 1.0</string>
+</resources>
