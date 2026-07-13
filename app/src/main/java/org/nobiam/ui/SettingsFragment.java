@@ -2,17 +2,13 @@ package org.nobiam.ui;
 
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
@@ -59,12 +55,17 @@ public class SettingsFragment extends Fragment {
             requireActivity().recreate();
         });
 
-        // Временно отключаем цветовую палитру
-        // setupColorPicker(view);
+        // Только язык (без цветов)
+        setupLanguageSelector(view);
 
-        // Временно отключаем язык
-        // setupLanguageSelector(view);
-
+        // Палитра цветов (заглушка)
+        LinearLayout colorContainer = view.findViewById(R.id.color_container);
+        if (colorContainer != null) {
+            TextView debug = new TextView(getContext());
+            debug.setText("50 colors coming soon");
+            debug.setTextColor(AccentColorManager.getAccentColor(requireContext()));
+            colorContainer.addView(debug);
+        }
         return view;
     }
 
@@ -92,6 +93,20 @@ public class SettingsFragment extends Fragment {
             activeTile.setBackgroundResource(R.drawable.theme_selector_active);
             GradientDrawable gd = (GradientDrawable) activeTile.getBackground();
             if (gd != null) gd.setStroke(2, accentColor);
+        }
+    }
+
+    private void setupLanguageSelector(View view) {
+        LinearLayout langSelector = view.findViewById(R.id.language_selector);
+        TextView langText = view.findViewById(R.id.language_text);
+        if (langSelector != null) {
+            langSelector.setOnClickListener(v -> {
+                String currentLang = LanguageManager.getLanguage(requireContext());
+                String newLang = currentLang.equals("ru") ? "en" : "ru";
+                LanguageManager.setLanguage(requireContext(), newLang);
+                langText.setText(newLang.equals("ru") ? "Русский" : "English");
+                requireActivity().recreate();
+            });
         }
     }
 }
