@@ -1,10 +1,12 @@
 package org.nobiam.ui;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,11 +25,9 @@ public class SettingsFragment extends Fragment {
         LinearLayout themeSystem = view.findViewById(R.id.theme_system);
 
         View.OnClickListener themeListener = v -> {
-            // Сброс всех фонов
             themeLight.setBackgroundResource(R.drawable.theme_selector);
             themeDark.setBackgroundResource(R.drawable.theme_selector);
             themeSystem.setBackgroundResource(R.drawable.theme_selector);
-            // Установка активного
             v.setBackgroundResource(R.drawable.theme_selector_active);
             Toast.makeText(getContext(), "Theme changed", Toast.LENGTH_SHORT).show();
         };
@@ -45,18 +45,18 @@ public class SettingsFragment extends Fragment {
         FrameLayout colorRed = view.findViewById(R.id.color_red);
 
         View.OnClickListener colorListener = v -> {
-            // Сброс всех цветов
             resetColorSelection(view);
-            // Активация выбранного
             v.setBackgroundResource(R.drawable.color_circle_active);
-            FrameLayout container = (FrameLayout) v;
-            // Добавляем галочку
+            FrameLayout frame = (FrameLayout) v;
             ImageView check = new ImageView(getContext());
             check.setImageResource(R.drawable.ic_check);
             check.setColorFilter(getResources().getColor(android.R.color.white));
-            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(16, 16);
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT,
+                FrameLayout.LayoutParams.WRAP_CONTENT
+            );
             params.gravity = Gravity.CENTER;
-            container.addView(check, params);
+            frame.addView(check, params);
             Toast.makeText(getContext(), "Color changed", Toast.LENGTH_SHORT).show();
         };
 
@@ -67,12 +67,11 @@ public class SettingsFragment extends Fragment {
         colorPink.setOnClickListener(colorListener);
         colorRed.setOnClickListener(colorListener);
 
-        // Language selector
+        // Language
         LinearLayout langSelector = view.findViewById(R.id.language_selector);
         TextView langText = view.findViewById(R.id.language_text);
         if (langSelector != null) {
             langSelector.setOnClickListener(v -> {
-                // Простой toggle для демо
                 if (langText.getText().equals("Русский")) {
                     langText.setText("English");
                 } else {
@@ -96,13 +95,11 @@ public class SettingsFragment extends Fragment {
         for (FrameLayout color : colors) {
             if (color != null) {
                 color.setBackgroundResource(R.drawable.color_circle);
-                // Удаляем дочерние View (галочки)
                 color.removeAllViews();
-                // Добавляем обратно цветной кружок
                 View circle = new View(getContext());
-                circle.setLayoutParams(new FrameLayout.LayoutParams(28, 28));
-                ((FrameLayout.LayoutParams) circle.getLayoutParams()).gravity = Gravity.CENTER;
-                // Определяем какой цвет
+                FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(28, 28);
+                params.gravity = Gravity.CENTER;
+                circle.setLayoutParams(params);
                 if (color.getId() == R.id.color_blue) {
                     circle.setBackgroundResource(R.drawable.color_blue);
                 } else if (color.getId() == R.id.color_purple) {
