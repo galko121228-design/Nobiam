@@ -1,5 +1,6 @@
 package org.nobiam;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -108,18 +109,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateNavState(ImageButton activeButton) {
         int accentColor = AccentColorManager.getAccentColor(this);
+        int inactiveColor = getColor(R.color.text_inactive);
 
         // Сброс всех
         navHome.setBackgroundResource(R.drawable.nav_inactive);
-        navHome.setImageTintList(android.content.res.ColorStateList.valueOf(getColor(R.color.text_inactive)));
+        navHome.setImageTintList(ColorStateList.valueOf(inactiveColor));
         navSettings.setBackgroundResource(R.drawable.nav_inactive);
-        navSettings.setImageTintList(android.content.res.ColorStateList.valueOf(getColor(R.color.text_inactive)));
+        navSettings.setImageTintList(ColorStateList.valueOf(inactiveColor));
         navAbout.setBackgroundResource(R.drawable.nav_inactive);
-        navAbout.setImageTintList(android.content.res.ColorStateList.valueOf(getColor(R.color.text_inactive)));
+        navAbout.setImageTintList(ColorStateList.valueOf(inactiveColor));
 
-        // Активация: фон акцентный, иконка белая
+        // Активация
         activeButton.setBackgroundResource(R.drawable.nav_active);
-        activeButton.setImageTintList(android.content.res.ColorStateList.valueOf(getColor(R.color.text_primary)));
+        activeButton.setBackgroundTintList(ColorStateList.valueOf(accentColor));
+        activeButton.setImageTintList(ColorStateList.valueOf(getColor(R.color.text_primary)));
     }
 
     private void hideSystemBars() {
