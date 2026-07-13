@@ -1,0 +1,17 @@
+<resources>
+    <!-- Тёмная тема -->
+    <color name="bg_main">#0A0A0A</color>
+    <color name="bg_sidebar">#141414</color>
+    <color name="bg_glass">#141414</color>
+    
+    <!-- Акцент -->
+    <color name="neon_blue">#00D4FF</color>
+    <color name="neon_blue_dark">#0099CC</color>
+    <color name="neon_blue_glow">#00D4FF33</color>
+    
+    <!-- Текст -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#9CA3AF</color>
+    <color name="text_inactive">#6B7280</color>
+    <color name="text_version">#6B7280</color>
+</resources>
