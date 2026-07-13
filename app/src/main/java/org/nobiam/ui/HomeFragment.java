@@ -6,11 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
+import org.nobiam.utils.AccentColorManager;
 
 public class HomeFragment extends Fragment {
 
@@ -18,6 +21,21 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        // Применяем акцентный цвет
+        int accentColor = AccentColorManager.getAccentColor(requireContext());
+
+        // Заголовок "Minecraft"
+        TextView minecraftTitle = view.findViewById(R.id.minecraft_title_text);
+        if (minecraftTitle != null) {
+            minecraftTitle.setTextColor(accentColor);
+        }
+
+        // Кнопка Launch
+        Button launchButton = view.findViewById(R.id.launch_button);
+        if (launchButton != null) {
+            launchButton.setBackgroundColor(accentColor);
+        }
 
         // Current Instance selector
         LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
@@ -27,13 +45,9 @@ public class HomeFragment extends Fragment {
             });
         }
 
-        // Launch button
-        Button launchButton = view.findViewById(R.id.launch_button);
-        if (launchButton != null) {
-            launchButton.setOnClickListener(v -> {
-                Toast.makeText(getContext(), "Launching Minecraft...", Toast.LENGTH_SHORT).show();
-            });
-        }
+        launchButton.setOnClickListener(v -> {
+            Toast.makeText(getContext(), "Launching Minecraft...", Toast.LENGTH_SHORT).show();
+        });
 
         return view;
     }
