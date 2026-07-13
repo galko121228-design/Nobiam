@@ -34,7 +34,7 @@ public class AboutFragment extends Fragment {
         applyAccentColors();
     }
 
-    private void applyAccentColors() {
+    public void applyAccentColors() {
         if (view == null) return;
         int accentColor = AccentColorManager.getAccentColor(requireContext());
 
