@@ -16,16 +16,35 @@ import org.nobiam.R;
 import org.nobiam.utils.AccentColorManager;
 
 public class AboutFragment extends Fragment {
+
+    private View view;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_about, container, false);
+        view = inflater.inflate(R.layout.fragment_about, container, false);
+        applyAccentColors();
+        setupListeners();
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        applyAccentColors();
+    }
+
+    private void applyAccentColors() {
+        if (view == null) return;
+        int accentColor = AccentColorManager.getAccentColor(requireContext());
 
         TextView aboutTitle = view.findViewById(R.id.about_title);
         if (aboutTitle != null) {
-            aboutTitle.setTextColor(AccentColorManager.getAccentColor(requireContext()));
+            aboutTitle.setTextColor(accentColor);
         }
+    }
 
+    private void setupListeners() {
         ImageView telegram = view.findViewById(R.id.about_telegram);
         if (telegram != null) {
             telegram.setOnClickListener(v -> {
@@ -49,7 +68,5 @@ public class AboutFragment extends Fragment {
                 }
             });
         }
-
-        return view;
     }
 }

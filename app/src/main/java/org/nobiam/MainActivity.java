@@ -101,6 +101,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        hideSystemBars();
+        if (headerTitle != null) {
+            headerTitle.setTextColor(AccentColorManager.getAccentColor(this));
+        }
+
+        // Принудительно обновляем цвета в текущем фрагменте
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.container);
+        if (f != null) {
+            if (f instanceof HomeFragment) {
+                ((HomeFragment) f).applyAccentColors();
+            } else if (f instanceof AboutFragment) {
+                ((AboutFragment) f).applyAccentColors();
+            }
+        }
+    }
+
     private void switchFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
@@ -132,14 +151,5 @@ public class MainActivity extends AppCompatActivity {
         controller.setSystemBarsBehavior(
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         );
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        hideSystemBars();
-        if (headerTitle != null) {
-            headerTitle.setTextColor(AccentColorManager.getAccentColor(this));
-        }
     }
 }

@@ -20,26 +20,37 @@ import org.nobiam.utils.AccentColorManager;
 
 public class HomeFragment extends Fragment {
 
+    private View view;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
+        applyAccentColors();
+        setupListeners();
+        return view;
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        applyAccentColors();
+    }
+
+    private void applyAccentColors() {
+        if (view == null) return;
         int accentColor = AccentColorManager.getAccentColor(requireContext());
 
-        // Заголовок "Minecraft"
         TextView minecraftTitle = view.findViewById(R.id.minecraft_title_text);
         if (minecraftTitle != null) {
             minecraftTitle.setTextColor(accentColor);
         }
 
-        // Кнопка Launch
         Button launchButton = view.findViewById(R.id.launch_button);
         if (launchButton != null) {
             launchButton.setBackgroundTintList(ColorStateList.valueOf(accentColor));
         }
 
-        // Mods
         TextView modsTitle = view.findViewById(R.id.mods_title);
         if (modsTitle != null) {
             modsTitle.setTextColor(accentColor);
@@ -53,7 +64,6 @@ public class HomeFragment extends Fragment {
             if (gd != null) gd.setStroke(1, accentColor);
         }
 
-        // Content Management
         TextView contentTitle = view.findViewById(R.id.content_title);
         if (contentTitle != null) {
             contentTitle.setTextColor(accentColor);
@@ -65,26 +75,11 @@ public class HomeFragment extends Fragment {
             viewAll.setTextColor(accentColor);
         }
 
-        // Miscellaneous
         TextView miscTitle = view.findViewById(R.id.misc_title);
         if (miscTitle != null) {
             miscTitle.setTextColor(accentColor);
             tintDrawableStart(miscTitle, accentColor);
         }
-
-        // Current Instance
-        LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
-        if (selectVersion != null) {
-            selectVersion.setOnClickListener(v ->
-                Toast.makeText(getContext(), "Instance selector (coming soon)", Toast.LENGTH_SHORT).show()
-            );
-        }
-
-        launchButton.setOnClickListener(v ->
-            Toast.makeText(getContext(), "Launching Minecraft...", Toast.LENGTH_SHORT).show()
-        );
-
-        return view;
     }
 
     private void tintDrawableStart(TextView textView, int color) {
@@ -92,6 +87,22 @@ public class HomeFragment extends Fragment {
         if (drawables[0] != null) {
             Drawable wrapped = DrawableCompat.wrap(drawables[0]);
             DrawableCompat.setTint(wrapped, color);
+        }
+    }
+
+    private void setupListeners() {
+        LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
+        if (selectVersion != null) {
+            selectVersion.setOnClickListener(v ->
+                Toast.makeText(getContext(), "Instance selector (coming soon)", Toast.LENGTH_SHORT).show()
+            );
+        }
+
+        Button launchButton = view.findViewById(R.id.launch_button);
+        if (launchButton != null) {
+            launchButton.setOnClickListener(v ->
+                Toast.makeText(getContext(), "Launching Minecraft...", Toast.LENGTH_SHORT).show()
+            );
         }
     }
 }
