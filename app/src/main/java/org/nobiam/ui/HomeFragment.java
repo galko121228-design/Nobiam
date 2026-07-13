@@ -1,11 +1,13 @@
 package org.nobiam.ui;
 
 import android.content.res.ColorStateList;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,23 +32,49 @@ public class HomeFragment extends Fragment {
             minecraftTitle.setTextColor(accentColor);
         }
 
-        // Кнопка Launch — tint
+        // Кнопка Launch
         Button launchButton = view.findViewById(R.id.launch_button);
         if (launchButton != null) {
             launchButton.setBackgroundTintList(ColorStateList.valueOf(accentColor));
         }
 
-        // Current Instance selector
-        LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
-        if (selectVersion != null) {
-            selectVersion.setOnClickListener(v -> {
-                Toast.makeText(getContext(), "Instance selector (coming soon)", Toast.LENGTH_SHORT).show();
-            });
+        // --- Mods ---
+        TextView modsTitle = view.findViewById(R.id.mods_title);
+        if (modsTitle != null) modsTitle.setTextColor(accentColor);
+        ImageView modsIcon = view.findViewById(R.id.mods_icon);
+        if (modsIcon != null) modsIcon.setColorFilter(accentColor);
+        Button manageMods = view.findViewById(R.id.manage_mods_button);
+        if (manageMods != null) {
+            manageMods.setTextColor(accentColor);
+            GradientDrawable gd = (GradientDrawable) manageMods.getBackground();
+            if (gd != null) gd.setStroke(1, accentColor);
         }
 
-        launchButton.setOnClickListener(v -> {
-            Toast.makeText(getContext(), "Launching Minecraft...", Toast.LENGTH_SHORT).show();
-        });
+        // --- Content Management ---
+        TextView contentTitle = view.findViewById(R.id.content_title);
+        if (contentTitle != null) contentTitle.setTextColor(accentColor);
+        ImageView contentIcon = view.findViewById(R.id.content_icon);
+        if (contentIcon != null) contentIcon.setColorFilter(accentColor);
+        TextView viewAll = view.findViewById(R.id.content_view_all);
+        if (viewAll != null) viewAll.setTextColor(accentColor);
+
+        // --- Miscellaneous ---
+        TextView miscTitle = view.findViewById(R.id.misc_title);
+        if (miscTitle != null) miscTitle.setTextColor(accentColor);
+        ImageView miscIcon = view.findViewById(R.id.misc_icon);
+        if (miscIcon != null) miscIcon.setColorFilter(accentColor);
+
+        // Current Instance
+        LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
+        if (selectVersion != null) {
+            selectVersion.setOnClickListener(v ->
+                Toast.makeText(getContext(), "Instance selector (coming soon)", Toast.LENGTH_SHORT).show()
+            );
+        }
+
+        launchButton.setOnClickListener(v ->
+            Toast.makeText(getContext(), "Launching Minecraft...", Toast.LENGTH_SHORT).show()
+        );
 
         return view;
     }
