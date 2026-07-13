@@ -35,17 +35,11 @@ public class AboutFragment extends Fragment {
         if (tiktok != null) {
             tiktok.setOnClickListener(v -> {
                 try {
-                    // Пробуем открыть в приложении TikTok
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tiktok://user/@NobiamOS"));
+                    // Пробуем открыть через браузер (гарантированно работает)
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tiktok.com/@NobiamOS"));
                     startActivity(intent);
                 } catch (Exception e) {
-                    // Если приложение не установлено — открываем в браузере
-                    try {
-                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tiktok.com/@NobiamOS"));
-                        startActivity(intent);
-                    } catch (Exception ex) {
-                        Toast.makeText(getContext(), "TikTok not installed", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(getContext(), "Cannot open TikTok", Toast.LENGTH_SHORT).show();
                 }
             });
         }
