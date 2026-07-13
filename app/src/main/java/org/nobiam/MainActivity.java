@@ -109,15 +109,17 @@ public class MainActivity extends AppCompatActivity {
     private void updateNavState(ImageButton activeButton) {
         int accentColor = AccentColorManager.getAccentColor(this);
 
+        // Сброс всех
         navHome.setBackgroundResource(R.drawable.nav_inactive);
-        navHome.setColorFilter(getColor(R.color.text_inactive));
+        navHome.setImageTintList(android.content.res.ColorStateList.valueOf(getColor(R.color.text_inactive)));
         navSettings.setBackgroundResource(R.drawable.nav_inactive);
-        navSettings.setColorFilter(getColor(R.color.text_inactive));
+        navSettings.setImageTintList(android.content.res.ColorStateList.valueOf(getColor(R.color.text_inactive)));
         navAbout.setBackgroundResource(R.drawable.nav_inactive);
-        navAbout.setColorFilter(getColor(R.color.text_inactive));
+        navAbout.setImageTintList(android.content.res.ColorStateList.valueOf(getColor(R.color.text_inactive)));
 
+        // Активация: фон акцентный, иконка белая
         activeButton.setBackgroundResource(R.drawable.nav_active);
-        activeButton.setColorFilter(accentColor);
+        activeButton.setImageTintList(android.content.res.ColorStateList.valueOf(getColor(R.color.text_primary)));
     }
 
     private void hideSystemBars() {

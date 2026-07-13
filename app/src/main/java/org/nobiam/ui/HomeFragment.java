@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         int accentColor = AccentColorManager.getAccentColor(requireContext());
+        int secondaryColor = getResources().getColor(R.color.text_inactive);
 
         // Заголовок "Minecraft"
         TextView minecraftTitle = view.findViewById(R.id.minecraft_title_text);
@@ -37,11 +39,13 @@ public class HomeFragment extends Fragment {
             launchButton.setBackgroundTintList(ColorStateList.valueOf(accentColor));
         }
 
-        // Карточка Mods — заголовок
+        // --- Mods ---
         TextView modsTitle = view.findViewById(R.id.mods_title);
         if (modsTitle != null) modsTitle.setTextColor(accentColor);
 
-        // Кнопка Manage Mods
+        ImageView modsIcon = view.findViewById(R.id.mods_icon);
+        if (modsIcon != null) modsIcon.setColorFilter(secondaryColor); // серый
+
         Button manageMods = view.findViewById(R.id.manage_mods_button);
         if (manageMods != null) {
             manageMods.setTextColor(accentColor);
@@ -49,17 +53,22 @@ public class HomeFragment extends Fragment {
             if (gd != null) gd.setStroke(1, accentColor);
         }
 
-        // Карточка Content Management — заголовок
+        // --- Content Management ---
         TextView contentTitle = view.findViewById(R.id.content_title);
         if (contentTitle != null) contentTitle.setTextColor(accentColor);
 
-        // "View All →"
+        ImageView contentIcon = view.findViewById(R.id.content_icon);
+        if (contentIcon != null) contentIcon.setColorFilter(secondaryColor); // серый
+
         TextView viewAll = view.findViewById(R.id.content_view_all);
         if (viewAll != null) viewAll.setTextColor(accentColor);
 
-        // Карточка Miscellaneous — заголовок
+        // --- Miscellaneous ---
         TextView miscTitle = view.findViewById(R.id.misc_title);
         if (miscTitle != null) miscTitle.setTextColor(accentColor);
+
+        ImageView miscIcon = view.findViewById(R.id.misc_icon);
+        if (miscIcon != null) miscIcon.setColorFilter(secondaryColor); // серый
 
         // Current Instance
         LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
