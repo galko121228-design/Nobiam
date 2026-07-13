@@ -4,12 +4,18 @@
     <item>
         <shape>
             <solid android:color="?attr/colorSurface" />
+            <corners
+                android:bottomLeftRadius="16dp"
+                android:bottomRightRadius="16dp" />
         </shape>
     </item>
     <!-- Тонкая линия снизу (подводка) -->
     <item android:bottom="1dp">
         <shape>
             <solid android:color="?attr/cardStrokeColor" />
+            <corners
+                android:bottomLeftRadius="16dp"
+                android:bottomRightRadius="16dp" />
         </shape>
     </item>
 </layer-list>
