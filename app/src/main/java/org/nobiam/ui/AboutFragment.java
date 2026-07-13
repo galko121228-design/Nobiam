@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import org.nobiam.R;
 
@@ -20,8 +21,12 @@ public class AboutFragment extends Fragment {
         ImageView telegram = view.findViewById(R.id.about_telegram);
         if (telegram != null) {
             telegram.setOnClickListener(v -> {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/NobiamOS"));
-                startActivity(intent);
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/NobiamOS"));
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "Telegram not installed", Toast.LENGTH_SHORT).show();
+                }
             });
         }
 
@@ -29,8 +34,19 @@ public class AboutFragment extends Fragment {
         ImageView tiktok = view.findViewById(R.id.about_tiktok);
         if (tiktok != null) {
             tiktok.setOnClickListener(v -> {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tiktok.com/@NobiamOS"));
-                startActivity(intent);
+                try {
+                    // Пробуем открыть в приложении TikTok
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tiktok://user/@NobiamOS"));
+                    startActivity(intent);
+                } catch (Exception e) {
+                    // Если приложение не установлено — открываем в браузере
+                    try {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tiktok.com/@NobiamOS"));
+                        startActivity(intent);
+                    } catch (Exception ex) {
+                        Toast.makeText(getContext(), "TikTok not installed", Toast.LENGTH_SHORT).show();
+                    }
+                }
             });
         }
 
