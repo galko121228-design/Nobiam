@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
     private Fragment settingsFragment;
     private Fragment aboutFragment;
     private ImageButton navHome, navSettings, navAbout;
+    private Fragment currentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Применяем тему ДО super.onCreate()
         ThemeManager.applyTheme(this);
 
         super.onCreate(savedInstanceState);
@@ -49,27 +49,44 @@ public class MainActivity extends AppCompatActivity {
         navSettings = findViewById(R.id.navSettings);
         navAbout = findViewById(R.id.navAbout);
 
-        // Загружаем стартовый фрагмент ТОЛЬКО если Activity создаётся впервые
+        // Восстанавливаем последний фрагмент или грузим Home
         if (savedInstanceState == null) {
+            currentFragment = homeFragment;
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, homeFragment)
                     .commit();
+        } else {
+            // Восстанавливаем текущий фрагмент из сохранённого состояния
+            currentFragment = getSupportFragmentManager().findFragmentById(R.id.container);
+            if (currentFragment instanceof HomeFragment) {
+                updateNavState(navHome);
+            } else if (currentFragment instanceof SettingsFragment) {
+                updateNavState(navSettings);
+            } else if (currentFragment instanceof AboutFragment) {
+                updateNavState(navAbout);
+            }
         }
-        // Если savedInstanceState != null — FragmentManager сам восстановит текущий фрагмент
 
-        updateNavState(navHome);
+        // Если currentFragment ещё не установлен, ставим Home
+        if (currentFragment == null) {
+            currentFragment = homeFragment;
+            updateNavState(navHome);
+        }
 
         navHome.setOnClickListener(v -> {
+            currentFragment = homeFragment;
             switchFragment(homeFragment);
             updateNavState(navHome);
         });
 
         navSettings.setOnClickListener(v -> {
+            currentFragment = settingsFragment;
             switchFragment(settingsFragment);
             updateNavState(navSettings);
         });
 
         navAbout.setOnClickListener(v -> {
+            currentFragment = aboutFragment;
             switchFragment(aboutFragment);
             updateNavState(navAbout);
         });
@@ -108,5 +125,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         hideSystemBars();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // Сохраняем текущий фрагмент
+        if (currentFragment != null) {
+            getSupportFragmentManager().putFragment(outState, "current_fragment", currentFragment);
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // Восстанавливаем текущий фрагмент
+        if (savedInstanceState != null) {
+            currentFragment = getSupportFragmentManager().getFragment(savedInstanceState, "current_fragment");
+            if (currentFragment != null) {
+                if (currentFragment instanceof HomeFragment) {
+                    updateNavState(navHome);
+                } else if (currentFragment instanceof SettingsFragment) {
+                    updateNavState(navSettings);
+                } else if (currentFragment instanceof AboutFragment) {
+                    updateNavState(navAbout);
+                }
+            }
+        }
     }
 }

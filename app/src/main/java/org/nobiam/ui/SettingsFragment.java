@@ -1,5 +1,6 @@
 package org.nobiam.ui;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
@@ -30,33 +32,33 @@ public class SettingsFragment extends Fragment {
         themeDark = view.findViewById(R.id.theme_dark);
         themeSystem = view.findViewById(R.id.theme_system);
 
-        // Загружаем сохранённую тему
         int currentMode = ThemeManager.getSavedTheme(requireContext());
         applyThemeSelection(currentMode);
 
-        // Клик на Light
+        // Light
         themeLight.setOnClickListener(v -> {
             ThemeManager.setTheme(requireContext(), AppCompatDelegate.MODE_NIGHT_NO);
             applyThemeSelection(AppCompatDelegate.MODE_NIGHT_NO);
-            // AppCompatDelegate сам вызовет recreate()
+            // Принудительно пересоздаём Activity
+            requireActivity().recreate();
         });
 
-        // Клик на Dark
+        // Dark
         themeDark.setOnClickListener(v -> {
             ThemeManager.setTheme(requireContext(), AppCompatDelegate.MODE_NIGHT_YES);
             applyThemeSelection(AppCompatDelegate.MODE_NIGHT_YES);
+            requireActivity().recreate();
         });
 
-        // Клик на System
+        // System
         themeSystem.setOnClickListener(v -> {
             ThemeManager.setTheme(requireContext(), AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
             applyThemeSelection(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+            requireActivity().recreate();
         });
 
         // Цвета (заглушка)
         setupColorPicker(view);
-
-        // Язык (заглушка)
         setupLanguageSelector(view);
 
         return view;
