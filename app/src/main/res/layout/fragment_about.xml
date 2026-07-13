@@ -83,7 +83,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Шапка: аватар + ник -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -115,7 +114,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Author & Coder"
+                        android:text="Author and Coder"
                         android:textColor="#00E676"
                         android:textSize="12sp"/>
 
@@ -128,13 +127,11 @@
                 android:layout_height="1dp"
                 android:background="#2A2A2A"/>
 
-            <!-- Ссылки -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Telegram (кликабельно) -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -167,7 +164,6 @@
 
                 </LinearLayout>
 
-                <!-- TikTok (кликабельно) -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
