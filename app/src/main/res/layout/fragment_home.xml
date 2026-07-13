@@ -211,6 +211,7 @@
                         android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
+            android:id="@+id/mods_title"
                         android:drawableStart="@drawable/ic_plugin"
                         android:drawablePadding="4dp"/>
 
@@ -262,6 +263,7 @@
                         android:text="Content Management"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp"
+            android:id="@+id/content_title"
                         android:textStyle="bold"
                         android:drawableStart="@drawable/ic_cube"
                         android:drawablePadding="4dp"/>
@@ -414,6 +416,7 @@
             android:id="@+id/misc_title"
                         android:text="Miscellaneous"
                         android:textColor="@color/text_primary"
+            android:id="@+id/misc_title"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         android:drawableStart="@drawable/ic_archive"

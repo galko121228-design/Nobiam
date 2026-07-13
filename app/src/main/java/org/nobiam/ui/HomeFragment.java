@@ -1,17 +1,18 @@
 package org.nobiam.ui;
 
 import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
@@ -25,7 +26,6 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         int accentColor = AccentColorManager.getAccentColor(requireContext());
-        int secondaryColor = getResources().getColor(R.color.text_inactive);
 
         // Заголовок "Minecraft"
         TextView minecraftTitle = view.findViewById(R.id.minecraft_title_text);
@@ -41,10 +41,15 @@ public class HomeFragment extends Fragment {
 
         // --- Mods ---
         TextView modsTitle = view.findViewById(R.id.mods_title);
-        if (modsTitle != null) modsTitle.setTextColor(accentColor);
-
-        ImageView modsIcon = view.findViewById(R.id.mods_icon);
-        if (modsIcon != null) modsIcon.setColorFilter(secondaryColor); // серый
+        if (modsTitle != null) {
+            modsTitle.setTextColor(accentColor);
+            // Красим иконку (drawableStart)
+            Drawable[] drawables = modsTitle.getCompoundDrawables();
+            if (drawables[0] != null) {
+                Drawable wrapped = DrawableCompat.wrap(drawables[0]);
+                DrawableCompat.setTint(wrapped, accentColor);
+            }
+        }
 
         Button manageMods = view.findViewById(R.id.manage_mods_button);
         if (manageMods != null) {
@@ -55,20 +60,30 @@ public class HomeFragment extends Fragment {
 
         // --- Content Management ---
         TextView contentTitle = view.findViewById(R.id.content_title);
-        if (contentTitle != null) contentTitle.setTextColor(accentColor);
-
-        ImageView contentIcon = view.findViewById(R.id.content_icon);
-        if (contentIcon != null) contentIcon.setColorFilter(secondaryColor); // серый
+        if (contentTitle != null) {
+            contentTitle.setTextColor(accentColor);
+            Drawable[] drawables = contentTitle.getCompoundDrawables();
+            if (drawables[0] != null) {
+                Drawable wrapped = DrawableCompat.wrap(drawables[0]);
+                DrawableCompat.setTint(wrapped, accentColor);
+            }
+        }
 
         TextView viewAll = view.findViewById(R.id.content_view_all);
-        if (viewAll != null) viewAll.setTextColor(accentColor);
+        if (viewAll != null) {
+            viewAll.setTextColor(accentColor);
+        }
 
         // --- Miscellaneous ---
         TextView miscTitle = view.findViewById(R.id.misc_title);
-        if (miscTitle != null) miscTitle.setTextColor(accentColor);
-
-        ImageView miscIcon = view.findViewById(R.id.misc_icon);
-        if (miscIcon != null) miscIcon.setColorFilter(secondaryColor); // серый
+        if (miscTitle != null) {
+            miscTitle.setTextColor(accentColor);
+            Drawable[] drawables = miscTitle.getCompoundDrawables();
+            if (drawables[0] != null) {
+                Drawable wrapped = DrawableCompat.wrap(drawables[0]);
+                DrawableCompat.setTint(wrapped, accentColor);
+            }
+        }
 
         // Current Instance
         LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
