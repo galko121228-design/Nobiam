@@ -1,20 +1,20 @@
 <resources>
-    <!-- Светлая тема -->
+    <!-- Backgrounds -->
     <color name="bg_main">#FFFFFF</color>
     <color name="bg_surface">#FFFFFF</color>
     <color name="bg_glass">#F5F5F5</color>
-    
-    <!-- Акцент -->
-    <color name="neon_blue">#00D4FF</color>
-    <color name="neon_blue_dark">#0099CC</color>
-    <color name="neon_blue_glow">#00D4FF33</color>
-    
-    <!-- Текст -->
+
+    <!-- Text -->
     <color name="text_primary">#121212</color>
     <color name="text_secondary">#6B7280</color>
     <color name="text_inactive">#9CA3AF</color>
     <color name="text_version">#6B7280</color>
-</resources>
+
+    <!-- Accent (Neon Blue) -->
+    <color name="neon_blue">#00D4FF</color>
+    <color name="neon_blue_dark">#0099CC</color>
+    <color name="neon_blue_glow">#00D4FF33</color>
+
     <!-- 50 Accent Colors -->
     <color name="accent_1">#00D4FF</color>
     <color name="accent_2">#29B6F6</color>
@@ -66,3 +66,4 @@
     <color name="accent_48">#B0BEC5</color>
     <color name="accent_49">#455A64</color>
     <color name="accent_50">#263238</color>
+</resources>
