@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 import org.nobiam.R;
 
@@ -17,7 +17,7 @@ public class AboutFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
         // Telegram
-        LinearLayout telegram = view.findViewById(R.id.about_telegram);
+        ImageView telegram = view.findViewById(R.id.about_telegram);
         if (telegram != null) {
             telegram.setOnClickListener(v -> {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/NobiamOS"));
@@ -26,10 +26,10 @@ public class AboutFragment extends Fragment {
         }
 
         // TikTok
-        LinearLayout tiktok = view.findViewById(R.id.about_tiktok);
+        ImageView tiktok = view.findViewById(R.id.about_tiktok);
         if (tiktok != null) {
             tiktok.setOnClickListener(v -> {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://tiktok.com/@NobiamOS"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tiktok.com/@NobiamOS"));
                 startActivity(intent);
             });
         }
