@@ -1,6 +1,5 @@
 package org.nobiam;
 
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -17,6 +16,7 @@ import org.nobiam.ui.HomeFragment;
 import org.nobiam.ui.SettingsFragment;
 import org.nobiam.ui.AboutFragment;
 import org.nobiam.utils.AccentColorManager;
+import org.nobiam.utils.LanguageManager;
 import org.nobiam.utils.ThemeManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ThemeManager.applyTheme(this);
+        LanguageManager.loadSavedLanguage(this);
 
         super.onCreate(savedInstanceState);
 
@@ -111,18 +112,16 @@ public class MainActivity extends AppCompatActivity {
         int accentColor = AccentColorManager.getAccentColor(this);
         int inactiveColor = getColor(R.color.text_inactive);
 
-        // Сброс всех
         navHome.setBackgroundResource(R.drawable.nav_inactive);
-        navHome.setImageTintList(ColorStateList.valueOf(inactiveColor));
+        navHome.setImageTintList(android.content.res.ColorStateList.valueOf(inactiveColor));
         navSettings.setBackgroundResource(R.drawable.nav_inactive);
-        navSettings.setImageTintList(ColorStateList.valueOf(inactiveColor));
+        navSettings.setImageTintList(android.content.res.ColorStateList.valueOf(inactiveColor));
         navAbout.setBackgroundResource(R.drawable.nav_inactive);
-        navAbout.setImageTintList(ColorStateList.valueOf(inactiveColor));
+        navAbout.setImageTintList(android.content.res.ColorStateList.valueOf(inactiveColor));
 
-        // Активация
         activeButton.setBackgroundResource(R.drawable.nav_active);
-        activeButton.setBackgroundTintList(ColorStateList.valueOf(accentColor));
-        activeButton.setImageTintList(ColorStateList.valueOf(getColor(R.color.text_primary)));
+        activeButton.setBackgroundTintList(android.content.res.ColorStateList.valueOf(accentColor));
+        activeButton.setImageTintList(android.content.res.ColorStateList.valueOf(getColor(R.color.text_primary)));
     }
 
     private void hideSystemBars() {

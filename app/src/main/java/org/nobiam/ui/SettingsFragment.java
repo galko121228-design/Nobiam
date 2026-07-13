@@ -47,19 +47,19 @@ public class SettingsFragment extends Fragment {
         themeLight.setOnClickListener(v -> {
             ThemeManager.setTheme(requireContext(), AppCompatDelegate.MODE_NIGHT_NO);
             applyThemeSelection(AppCompatDelegate.MODE_NIGHT_NO);
-            requireActivity().recreate();
+                requireActivity().recreate();
         });
 
         themeDark.setOnClickListener(v -> {
             ThemeManager.setTheme(requireContext(), AppCompatDelegate.MODE_NIGHT_YES);
             applyThemeSelection(AppCompatDelegate.MODE_NIGHT_YES);
-            requireActivity().recreate();
+                requireActivity().recreate();
         });
 
         themeSystem.setOnClickListener(v -> {
             ThemeManager.setTheme(requireContext(), AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
             applyThemeSelection(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-            requireActivity().recreate();
+                requireActivity().recreate();
         });
 
         setupLanguageSelector(view);
