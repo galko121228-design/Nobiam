@@ -29,7 +29,6 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        // Заголовок
         TextView settingsTitle = view.findViewById(R.id.settings_title);
         if (settingsTitle != null) {
             settingsTitle.setTextColor(AccentColorManager.getAccentColor(requireContext()));
@@ -60,8 +59,11 @@ public class SettingsFragment extends Fragment {
             requireActivity().recreate();
         });
 
-        setupColorPicker(view);
-        setupLanguageSelector(view);
+        // Временно отключаем цветовую палитру
+        // setupColorPicker(view);
+
+        // Временно отключаем язык
+        // setupLanguageSelector(view);
 
         return view;
     }
@@ -90,93 +92,6 @@ public class SettingsFragment extends Fragment {
             activeTile.setBackgroundResource(R.drawable.theme_selector_active);
             GradientDrawable gd = (GradientDrawable) activeTile.getBackground();
             if (gd != null) gd.setStroke(2, accentColor);
-        }
-    }
-
-    private void setupColorPicker(View view) {
-        LinearLayout colorContainer = view.findViewById(R.id.color_container);
-        if (colorContainer == null) return;
-
-        colorContainer.removeAllViews();
-        colorContainer.setOrientation(LinearLayout.VERTICAL);
-
-        int[] colors = AccentColorManager.ACCENT_COLORS;
-        int currentColor = AccentColorManager.getAccentColor(requireContext());
-        int cols = 10;
-
-        for (int i = 0; i < colors.length; i += cols) {
-            LinearLayout row = new LinearLayout(getContext());
-            row.setOrientation(LinearLayout.HORIZONTAL);
-            row.setLayoutParams(new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-            ));
-            row.setGravity(Gravity.CENTER);
-
-            for (int j = 0; j < cols && (i + j) < colors.length; j++) {
-                int color = colors[i + j];
-                FrameLayout circle = createColorCircle(color, color == currentColor);
-                row.addView(circle);
-            }
-            colorContainer.addView(row);
-        }
-    }
-
-    private FrameLayout createColorCircle(int color, boolean isSelected) {
-        float density = getResources().getDisplayMetrics().density;
-        int size = (int) (32 * density);
-
-        FrameLayout wrapper = new FrameLayout(getContext());
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
-        params.setMargins((int)(4 * density), (int)(4 * density), (int)(4 * density), (int)(4 * density));
-        wrapper.setLayoutParams(params);
-        wrapper.setClickable(true);
-        wrapper.setFocusable(true);
-        wrapper.setForeground(getResources().getDrawable(android.R.attr.selectableItemBackground, null));
-
-        View circle = new View(getContext());
-        FrameLayout.LayoutParams circleParams = new FrameLayout.LayoutParams(size, size);
-        circle.setLayoutParams(circleParams);
-        GradientDrawable gd = new GradientDrawable();
-        gd.setShape(GradientDrawable.OVAL);
-        gd.setColor(color);
-        if (isSelected) {
-            gd.setStroke((int)(2 * density), getResources().getColor(android.R.color.white));
-        }
-        circle.setBackground(gd);
-        wrapper.addView(circle);
-
-        if (isSelected) {
-            ImageView check = new ImageView(getContext());
-            FrameLayout.LayoutParams checkParams = new FrameLayout.LayoutParams(
-                    (int)(14 * density), (int)(14 * density)
-            );
-            checkParams.gravity = Gravity.CENTER;
-            check.setLayoutParams(checkParams);
-            check.setImageResource(R.drawable.ic_check);
-            check.setColorFilter(getResources().getColor(android.R.color.white));
-            wrapper.addView(check);
-        }
-
-        wrapper.setOnClickListener(v -> {
-            AccentColorManager.setAccentColor(getContext(), color);
-            requireActivity().recreate();
-        });
-
-        return wrapper;
-    }
-
-    private void setupLanguageSelector(View view) {
-        LinearLayout langSelector = view.findViewById(R.id.language_selector);
-        TextView langText = view.findViewById(R.id.language_text);
-        if (langSelector != null) {
-            langSelector.setOnClickListener(v -> {
-                String currentLang = LanguageManager.getLanguage(requireContext());
-                String newLang = currentLang.equals("ru") ? "en" : "ru";
-                LanguageManager.setLanguage(requireContext(), newLang);
-                langText.setText(newLang.equals("ru") ? "Русский" : "English");
-                requireActivity().recreate();
-            });
         }
     }
 }
