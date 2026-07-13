@@ -2,19 +2,14 @@ package org.nobiam.ui;
 
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import org.nobiam.R;
 import org.nobiam.utils.AccentColorManager;
@@ -68,7 +63,7 @@ public class SettingsFragment extends Fragment {
         });
 
         setupLanguageSelector(view);
-        setupColorPicker(view);
+        // setupColorPicker(view); // Временно ОТКЛЮЧЕНО
 
         return view;
     }
@@ -109,78 +104,8 @@ public class SettingsFragment extends Fragment {
                 String newLang = currentLang.equals("ru") ? "en" : "ru";
                 LanguageManager.setLanguage(requireContext(), newLang);
                 langText.setText(newLang.equals("ru") ? "Русский" : "English");
-
-                // Перезагружаем текущий фрагмент
-                refreshCurrentFragment();
+                requireActivity().recreate();
             });
         }
-    }
-
-    private void refreshCurrentFragment() {
-        Fragment currentFragment = getParentFragmentManager().findFragmentById(R.id.container);
-        if (currentFragment != null) {
-            getParentFragmentManager().beginTransaction()
-                    .detach(currentFragment)
-                    .attach(currentFragment)
-                    .commit();
-        }
-    }
-
-    private void setupColorPicker(View view) {
-        LinearLayout colorContainer = view.findViewById(R.id.color_preset_container);
-        if (colorContainer == null) return;
-
-        colorContainer.removeAllViews();
-        colorContainer.setOrientation(LinearLayout.HORIZONTAL);
-        colorContainer.setGravity(Gravity.CENTER);
-
-        int[] colors = AccentColorManager.ACCENT_COLORS;
-        int currentColor = AccentColorManager.getAccentColor(requireContext());
-
-        for (int color : colors) {
-            FrameLayout circle = createColorCircle(color, color == currentColor);
-            colorContainer.addView(circle);
-        }
-    }
-
-    private FrameLayout createColorCircle(int color, boolean isSelected) {
-        float density = getResources().getDisplayMetrics().density;
-        int size = (int) (32 * density);
-
-        FrameLayout wrapper = new FrameLayout(getContext());
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size, size);
-        params.setMargins((int)(6 * density), 0, (int)(6 * density), 0);
-        wrapper.setLayoutParams(params);
-        wrapper.setClickable(true);
-        wrapper.setFocusable(true);
-        wrapper.setForeground(getResources().getDrawable(android.R.attr.selectableItemBackground, null));
-
-        View circle = new View(getContext());
-        FrameLayout.LayoutParams circleParams = new FrameLayout.LayoutParams(size, size);
-        circle.setLayoutParams(circleParams);
-        GradientDrawable gd = new GradientDrawable();
-        gd.setShape(GradientDrawable.OVAL);
-        gd.setColor(color);
-        if (isSelected) {
-            gd.setStroke((int)(2 * density), getResources().getColor(android.R.color.white));
-            ImageView check = new ImageView(getContext());
-            FrameLayout.LayoutParams checkParams = new FrameLayout.LayoutParams(
-                    (int)(14 * density), (int)(14 * density)
-            );
-            checkParams.gravity = Gravity.CENTER;
-            check.setLayoutParams(checkParams);
-            check.setImageResource(R.drawable.ic_check);
-            check.setColorFilter(getResources().getColor(android.R.color.white));
-            wrapper.addView(check);
-        }
-        circle.setBackground(gd);
-        wrapper.addView(circle);
-
-        wrapper.setOnClickListener(v -> {
-            AccentColorManager.setAccentColor(getContext(), color);
-            requireActivity().recreate();
-        });
-
-        return wrapper;
     }
 }
