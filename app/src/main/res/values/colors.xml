@@ -1,13 +1,8 @@
 <resources>
-    <!-- Основные цвета (светлая тема) -->
+    <!-- Светлая тема -->
     <color name="bg_main">#FFFFFF</color>
-    <color name="bg_sidebar">#F5F5F5</color>
-    <color name="bg_glass">#EEEEEE</color>
-    
-    <!-- Цвета для тёмной темы (через values-night) -->
-    <color name="bg_main_dark">#0A0A0A</color>
-    <color name="bg_sidebar_dark">#141414</color>
-    <color name="bg_glass_dark">#141414</color>
+    <color name="bg_surface">#FFFFFF</color>
+    <color name="bg_glass">#F5F5F5</color>
     
     <!-- Акцент -->
     <color name="neon_blue">#00D4FF</color>

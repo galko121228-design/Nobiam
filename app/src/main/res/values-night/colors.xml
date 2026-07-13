@@ -1,7 +1,7 @@
 <resources>
     <!-- Тёмная тема -->
     <color name="bg_main">#0A0A0A</color>
-    <color name="bg_sidebar">#141414</color>
+    <color name="bg_surface">#141414</color>
     <color name="bg_glass">#141414</color>
     
     <!-- Акцент -->

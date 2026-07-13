@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Основной фон хедера (берётся из темы) -->
+    <!-- Основной фон хедера -->
     <item>
         <shape>
             <solid android:color="?attr/colorSurface" />
         </shape>
     </item>
-    <!-- Тонкая линия снизу -->
+    <!-- Тонкая линия снизу (подводка) -->
     <item android:bottom="1dp">
         <shape>
             <solid android:color="?attr/cardStrokeColor" />
