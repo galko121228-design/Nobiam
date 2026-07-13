@@ -39,16 +39,11 @@ public class HomeFragment extends Fragment {
             launchButton.setBackgroundTintList(ColorStateList.valueOf(accentColor));
         }
 
-        // --- Mods ---
+        // Mods
         TextView modsTitle = view.findViewById(R.id.mods_title);
         if (modsTitle != null) {
             modsTitle.setTextColor(accentColor);
-            // Красим иконку (drawableStart)
-            Drawable[] drawables = modsTitle.getCompoundDrawables();
-            if (drawables[0] != null) {
-                Drawable wrapped = DrawableCompat.wrap(drawables[0]);
-                DrawableCompat.setTint(wrapped, accentColor);
-            }
+            tintDrawableStart(modsTitle, accentColor);
         }
 
         Button manageMods = view.findViewById(R.id.manage_mods_button);
@@ -58,15 +53,11 @@ public class HomeFragment extends Fragment {
             if (gd != null) gd.setStroke(1, accentColor);
         }
 
-        // --- Content Management ---
+        // Content Management
         TextView contentTitle = view.findViewById(R.id.content_title);
         if (contentTitle != null) {
             contentTitle.setTextColor(accentColor);
-            Drawable[] drawables = contentTitle.getCompoundDrawables();
-            if (drawables[0] != null) {
-                Drawable wrapped = DrawableCompat.wrap(drawables[0]);
-                DrawableCompat.setTint(wrapped, accentColor);
-            }
+            tintDrawableStart(contentTitle, accentColor);
         }
 
         TextView viewAll = view.findViewById(R.id.content_view_all);
@@ -74,15 +65,11 @@ public class HomeFragment extends Fragment {
             viewAll.setTextColor(accentColor);
         }
 
-        // --- Miscellaneous ---
+        // Miscellaneous
         TextView miscTitle = view.findViewById(R.id.misc_title);
         if (miscTitle != null) {
             miscTitle.setTextColor(accentColor);
-            Drawable[] drawables = miscTitle.getCompoundDrawables();
-            if (drawables[0] != null) {
-                Drawable wrapped = DrawableCompat.wrap(drawables[0]);
-                DrawableCompat.setTint(wrapped, accentColor);
-            }
+            tintDrawableStart(miscTitle, accentColor);
         }
 
         // Current Instance
@@ -98,5 +85,13 @@ public class HomeFragment extends Fragment {
         );
 
         return view;
+    }
+
+    private void tintDrawableStart(TextView textView, int color) {
+        Drawable[] drawables = textView.getCompoundDrawables();
+        if (drawables[0] != null) {
+            Drawable wrapped = DrawableCompat.wrap(drawables[0]);
+            DrawableCompat.setTint(wrapped, color);
+        }
     }
 }
