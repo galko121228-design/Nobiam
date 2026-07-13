@@ -23,7 +23,6 @@ public class ThemeHelper {
                 break;
         }
 
-        // Жёсткая перезагрузка Activity
         Intent intent = activity.getIntent();
         activity.finish();
         activity.startActivity(intent);
