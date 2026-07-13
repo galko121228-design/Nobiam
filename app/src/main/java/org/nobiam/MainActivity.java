@@ -5,7 +5,6 @@ import android.view.Window;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
@@ -14,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import org.nobiam.ui.HomeFragment;
 import org.nobiam.ui.SettingsFragment;
 import org.nobiam.ui.AboutFragment;
+import org.nobiam.utils.AccentColorManager;
 import org.nobiam.utils.ThemeManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Применяем тему ДО super
         ThemeManager.applyTheme(this);
 
         super.onCreate(savedInstanceState);
@@ -100,6 +99,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateNavState(ImageButton activeButton) {
+        int accentColor = AccentColorManager.getAccentColor(this);
+
+        // Сброс всех
         navHome.setBackgroundResource(R.drawable.nav_inactive);
         navHome.setColorFilter(getColor(R.color.text_inactive));
         navSettings.setBackgroundResource(R.drawable.nav_inactive);
@@ -107,8 +109,9 @@ public class MainActivity extends AppCompatActivity {
         navAbout.setBackgroundResource(R.drawable.nav_inactive);
         navAbout.setColorFilter(getColor(R.color.text_inactive));
 
+        // Активация выбранной с акцентным цветом
         activeButton.setBackgroundResource(R.drawable.nav_active);
-        activeButton.setColorFilter(getColor(R.color.text_primary));
+        activeButton.setColorFilter(accentColor);
     }
 
     private void hideSystemBars() {

@@ -24,6 +24,7 @@ public class SettingsFragment extends Fragment {
 
     private LinearLayout themeLight, themeDark, themeSystem;
     private SharedPreferences prefs;
+    private int savedScrollY = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,6 +32,12 @@ public class SettingsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
         prefs = getContext().getSharedPreferences("nobiam_settings", 0);
+
+        // Применяем акцентный цвет к заголовку "Settings"
+        TextView settingsTitle = view.findViewById(R.id.settings_title);
+        if (settingsTitle != null) {
+            settingsTitle.setTextColor(AccentColorManager.getAccentColor(requireContext()));
+        }
 
         // Темы
         themeLight = view.findViewById(R.id.theme_light);
@@ -67,6 +74,16 @@ public class SettingsFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // Восстанавливаем позицию скролла после recreate
+        View scrollView = view.findViewById(R.id.scrollView);
+        if (scrollView != null && savedScrollY > 0) {
+            scrollView.post(() -> scrollView.scrollTo(0, savedScrollY));
+        }
+    }
+
     private void applyThemeSelection(int mode) {
         int accentColor = AccentColorManager.getAccentColor(requireContext());
 
@@ -89,7 +106,6 @@ public class SettingsFragment extends Fragment {
 
         if (activeTile != null) {
             activeTile.setBackgroundResource(R.drawable.theme_selector_active);
-            // Меняем цвет обводки активной плитки на акцентный
             GradientDrawable gd = (GradientDrawable) activeTile.getBackground();
             gd.setStroke(2, accentColor);
         }
@@ -117,6 +133,13 @@ public class SettingsFragment extends Fragment {
             else if (v.getId() == R.id.color_red) color = 0xFFEF5350;
 
             AccentColorManager.setAccentColor(requireContext(), color);
+
+            // Сохраняем позицию скролла перед recreate
+            View scrollView = getView().findViewById(R.id.scrollView);
+            if (scrollView != null) {
+                savedScrollY = scrollView.getScrollY();
+            }
+
             resetColorSelection(view);
             v.setBackgroundResource(R.drawable.color_circle_active);
             FrameLayout frame = (FrameLayout) v;
@@ -129,6 +152,7 @@ public class SettingsFragment extends Fragment {
             );
             params.gravity = Gravity.CENTER;
             frame.addView(check, params);
+
             requireActivity().recreate();
         };
 
