@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0A0A0A"
+    android:background="?android:attr/colorBackground"
     android:padding="4dp"
     android:fillViewport="true">
 
@@ -54,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="0dp"
                         android:text="Bedrock Edition"
-                        android:textColor="#9CA3AF"
+                        android:textColor="@color/text_secondary"
                         android:textSize="14sp"/>
 
                 </LinearLayout>
@@ -93,7 +93,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Current Instance"
-                                android:textColor="#9CA3AF"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="9sp"/>
 
                             <TextView
@@ -103,7 +103,7 @@
                                 android:minWidth="60dp"
                                 android:maxWidth="140dp"
                                 android:text="Minecraft"
-                                android:textColor="#FFFFFF"
+                                android:textColor="@color/text_primary"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
                                 android:singleLine="true"
@@ -116,7 +116,7 @@
                             android:layout_height="14dp"
                             android:layout_marginStart="4dp"
                             android:src="@drawable/ic_arrow_down"
-                            app:tint="#6B7280"/>
+                            app:tint="@color/text_secondary"/>
 
                     </LinearLayout>
 
@@ -134,7 +134,7 @@
                         android:drawableStart="@drawable/ic_rocket_launch"
                         android:drawablePadding="6dp"
                         android:text=" Launch"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text_primary"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         android:textAllCaps="false"
@@ -164,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:text="Settings lets you adjust theme, color, background, and other appearance options to match your setup."
-                    android:textColor="#9CA3AF"
+                    android:textColor="@color/text_secondary"
                     android:textSize="11sp"/>
 
             </LinearLayout>
@@ -201,7 +201,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Mods"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         android:drawableStart="@drawable/ic_plugin"
@@ -252,7 +252,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Content Management"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         android:drawableStart="@drawable/ic_cube"
@@ -263,7 +263,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="View All →"
-                        android:textColor="#6B7280"
+                        android:textColor="@color/text_secondary"
                         android:textSize="10sp"
                         android:clickable="true"
                         android:focusable="true"
@@ -301,7 +301,7 @@
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
                                 android:src="@drawable/ic_world"
-                                app:tint="#FFFFFF"/>
+                                app:tint="@color/text_primary"/>
 
                             <TextView
                                 android:layout_width="0dp"
@@ -309,7 +309,7 @@
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
                                 android:text="Worlds"
-                                android:textColor="#FFFFFF"
+                                android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
                             <TextView
@@ -317,7 +317,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textColor="#6B7280"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="12sp"
                                 android:textStyle="bold"/>
 
@@ -326,7 +326,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="2dp"
                                 android:text="›"
-                                android:textColor="#6B7280"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="12sp"/>
 
                         </LinearLayout>
@@ -346,7 +346,7 @@
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
                                 android:src="@drawable/ic_photo"
-                                app:tint="#FFFFFF"/>
+                                app:tint="@color/text_primary"/>
 
                             <TextView
                                 android:layout_width="0dp"
@@ -354,7 +354,7 @@
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
                                 android:text="Resource Packs"
-                                android:textColor="#FFFFFF"
+                                android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
                             <TextView
@@ -362,7 +362,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textColor="#6B7280"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="12sp"
                                 android:textStyle="bold"/>
 
@@ -371,7 +371,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="2dp"
                                 android:text="›"
-                                android:textColor="#6B7280"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="12sp"/>
 
                         </LinearLayout>
@@ -404,7 +404,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Miscellaneous"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         android:drawableStart="@drawable/ic_archive"
@@ -450,14 +450,14 @@
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
                                 android:text="CurseForge"
-                                android:textColor="#FFFFFF"
+                                android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="›"
-                                android:textColor="#6B7280"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="14sp"/>
 
                         </LinearLayout>
@@ -485,14 +485,14 @@
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
                                 android:text="Microsoft Accounts"
-                                android:textColor="#FFFFFF"
+                                android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="›"
-                                android:textColor="#6B7280"
+                                android:textColor="@color/text_secondary"
                                 android:textSize="14sp"/>
 
                         </LinearLayout>
