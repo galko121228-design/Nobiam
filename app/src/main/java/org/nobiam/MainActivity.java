@@ -1,6 +1,5 @@
 package org.nobiam;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -15,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import org.nobiam.ui.HomeFragment;
 import org.nobiam.ui.SettingsFragment;
 import org.nobiam.ui.AboutFragment;
+import org.nobiam.utils.ThemeHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,12 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        ThemeHelper.loadSavedTheme(this);
 
-        // Применяем сохранённую тему
-        SharedPreferences prefs = getSharedPreferences("nobiam_settings", 0);
-        String theme = prefs.getString("theme", "dark");
-        // TODO: применить тему (Light/Dark/System) через DayNight или пересоздание Activity
+        super.onCreate(savedInstanceState);
 
         Window window = getWindow();
         WindowCompat.setDecorFitsSystemWindows(window, false);
@@ -76,10 +73,10 @@ public class MainActivity extends AppCompatActivity {
     private void switchFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(
-            R.anim.fade_in,  // enter
-            R.anim.fade_out, // exit
-            R.anim.fade_in,  // popEnter
-            R.anim.fade_out  // popExit
+            R.anim.fade_in,
+            R.anim.fade_out,
+            R.anim.fade_in,
+            R.anim.fade_out
         );
         transaction.replace(R.id.container, fragment);
         transaction.commit();

@@ -1,6 +1,5 @@
 package org.nobiam.ui;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -11,11 +10,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import androidx.appcompat.app.AppCompatDelegate;
+
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+
 import org.nobiam.R;
+import org.nobiam.utils.ThemeHelper;
 
 public class SettingsFragment extends Fragment {
     private SharedPreferences prefs;
@@ -34,43 +34,26 @@ public class SettingsFragment extends Fragment {
         LinearLayout themeDark = view.findViewById(R.id.theme_dark);
         LinearLayout themeSystem = view.findViewById(R.id.theme_system);
 
-        String currentTheme = prefs.getString("theme", "dark");
+        String currentTheme = ThemeHelper.getSavedTheme(requireActivity());
         applyThemeSelection(themeLight, themeDark, themeSystem, currentTheme);
 
         View.OnClickListener themeListener = v -> {
             String theme = "dark";
-            int mode = AppCompatDelegate.MODE_NIGHT_YES;
             if (v.getId() == R.id.theme_light) {
                 theme = "light";
-                mode = AppCompatDelegate.MODE_NIGHT_NO;
             } else if (v.getId() == R.id.theme_dark) {
                 theme = "dark";
-                mode = AppCompatDelegate.MODE_NIGHT_YES;
             } else if (v.getId() == R.id.theme_system) {
                 theme = "system";
-                mode = AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
             }
-            editor.putString("theme", theme);
-            editor.apply();
-            applyThemeSelection(themeLight, themeDark, themeSystem, theme);
-            
-            // ПРИМЕНЯЕМ ТЕМУ
-            AppCompatDelegate.setDefaultNightMode(mode);
-            
-            // Перезапускаем Activity, чтобы применить тему
-            Activity activity = getActivity();
-            if (activity != null) {
-                activity.recreate();
-            }
-            
-            Toast.makeText(getContext(), "Theme: " + theme, Toast.LENGTH_SHORT).show();
+            ThemeHelper.applyTheme(requireActivity(), theme);
         };
 
         themeLight.setOnClickListener(themeListener);
         themeDark.setOnClickListener(themeListener);
         themeSystem.setOnClickListener(themeListener);
 
-        // Цвета (пока заглушка)
+        // Цвета
         FrameLayout colorBlue = view.findViewById(R.id.color_blue);
         FrameLayout colorPurple = view.findViewById(R.id.color_purple);
         FrameLayout colorGreen = view.findViewById(R.id.color_green);
@@ -104,7 +87,6 @@ public class SettingsFragment extends Fragment {
             );
             params.gravity = Gravity.CENTER;
             frame.addView(check, params);
-            Toast.makeText(getContext(), "Color changed", Toast.LENGTH_SHORT).show();
         };
 
         colorBlue.setOnClickListener(colorListener);
@@ -114,7 +96,7 @@ public class SettingsFragment extends Fragment {
         colorPink.setOnClickListener(colorListener);
         colorRed.setOnClickListener(colorListener);
 
-        // Язык (заглушка)
+        // Язык
         LinearLayout langSelector = view.findViewById(R.id.language_selector);
         TextView langText = view.findViewById(R.id.language_text);
         String currentLang = prefs.getString("language", "Русский");
@@ -131,7 +113,6 @@ public class SettingsFragment extends Fragment {
                 langText.setText(newLang);
                 editor.putString("language", newLang);
                 editor.apply();
-                Toast.makeText(getContext(), "Language: " + newLang, Toast.LENGTH_SHORT).show();
             });
         }
 
