@@ -50,6 +50,19 @@
                     android:textColor="#9CA3AF"
                     android:textSize="14sp"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -110,6 +123,19 @@
             android:singleLine="true"
             android:ellipsize="end"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 
     <ImageView
@@ -119,6 +145,19 @@
         android:src="@drawable/ic_arrow_down"
         app:tint="#6B7280"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 
                 <Button
@@ -142,8 +181,34 @@
                     android:insetTop="0dp"
                     android:insetBottom="0dp"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
         </LinearLayout>
 
         <LinearLayout
@@ -168,8 +233,34 @@
                 android:textColor="#9CA3AF"
                 android:textSize="11sp"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
         </LinearLayout>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 
     <LinearLayout
@@ -225,8 +316,34 @@
                     android:textStyle="bold"
                     android:textAllCaps="false"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
         </LinearLayout>
 
         <LinearLayout
@@ -267,6 +384,19 @@
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
             <ScrollView
@@ -327,6 +457,19 @@
                             android:textColor="#6B7280"
                             android:textSize="12sp"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -372,12 +515,51 @@
                             android:textColor="#6B7280"
                             android:textSize="12sp"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
                     </LinearLayout>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
                 </LinearLayout>
 
             </ScrollView>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
         </LinearLayout>
 
         <LinearLayout
@@ -407,6 +589,19 @@
                     android:drawableStart="@drawable/ic_archive"
                     android:drawablePadding="4dp"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
             </LinearLayout>
 
             <ScrollView
@@ -457,6 +652,19 @@
                             android:textColor="#6B7280"
                             android:textSize="14sp"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -492,14 +700,87 @@
                             android:textColor="#6B7280"
                             android:textSize="14sp"/>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
                     </LinearLayout>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
                 </LinearLayout>
 
             </ScrollView>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
         </LinearLayout>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 
+        <!-- Тестовая кнопка для смены темы -->
+        <Button
+            android:id="@+id/test_theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toggle Theme"
+            android:background="@drawable/bg_launch_button"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal"/>
 </LinearLayout>
+    <Button
+        android:id="@+id/test_theme_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toggle Theme"
+        android:background="@drawable/bg_launch_button"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
