@@ -21,12 +21,35 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
-        // Заголовок "About" акцентным цветом
         TextView aboutTitle = view.findViewById(R.id.about_title);
         if (aboutTitle != null) {
             aboutTitle.setTextColor(AccentColorManager.getAccentColor(requireContext()));
         }
 
-        // ... остальное без изменений
+        ImageView telegram = view.findViewById(R.id.about_telegram);
+        if (telegram != null) {
+            telegram.setOnClickListener(v -> {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/NobiamOS"));
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "Telegram not installed", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        ImageView tiktok = view.findViewById(R.id.about_tiktok);
+        if (tiktok != null) {
+            tiktok.setOnClickListener(v -> {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tiktok.com/@NobiamOS"));
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), "Cannot open TikTok", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        return view;
     }
 }

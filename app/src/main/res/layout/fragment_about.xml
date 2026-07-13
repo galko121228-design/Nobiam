@@ -36,9 +36,10 @@
                 android:layout_marginStart="12dp">
 
                 <TextView
+                    android:id="@+id/about_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nobiam"
+                    android:text="About"
                     android:textColor="#00D4FF"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
@@ -47,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Version 1.0"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="#6B7280"
                     android:textSize="13sp"/>
 
                 <LinearLayout
@@ -61,7 +62,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Made with "
-                        android:textColor="@color/text_secondary"
+                        android:textColor="#9CA3AF"
                         android:textSize="12sp"/>
 
                     <ImageView
@@ -102,7 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Define"
-                    android:textColor="@color/text_primary"
+                    android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
 
@@ -110,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" Author and Coder "
-                    android:textColor="@color/text_primary"
+                    android:textColor="#FFFFFF"
                     android:textSize="11sp"
                     android:textStyle="bold"
                     android:background="@drawable/bg_green_tag"

@@ -10,6 +10,7 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import org.nobiam.ui.HomeFragment;
 import org.nobiam.ui.SettingsFragment;
@@ -44,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
         hideSystemBars();
 
-        // Хедер: применяем акцентный цвет к "Nobiam"
         headerTitle = findViewById(R.id.header_title);
         if (headerTitle != null) {
             headerTitle.setTextColor(AccentColorManager.getAccentColor(this));
@@ -100,16 +100,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void switchFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                .replace(R.id.container, fragment)
-                .commit();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+        transaction.replace(R.id.container, fragment);
+        transaction.commit();
     }
 
     private void updateNavState(ImageButton activeButton) {
         int accentColor = AccentColorManager.getAccentColor(this);
 
-        // Сброс всех
         navHome.setBackgroundResource(R.drawable.nav_inactive);
         navHome.setColorFilter(getColor(R.color.text_inactive));
         navSettings.setBackgroundResource(R.drawable.nav_inactive);
@@ -117,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
         navAbout.setBackgroundResource(R.drawable.nav_inactive);
         navAbout.setColorFilter(getColor(R.color.text_inactive));
 
-        // Активация выбранной с акцентным цветом
         activeButton.setBackgroundResource(R.drawable.nav_active);
         activeButton.setColorFilter(accentColor);
     }
@@ -136,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         hideSystemBars();
-        // Обновляем цвет хедера при возврате
         if (headerTitle != null) {
             headerTitle.setTextColor(AccentColorManager.getAccentColor(this));
         }
