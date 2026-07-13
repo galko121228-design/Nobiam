@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".NobiamApplication"
         android:allowBackup="true"
         android:label="Nobiam"
         android:icon="@drawable/logo"
