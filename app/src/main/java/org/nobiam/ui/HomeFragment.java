@@ -1,5 +1,6 @@
 package org.nobiam.ui;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // Применяем акцентный цвет
         int accentColor = AccentColorManager.getAccentColor(requireContext());
 
         // Заголовок "Minecraft"
@@ -31,10 +31,10 @@ public class HomeFragment extends Fragment {
             minecraftTitle.setTextColor(accentColor);
         }
 
-        // Кнопка Launch
+        // Кнопка Launch — через tint, чтобы сохранить радиус и стиль
         Button launchButton = view.findViewById(R.id.launch_button);
         if (launchButton != null) {
-            launchButton.setBackgroundColor(accentColor);
+            launchButton.setBackgroundTintList(ColorStateList.valueOf(accentColor));
         }
 
         // Current Instance selector

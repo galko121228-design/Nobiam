@@ -108,13 +108,13 @@ public class SettingsFragment extends Fragment {
         applyColorSelection(view, currentColor);
 
         View.OnClickListener colorListener = v -> {
-            int color = 0x00D4FF;
-            if (v.getId() == R.id.color_blue) color = 0x00D4FF;
-            else if (v.getId() == R.id.color_purple) color = 0x7C4DFF;
-            else if (v.getId() == R.id.color_green) color = 0x00E676;
-            else if (v.getId() == R.id.color_orange) color = 0xFFA726;
-            else if (v.getId() == R.id.color_pink) color = 0xFF4081;
-            else if (v.getId() == R.id.color_red) color = 0xEF5350;
+            int color = 0xFF00D4FF;
+            if (v.getId() == R.id.color_blue) color = 0xFF00D4FF;
+            else if (v.getId() == R.id.color_purple) color = 0xFF7C4DFF;
+            else if (v.getId() == R.id.color_green) color = 0xFF00E676;
+            else if (v.getId() == R.id.color_orange) color = 0xFFFFA726;
+            else if (v.getId() == R.id.color_pink) color = 0xFFFF4081;
+            else if (v.getId() == R.id.color_red) color = 0xFFEF5350;
 
             AccentColorManager.setAccentColor(requireContext(), color);
             resetColorSelection(view);
@@ -177,11 +177,11 @@ public class SettingsFragment extends Fragment {
 
     private void applyColorSelection(View view, int color) {
         int id = R.id.color_blue;
-        if (color == 0x7C4DFF) id = R.id.color_purple;
-        else if (color == 0x00E676) id = R.id.color_green;
-        else if (color == 0xFFA726) id = R.id.color_orange;
-        else if (color == 0xFF4081) id = R.id.color_pink;
-        else if (color == 0xEF5350) id = R.id.color_red;
+        if (color == 0xFF7C4DFF) id = R.id.color_purple;
+        else if (color == 0xFF00E676) id = R.id.color_green;
+        else if (color == 0xFFFFA726) id = R.id.color_orange;
+        else if (color == 0xFFFF4081) id = R.id.color_pink;
+        else if (color == 0xFFEF5350) id = R.id.color_red;
 
         FrameLayout target = view.findViewById(id);
         if (target != null) {

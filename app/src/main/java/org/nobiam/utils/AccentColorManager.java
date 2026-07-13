@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 public class AccentColorManager {
     private static final String PREFS = "nobiam_settings";
     private static final String KEY_ACCENT_COLOR = "accent_color";
-    private static final int DEFAULT_COLOR = 0x00D4FF;
+    private static final int DEFAULT_COLOR = 0xFF00D4FF; // ✅ С альфа-каналом
 
     public static int getAccentColor(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
