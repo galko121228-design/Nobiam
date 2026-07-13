@@ -53,7 +53,6 @@
                 android:orientation="horizontal"
                 android:gravity="center_horizontal">
 
-                <!-- Light -->
                 <LinearLayout
                     android:id="@+id/theme_light"
                     android:layout_width="0dp"
@@ -70,7 +69,8 @@
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:src="@drawable/ic_light_mode"/>
+                        android:src="@drawable/ic_light_mode"
+                        app:tint="#9CA3AF"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -82,7 +82,6 @@
 
                 </LinearLayout>
 
-                <!-- Dark -->
                 <LinearLayout
                     android:id="@+id/theme_dark"
                     android:layout_width="0dp"
@@ -99,7 +98,8 @@
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:src="@drawable/ic_dark_mode"/>
+                        android:src="@drawable/ic_dark_mode"
+                        app:tint="#FFFFFF"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -111,7 +111,6 @@
 
                 </LinearLayout>
 
-                <!-- System -->
                 <LinearLayout
                     android:id="@+id/theme_system"
                     android:layout_width="0dp"
@@ -128,7 +127,8 @@
                     <ImageView
                         android:layout_width="28dp"
                         android:layout_height="28dp"
-                        android:src="@drawable/ic_system_mode"/>
+                        android:src="@drawable/ic_system_mode"
+                        app:tint="#9CA3AF"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -190,7 +190,7 @@
                         android:layout_height="16dp"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_check"
-                        android:colorFilter="#FFFFFF"/>
+                        app:tint="#FFFFFF"/>
 
                 </FrameLayout>
 
