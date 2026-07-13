@@ -39,7 +39,7 @@
                     android:id="@+id/about_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="About"
+                    android:text="@string/about_title"
                     android:textColor="#00D4FF"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
@@ -47,7 +47,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Version 1.0"
+                    android:text="@string/version"
                     android:textColor="#6B7280"
                     android:textSize="13sp"/>
 
@@ -61,7 +61,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Made with "
+                        android:text="@string/made_with"
                         android:textColor="#9CA3AF"
                         android:textSize="12sp"/>
 
@@ -102,7 +102,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Define"
+                    android:text="@string/developer_define"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold"/>

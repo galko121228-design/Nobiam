@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
-import org.nobiam.MainActivity;
 import org.nobiam.utils.AccentColorManager;
 import org.nobiam.utils.LanguageManager;
 import org.nobiam.utils.ThemeManager;
@@ -26,6 +25,7 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
+        // Заголовок
         TextView settingsTitle = view.findViewById(R.id.settings_title);
         if (settingsTitle != null) {
             settingsTitle.setTextColor(AccentColorManager.getAccentColor(requireContext()));
@@ -103,12 +103,8 @@ public class SettingsFragment extends Fragment {
                 String currentLang = LanguageManager.getLanguage(requireContext());
                 String newLang = currentLang.equals("ru") ? "en" : "ru";
                 LanguageManager.setLanguage(requireContext(), newLang);
-                langText.setText(newLang.equals("ru") ? "Русский" : "English");
-
-                // Обновляем текущий фрагмент через MainActivity
-                if (getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).refreshCurrentFragment();
-                }
+                // Просто перезапускаем Activity
+                requireActivity().recreate();
             });
         }
     }

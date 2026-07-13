@@ -1,5 +1,28 @@
 <resources>
+    <!-- Common -->
     <string name="app_name">Nobiam</string>
+    <string name="nobiam">Nobiam</string>
+    <string name="minecraft">Minecraft</string>
+    <string name="bedrock_edition">Bedrock Edition</string>
+    <string name="version">Version 1.0</string>
+    <string name="made_with">Made with</string>
+    <string name="developer_define">Define</string>
+    <string name="developer_label">Developer: Define</string>
+
+    <!-- Home -->
+    <string name="current_instance">Current Instance</string>
+    <string name="settings_tip">Settings lets you adjust theme, color, background, and other appearance options to match your setup.</string>
+    <string name="mods">Mods</string>
+    <string name="manage_mods">Manage Mods</string>
+    <string name="content_management">Content Management</string>
+    <string name="view_all">View All →</string>
+    <string name="worlds">Worlds</string>
+    <string name="resource_packs">Resource Packs</string>
+    <string name="miscellaneous">Miscellaneous</string>
+    <string name="curseforge">CurseForge</string>
+    <string name="microsoft_accounts">Microsoft Accounts</string>
+
+    <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="settings_subtitle">Customize your experience</string>
     <string name="language">Language</string>
@@ -8,5 +31,10 @@
     <string name="theme_dark">Dark</string>
     <string name="theme_system">System</string>
     <string name="accent_color">Accent Color</string>
-    <string name="version">Version 1.0</string>
+    <string name="more_colors">More colors</string>
+    <string name="russian">Русский</string>
+    <string name="english">English</string>
+
+    <!-- About -->
+    <string name="about_title">About</string>
 </resources>

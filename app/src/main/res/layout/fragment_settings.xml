@@ -186,7 +186,7 @@
                         android:id="@+id/language_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Русский"
+                        android:text="@string/russian"
                         android:textColor="?android:attr/textColorPrimary"
                         android:textSize="14sp"
                         android:textStyle="bold"/>
@@ -237,7 +237,7 @@
                 android:id="@+id/more_colors_toggle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="More colors ▼"
+                android:text="@string/more_colors"
                 android:textColor="@color/neon_blue"
                 android:textSize="13sp"
                 android:textStyle="bold"

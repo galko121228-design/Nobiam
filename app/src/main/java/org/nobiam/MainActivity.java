@@ -101,15 +101,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void refreshCurrentFragment() {
-        if (currentFragment != null) {
-            getSupportFragmentManager().beginTransaction()
-                    .detach(currentFragment)
-                    .attach(currentFragment)
-                    .commit();
-        }
-    }
-
     private void switchFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
@@ -150,7 +141,5 @@ public class MainActivity extends AppCompatActivity {
         if (headerTitle != null) {
             headerTitle.setTextColor(AccentColorManager.getAccentColor(this));
         }
-        // Обновляем текущий фрагмент после возврата
-        refreshCurrentFragment();
     }
 }

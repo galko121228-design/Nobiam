@@ -44,7 +44,7 @@
                         android:id="@+id/minecraft_title_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Minecraft"
+                        android:text="@string/minecraft"
                         android:textColor="@color/neon_blue"
                         android:textSize="28sp"
                         android:textStyle="bold"/>
@@ -53,7 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="0dp"
-                        android:text="Bedrock Edition"
+                        android:text="@string/bedrock_edition"
                         android:textColor="@color/text_secondary"
                         android:textSize="14sp"/>
 
@@ -92,7 +92,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Current Instance"
+                                android:text="@string/current_instance"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="9sp"/>
 
@@ -102,7 +102,7 @@
                                 android:layout_height="wrap_content"
                                 android:minWidth="60dp"
                                 android:maxWidth="140dp"
-                                android:text="Minecraft"
+                                android:text="@string/minecraft"
                                 android:textColor="@color/text_primary"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
@@ -164,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="Settings lets you adjust theme, color, background, and other appearance options to match your setup."
+                    android:text="@string/settings_tip"
                     android:textColor="@color/text_secondary"
                     android:textSize="11sp"/>
 
@@ -202,7 +202,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Mods"
+                        android:text="@string/mods"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
@@ -222,7 +222,7 @@
                         android:background="@drawable/bg_mod_menu_toggle"
                         android:foreground="?attr/selectableItemBackground"
                         app:backgroundTint="@null"
-                        android:text="Manage Mods"
+                        android:text="@string/manage_mods"
                         android:textColor="@color/neon_blue"
                         android:textSize="9sp"
                         android:textStyle="bold"
@@ -254,7 +254,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Content Management"
+                        android:text="@string/content_management"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
@@ -265,7 +265,7 @@
                         android:id="@+id/content_view_all"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View All →"
+                        android:text="@string/view_all"
                         android:textColor="@color/text_secondary"
                         android:textSize="10sp"
                         android:clickable="true"
@@ -311,7 +311,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
-                                android:text="Worlds"
+                                android:text="@string/worlds"
                                 android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
@@ -356,7 +356,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
-                                android:text="Resource Packs"
+                                android:text="@string/resource_packs"
                                 android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
@@ -407,7 +407,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Miscellaneous"
+                        android:text="@string/miscellaneous"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
@@ -453,7 +453,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
-                                android:text="CurseForge"
+                                android:text="@string/curseforge"
                                 android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
@@ -488,7 +488,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
-                                android:text="Microsoft Accounts"
+                                android:text="@string/microsoft_accounts"
                                 android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
