@@ -34,23 +34,23 @@ public class SettingsFragment extends Fragment {
         themeSystem = view.findViewById(R.id.theme_system);
 
         int currentMode = ThemeManager.getSavedTheme(requireContext());
-        applyThemeSelection(view, currentMode);
+        applyThemeSelection(currentMode);
 
         themeLight.setOnClickListener(v -> {
             ThemeManager.setTheme(requireContext(), AppCompatDelegate.MODE_NIGHT_NO);
-            applyThemeSelection(view, AppCompatDelegate.MODE_NIGHT_NO);
+            applyThemeSelection(AppCompatDelegate.MODE_NIGHT_NO);
             requireActivity().recreate();
         });
 
         themeDark.setOnClickListener(v -> {
             ThemeManager.setTheme(requireContext(), AppCompatDelegate.MODE_NIGHT_YES);
-            applyThemeSelection(view, AppCompatDelegate.MODE_NIGHT_YES);
+            applyThemeSelection(AppCompatDelegate.MODE_NIGHT_YES);
             requireActivity().recreate();
         });
 
         themeSystem.setOnClickListener(v -> {
             ThemeManager.setTheme(requireContext(), AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-            applyThemeSelection(view, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+            applyThemeSelection(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
             requireActivity().recreate();
         });
 
@@ -60,35 +60,23 @@ public class SettingsFragment extends Fragment {
         return view;
     }
 
-    private void applyThemeSelection(View view, int mode) {
+    private void applyThemeSelection(int mode) {
         int accentColor = AccentColorManager.getAccentColor(requireContext());
 
         themeLight.setBackgroundResource(R.drawable.theme_selector);
         themeDark.setBackgroundResource(R.drawable.theme_selector);
         themeSystem.setBackgroundResource(R.drawable.theme_selector);
 
-        ImageView iconLight = view.findViewById(R.id.theme_icon_light);
-        ImageView iconDark = view.findViewById(R.id.theme_icon_dark);
-        ImageView iconSystem = view.findViewById(R.id.theme_icon_system);
-
-        if (iconLight != null) iconLight.setColorFilter(getResources().getColor(R.color.text_inactive));
-        if (iconDark != null) iconDark.setColorFilter(getResources().getColor(R.color.text_inactive));
-        if (iconSystem != null) iconSystem.setColorFilter(getResources().getColor(R.color.text_inactive));
-
         LinearLayout activeTile = null;
-        ImageView activeIcon = null;
         switch (mode) {
             case AppCompatDelegate.MODE_NIGHT_NO:
                 activeTile = themeLight;
-                activeIcon = iconLight;
                 break;
             case AppCompatDelegate.MODE_NIGHT_YES:
                 activeTile = themeDark;
-                activeIcon = iconDark;
                 break;
             case AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM:
                 activeTile = themeSystem;
-                activeIcon = iconSystem;
                 break;
         }
 
@@ -96,9 +84,6 @@ public class SettingsFragment extends Fragment {
             activeTile.setBackgroundResource(R.drawable.theme_selector_active);
             GradientDrawable gd = (GradientDrawable) activeTile.getBackground();
             gd.setStroke(2, accentColor);
-            if (activeIcon != null) {
-                activeIcon.setColorFilter(accentColor);
-            }
         }
     }
 

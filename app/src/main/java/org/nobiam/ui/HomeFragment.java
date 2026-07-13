@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,11 +37,11 @@ public class HomeFragment extends Fragment {
             launchButton.setBackgroundTintList(ColorStateList.valueOf(accentColor));
         }
 
-        // --- Mods ---
+        // Карточка Mods — заголовок
         TextView modsTitle = view.findViewById(R.id.mods_title);
         if (modsTitle != null) modsTitle.setTextColor(accentColor);
-        ImageView modsIcon = view.findViewById(R.id.mods_icon);
-        if (modsIcon != null) modsIcon.setColorFilter(accentColor);
+
+        // Кнопка Manage Mods
         Button manageMods = view.findViewById(R.id.manage_mods_button);
         if (manageMods != null) {
             manageMods.setTextColor(accentColor);
@@ -50,19 +49,17 @@ public class HomeFragment extends Fragment {
             if (gd != null) gd.setStroke(1, accentColor);
         }
 
-        // --- Content Management ---
+        // Карточка Content Management — заголовок
         TextView contentTitle = view.findViewById(R.id.content_title);
         if (contentTitle != null) contentTitle.setTextColor(accentColor);
-        ImageView contentIcon = view.findViewById(R.id.content_icon);
-        if (contentIcon != null) contentIcon.setColorFilter(accentColor);
+
+        // "View All →"
         TextView viewAll = view.findViewById(R.id.content_view_all);
         if (viewAll != null) viewAll.setTextColor(accentColor);
 
-        // --- Miscellaneous ---
+        // Карточка Miscellaneous — заголовок
         TextView miscTitle = view.findViewById(R.id.misc_title);
         if (miscTitle != null) miscTitle.setTextColor(accentColor);
-        ImageView miscIcon = view.findViewById(R.id.misc_icon);
-        if (miscIcon != null) miscIcon.setColorFilter(accentColor);
 
         // Current Instance
         LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
