@@ -63,7 +63,6 @@ public class SettingsFragment extends Fragment {
         });
 
         setupLanguageSelector(view);
-        // setupColorPicker(view); // Временно ОТКЛЮЧЕНО
 
         return view;
     }
@@ -104,7 +103,11 @@ public class SettingsFragment extends Fragment {
                 String newLang = currentLang.equals("ru") ? "en" : "ru";
                 LanguageManager.setLanguage(requireContext(), newLang);
                 langText.setText(newLang.equals("ru") ? "Русский" : "English");
-                requireActivity().recreate();
+
+                // Обновляем текущий фрагмент через MainActivity
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).refreshCurrentFragment();
+                }
             });
         }
     }

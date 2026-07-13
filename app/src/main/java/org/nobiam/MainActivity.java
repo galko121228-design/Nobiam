@@ -101,22 +101,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        hideSystemBars();
-        if (headerTitle != null) {
-            headerTitle.setTextColor(AccentColorManager.getAccentColor(this));
-        }
-
-        // Принудительно обновляем цвета в текущем фрагменте
-        Fragment f = getSupportFragmentManager().findFragmentById(R.id.container);
-        if (f != null) {
-            if (f instanceof HomeFragment) {
-                ((HomeFragment) f).applyAccentColors();
-            } else if (f instanceof AboutFragment) {
-                ((AboutFragment) f).applyAccentColors();
-            }
+    public void refreshCurrentFragment() {
+        if (currentFragment != null) {
+            getSupportFragmentManager().beginTransaction()
+                    .detach(currentFragment)
+                    .attach(currentFragment)
+                    .commit();
         }
     }
 
@@ -151,5 +141,16 @@ public class MainActivity extends AppCompatActivity {
         controller.setSystemBarsBehavior(
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         );
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        hideSystemBars();
+        if (headerTitle != null) {
+            headerTitle.setTextColor(AccentColorManager.getAccentColor(this));
+        }
+        // Обновляем текущий фрагмент после возврата
+        refreshCurrentFragment();
     }
 }

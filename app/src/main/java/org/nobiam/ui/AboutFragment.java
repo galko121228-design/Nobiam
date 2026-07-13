@@ -7,44 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
-import org.nobiam.utils.AccentColorManager;
 
 public class AboutFragment extends Fragment {
-
-    private View view;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_about, container, false);
-        applyAccentColors();
-        setupListeners();
-        return view;
-    }
+        View view = inflater.inflate(R.layout.fragment_about, container, false);
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        applyAccentColors();
-    }
-
-    public void applyAccentColors() {
-        if (view == null) return;
-        int accentColor = AccentColorManager.getAccentColor(requireContext());
-
-        TextView aboutTitle = view.findViewById(R.id.about_title);
-        if (aboutTitle != null) {
-            aboutTitle.setTextColor(accentColor);
-        }
-    }
-
-    private void setupListeners() {
         ImageView telegram = view.findViewById(R.id.about_telegram);
         if (telegram != null) {
             telegram.setOnClickListener(v -> {
@@ -67,6 +41,17 @@ public class AboutFragment extends Fragment {
                     Toast.makeText(getContext(), "Cannot open TikTok", Toast.LENGTH_SHORT).show();
                 }
             });
+        }
+
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Обновляем тексты при возврате
+        if (getView() != null) {
+            // Тексты уже через @string, обновятся автоматически
         }
     }
 }
