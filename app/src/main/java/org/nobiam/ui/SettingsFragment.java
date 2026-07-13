@@ -1,5 +1,6 @@
 package org.nobiam.ui;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -11,25 +12,43 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
 import org.nobiam.R;
 
 public class SettingsFragment extends Fragment {
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor editor;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
+
+        prefs = getContext().getSharedPreferences("nobiam_settings", 0);
+        editor = prefs.edit();
 
         // Темы
         LinearLayout themeLight = view.findViewById(R.id.theme_light);
         LinearLayout themeDark = view.findViewById(R.id.theme_dark);
         LinearLayout themeSystem = view.findViewById(R.id.theme_system);
 
+        // Загружаем сохранённую тему
+        String currentTheme = prefs.getString("theme", "dark");
+        applyThemeSelection(themeLight, themeDark, themeSystem, currentTheme);
+
         View.OnClickListener themeListener = v -> {
-            themeLight.setBackgroundResource(R.drawable.theme_selector);
-            themeDark.setBackgroundResource(R.drawable.theme_selector);
-            themeSystem.setBackgroundResource(R.drawable.theme_selector);
-            v.setBackgroundResource(R.drawable.theme_selector_active);
-            Toast.makeText(getContext(), "Theme changed", Toast.LENGTH_SHORT).show();
+            String theme = "dark";
+            if (v.getId() == R.id.theme_light) {
+                theme = "light";
+            } else if (v.getId() == R.id.theme_dark) {
+                theme = "dark";
+            } else if (v.getId() == R.id.theme_system) {
+                theme = "system";
+            }
+            editor.putString("theme", theme);
+            editor.apply();
+            applyThemeSelection(themeLight, themeDark, themeSystem, theme);
+            Toast.makeText(getContext(), "Theme: " + theme, Toast.LENGTH_SHORT).show();
         };
 
         themeLight.setOnClickListener(themeListener);
@@ -44,16 +63,30 @@ public class SettingsFragment extends Fragment {
         FrameLayout colorPink = view.findViewById(R.id.color_pink);
         FrameLayout colorRed = view.findViewById(R.id.color_red);
 
+        // Загружаем сохранённый цвет
+        String currentColor = prefs.getString("accent_color", "#00D4FF");
+        applyColorSelection(view, currentColor);
+
         View.OnClickListener colorListener = v -> {
+            String color = "#00D4FF";
+            if (v.getId() == R.id.color_blue) color = "#00D4FF";
+            else if (v.getId() == R.id.color_purple) color = "#7C4DFF";
+            else if (v.getId() == R.id.color_green) color = "#00E676";
+            else if (v.getId() == R.id.color_orange) color = "#FFA726";
+            else if (v.getId() == R.id.color_pink) color = "#FF4081";
+            else if (v.getId() == R.id.color_red) color = "#EF5350";
+
+            editor.putString("accent_color", color);
+            editor.apply();
             resetColorSelection(view);
             v.setBackgroundResource(R.drawable.color_circle_active);
             FrameLayout frame = (FrameLayout) v;
             ImageView check = new ImageView(getContext());
             check.setImageResource(R.drawable.ic_check);
-            check.setColorFilter(getResources().getColor(android.R.color.white));
+            check.setColorFilter(ContextCompat.getColor(getContext(), android.R.color.white));
             FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-                FrameLayout.LayoutParams.WRAP_CONTENT,
-                FrameLayout.LayoutParams.WRAP_CONTENT
+                    FrameLayout.LayoutParams.WRAP_CONTENT,
+                    FrameLayout.LayoutParams.WRAP_CONTENT
             );
             params.gravity = Gravity.CENTER;
             frame.addView(check, params);
@@ -67,20 +100,48 @@ public class SettingsFragment extends Fragment {
         colorPink.setOnClickListener(colorListener);
         colorRed.setOnClickListener(colorListener);
 
-        // Language
+        // Язык
         LinearLayout langSelector = view.findViewById(R.id.language_selector);
         TextView langText = view.findViewById(R.id.language_text);
+
+        // Загружаем сохранённый язык
+        String currentLang = prefs.getString("language", "Русский");
+        langText.setText(currentLang);
+
         if (langSelector != null) {
             langSelector.setOnClickListener(v -> {
+                String newLang;
                 if (langText.getText().equals("Русский")) {
-                    langText.setText("English");
+                    newLang = "English";
                 } else {
-                    langText.setText("Русский");
+                    newLang = "Русский";
                 }
+                langText.setText(newLang);
+                editor.putString("language", newLang);
+                editor.apply();
+                Toast.makeText(getContext(), "Language: " + newLang, Toast.LENGTH_SHORT).show();
             });
         }
 
         return view;
+    }
+
+    private void applyThemeSelection(LinearLayout light, LinearLayout dark, LinearLayout system, String theme) {
+        light.setBackgroundResource(R.drawable.theme_selector);
+        dark.setBackgroundResource(R.drawable.theme_selector);
+        system.setBackgroundResource(R.drawable.theme_selector);
+
+        switch (theme) {
+            case "light":
+                light.setBackgroundResource(R.drawable.theme_selector_active);
+                break;
+            case "dark":
+                dark.setBackgroundResource(R.drawable.theme_selector_active);
+                break;
+            case "system":
+                system.setBackgroundResource(R.drawable.theme_selector_active);
+                break;
+        }
     }
 
     private void resetColorSelection(View view) {
@@ -115,6 +176,32 @@ public class SettingsFragment extends Fragment {
                 }
                 color.addView(circle);
             }
+        }
+    }
+
+    private void applyColorSelection(View view, String color) {
+        int colorId = R.id.color_blue;
+        switch (color) {
+            case "#7C4DFF": colorId = R.id.color_purple; break;
+            case "#00E676": colorId = R.id.color_green; break;
+            case "#FFA726": colorId = R.id.color_orange; break;
+            case "#FF4081": colorId = R.id.color_pink; break;
+            case "#EF5350": colorId = R.id.color_red; break;
+            default: colorId = R.id.color_blue; break;
+        }
+        // Активируем нужный цвет через симуляцию клика
+        FrameLayout target = view.findViewById(colorId);
+        if (target != null) {
+            target.setBackgroundResource(R.drawable.color_circle_active);
+            ImageView check = new ImageView(getContext());
+            check.setImageResource(R.drawable.ic_check);
+            check.setColorFilter(ContextCompat.getColor(getContext(), android.R.color.white));
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.WRAP_CONTENT,
+                    FrameLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.gravity = Gravity.CENTER;
+            target.addView(check, params);
         }
     }
 }

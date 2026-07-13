@@ -1,5 +1,6 @@
 package org.nobiam;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -25,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Применяем сохранённую тему
+        SharedPreferences prefs = getSharedPreferences("nobiam_settings", 0);
+        String theme = prefs.getString("theme", "dark");
+        // TODO: применить тему (Light/Dark/System) через DayNight или пересоздание Activity
 
         Window window = getWindow();
         WindowCompat.setDecorFitsSystemWindows(window, false);
