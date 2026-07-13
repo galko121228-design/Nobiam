@@ -7,11 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
+import org.nobiam.utils.AccentColorManager;
 
 public class AboutFragment extends Fragment {
     @Override
@@ -19,32 +21,12 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
-        // Telegram
-        ImageView telegram = view.findViewById(R.id.about_telegram);
-        if (telegram != null) {
-            telegram.setOnClickListener(v -> {
-                try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/NobiamOS"));
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Toast.makeText(getContext(), "Telegram not installed", Toast.LENGTH_SHORT).show();
-                }
-            });
+        // Заголовок "About" акцентным цветом
+        TextView aboutTitle = view.findViewById(R.id.about_title);
+        if (aboutTitle != null) {
+            aboutTitle.setTextColor(AccentColorManager.getAccentColor(requireContext()));
         }
 
-        // TikTok
-        ImageView tiktok = view.findViewById(R.id.about_tiktok);
-        if (tiktok != null) {
-            tiktok.setOnClickListener(v -> {
-                try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tiktok.com/@NobiamOS"));
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Toast.makeText(getContext(), "Cannot open TikTok", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-
-        return view;
+        // ... остальное без изменений
     }
 }

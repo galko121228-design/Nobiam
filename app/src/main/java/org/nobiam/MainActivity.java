@@ -3,6 +3,7 @@ package org.nobiam;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment aboutFragment;
     private ImageButton navHome, navSettings, navAbout;
     private Fragment currentFragment;
+    private TextView headerTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         hideSystemBars();
+
+        // Хедер: применяем акцентный цвет к "Nobiam"
+        headerTitle = findViewById(R.id.header_title);
+        if (headerTitle != null) {
+            headerTitle.setTextColor(AccentColorManager.getAccentColor(this));
+        }
 
         homeFragment = new HomeFragment();
         settingsFragment = new SettingsFragment();
@@ -128,5 +136,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         hideSystemBars();
+        // Обновляем цвет хедера при возврате
+        if (headerTitle != null) {
+            headerTitle.setTextColor(AccentColorManager.getAccentColor(this));
+        }
     }
 }
