@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
+import org.nobiam.MainActivity;
 import org.nobiam.utils.AccentColorManager;
 import org.nobiam.utils.LanguageManager;
 import org.nobiam.utils.ThemeManager;
