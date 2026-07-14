@@ -45,9 +45,11 @@ public class MainActivity extends AppCompatActivity {
 
         hideSystemBars();
 
+        int accentColor = AccentColorManager.getColor(this);
+
         headerTitle = findViewById(R.id.header_title);
         if (headerTitle != null) {
-            headerTitle.setTextColor(AccentColorManager.getAccentColor(this));
+            headerTitle.setTextColor(accentColor);
         }
 
         homeFragment = new HomeFragment();
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateNavState(ImageButton activeButton) {
-        int accentColor = AccentColorManager.getAccentColor(this);
+        int accentColor = AccentColorManager.getColor(this);
         int inactiveColor = getColor(R.color.text_inactive);
 
         navHome.setBackgroundResource(R.drawable.nav_inactive);
@@ -137,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         hideSystemBars();
         if (headerTitle != null) {
-            headerTitle.setTextColor(AccentColorManager.getAccentColor(this));
+            headerTitle.setTextColor(AccentColorManager.getColor(this));
         }
     }
 }

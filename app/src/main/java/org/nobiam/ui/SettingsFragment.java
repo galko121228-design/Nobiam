@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,11 +25,13 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
+        // Заголовок
         TextView settingsTitle = view.findViewById(R.id.settings_title);
         if (settingsTitle != null) {
-            settingsTitle.setTextColor(AccentColorManager.getAccentColor(requireContext()));
+            settingsTitle.setTextColor(AccentColorManager.getColor(requireContext()));
         }
 
+        // Темы
         themeLight = view.findViewById(R.id.theme_light);
         themeDark = view.findViewById(R.id.theme_dark);
         themeSystem = view.findViewById(R.id.theme_system);
@@ -54,14 +57,14 @@ public class SettingsFragment extends Fragment {
             requireActivity().recreate();
         });
 
-        // Цвета временно отключены
-        // setupColorPicker(view);
+        // Цвета
+        setupAccentColorPicker(view);
 
         return view;
     }
 
     private void applyThemeSelection(int mode) {
-        int accentColor = AccentColorManager.getAccentColor(requireContext());
+        int accentColor = AccentColorManager.getColor(requireContext());
 
         themeLight.setBackgroundResource(R.drawable.theme_selector);
         themeDark.setBackgroundResource(R.drawable.theme_selector);
@@ -85,5 +88,45 @@ public class SettingsFragment extends Fragment {
             GradientDrawable gd = (GradientDrawable) activeTile.getBackground();
             if (gd != null) gd.setStroke(2, accentColor);
         }
+    }
+
+    private void setupAccentColorPicker(View rootView) {
+        LinearLayout colorContainer = rootView.findViewById(R.id.color_preset_container);
+        if (colorContainer == null) return;
+
+        colorContainer.removeAllViews();
+
+        int currentColor = AccentColorManager.getColor(requireContext());
+
+        for (int color : AccentColorManager.ACCENT_COLORS) {
+            View circle = createColorCircle(color, color == currentColor);
+            circle.setOnClickListener(v -> {
+                AccentColorManager.saveColor(requireContext(), color);
+                requireActivity().recreate();
+            });
+            colorContainer.addView(circle);
+        }
+    }
+
+    private View createColorCircle(int color, boolean isSelected) {
+        float density = getResources().getDisplayMetrics().density;
+        int sizeDp = (int) (36 * density);
+
+        ImageView circle = new ImageView(requireContext());
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(sizeDp, sizeDp);
+        params.setMargins((int)(6 * density), 0, (int)(6 * density), 0);
+        circle.setLayoutParams(params);
+
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setShape(GradientDrawable.OVAL);
+        drawable.setColor(color);
+        if (isSelected) {
+            drawable.setStroke((int)(3 * density), 0xFFFFFFFF);
+        }
+        circle.setImageDrawable(drawable);
+        circle.setClickable(true);
+        circle.setFocusable(true);
+
+        return circle;
     }
 }
