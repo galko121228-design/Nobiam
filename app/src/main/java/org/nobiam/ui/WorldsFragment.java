@@ -1,11 +1,13 @@
 package org.nobiam.ui;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -95,8 +97,12 @@ public class WorldsFragment extends Fragment {
     }
 
     private void setupCreateFlatButton() {
-        View btnCreateFlat = view.findViewById(R.id.btn_create_flat);
+        Button btnCreateFlat = view.findViewById(R.id.btn_create_flat);
         if (btnCreateFlat != null) {
+            // Применяем акцентный цвет через код
+            int accentColor = AccentColorManager.getColor(requireContext());
+            btnCreateFlat.setBackgroundTintList(ColorStateList.valueOf(accentColor));
+
             btnCreateFlat.setOnClickListener(v ->
                     Toast.makeText(getContext(), "Create Flat World — coming soon", Toast.LENGTH_SHORT).show());
         }

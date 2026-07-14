@@ -51,6 +51,7 @@
             android:maxLines="1"
             android:textSize="14sp"/>
 
+        <!-- Кнопка Create Flat — акцент через backgroundTint -->
         <Button
             android:id="@+id/btn_create_flat"
             android:layout_width="wrap_content"
@@ -58,8 +59,7 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:paddingHorizontal="16dp"
-            android:background="@drawable/bg_launch_button"
-            app:backgroundTint="@null"
+            android:backgroundTint="@color/neon_blue"
             android:text="@string/create_flat"
             android:textColor="#FFFFFF"
             android:textSize="12sp"
