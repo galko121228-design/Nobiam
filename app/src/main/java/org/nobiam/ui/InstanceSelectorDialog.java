@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
@@ -23,7 +23,6 @@ import org.nobiam.R;
 import org.nobiam.utils.AccentColorManager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class InstanceSelectorDialog {
@@ -31,14 +30,13 @@ public class InstanceSelectorDialog {
     private static final String PREFS = "nobiam_settings";
     private static final String KEY_VERSION = "selected_version";
 
-    private static final List<Instance> INSTANCES = Arrays.asList(
-            new Instance("Minecraft", "1.21.30"),
-            new Instance("Minecraft", "1.21.20"),
-            new Instance("Minecraft", "1.21.10"),
-            new Instance("Minecraft", "1.20.80"),
-            new Instance("Minecraft", "1.20.70"),
-            new Instance("Minecraft", "1.20.60")
-    );
+    // ВРЕМЕННО: пока нет реальных инстансов — показываем пустой список
+    private static List<Instance> getInstances() {
+        List<Instance> list = new ArrayList<>();
+        // Пока нет реальных версий — пусто
+        // TODO: сканировать установленные APK Minecraft
+        return list;
+    }
 
     public static void show(Context context, View anchor, TextView targetText) {
         Dialog dialog = new Dialog(context, R.style.TransparentDialog);
@@ -75,10 +73,10 @@ public class InstanceSelectorDialog {
         EditText searchInput = view.findViewById(R.id.search_input);
         LinearLayout instanceList = view.findViewById(R.id.instance_list);
 
+        List<Instance> instances = getInstances();
         String currentVersion = getSavedVersion(context);
-        List<Instance> filteredList = new ArrayList<>(INSTANCES);
 
-        populateList(instanceList, filteredList, currentVersion, context, dialog, targetText);
+        populateList(instanceList, instances, currentVersion, context, dialog, targetText);
 
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -90,18 +88,14 @@ public class InstanceSelectorDialog {
             @Override
             public void afterTextChanged(Editable s) {
                 String query = s.toString().toLowerCase().trim();
-                filteredList.clear();
-                if (query.isEmpty()) {
-                    filteredList.addAll(INSTANCES);
-                } else {
-                    for (Instance instance : INSTANCES) {
-                        if (instance.name.toLowerCase().contains(query) ||
-                            instance.version.contains(query)) {
-                            filteredList.add(instance);
-                        }
+                List<Instance> filtered = new ArrayList<>();
+                for (Instance instance : instances) {
+                    if (instance.name.toLowerCase().contains(query) ||
+                        instance.version.contains(query)) {
+                        filtered.add(instance);
                     }
                 }
-                populateList(instanceList, filteredList, currentVersion, context, dialog, targetText);
+                populateList(instanceList, filtered, currentVersion, context, dialog, targetText);
             }
         });
 
@@ -115,6 +109,17 @@ public class InstanceSelectorDialog {
 
         int accentColor = AccentColorManager.getColor(context);
         float density = context.getResources().getDisplayMetrics().density;
+
+        if (instances.isEmpty()) {
+            TextView emptyText = new TextView(context);
+            emptyText.setText("No instances found");
+            emptyText.setTextColor(ContextCompat.getColor(context, R.color.text_secondary));
+            emptyText.setTextSize(14);
+            emptyText.setGravity(Gravity.CENTER);
+            emptyText.setPadding(0, (int)(16 * density), 0, (int)(16 * density));
+            container.addView(emptyText);
+            return;
+        }
 
         for (Instance instance : instances) {
             String instanceFullName = instance.name + " " + instance.version;
@@ -134,78 +139,31 @@ public class InstanceSelectorDialog {
 
             if (isSelected) {
                 card.setCardBackgroundColor(accentColor);
-                card.setContentPadding(
-                        (int)(10 * density), (int)(6 * density),
-                        (int)(10 * density), (int)(6 * density)
-                );
             } else {
                 card.setCardBackgroundColor(ContextCompat.getColor(context, R.color.bg_glass));
-                card.setContentPadding(
-                        (int)(10 * density), (int)(6 * density),
-                        (int)(10 * density), (int)(6 * density)
-                );
             }
+
+            card.setContentPadding(
+                    (int)(10 * density), (int)(6 * density),
+                    (int)(10 * density), (int)(6 * density)
+            );
 
             LinearLayout row = new LinearLayout(context);
             row.setOrientation(LinearLayout.HORIZONTAL);
             row.setGravity(Gravity.CENTER_VERTICAL);
-
-            CardView iconWrapper = new CardView(context);
-            LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(
-                    (int)(32 * density), (int)(32 * density)
-            );
-            iconWrapper.setLayoutParams(iconParams);
-            iconWrapper.setRadius(6 * density);
-            iconWrapper.setCardElevation(0);
-            iconWrapper.setUseCompatPadding(true);
-            iconWrapper.setPreventCornerOverlap(true);
-            iconWrapper.setCardBackgroundColor(ContextCompat.getColor(context, R.color.bg_surface));
-
-            ImageView icon = new ImageView(context);
-            icon.setLayoutParams(new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
-            ));
-            icon.setImageResource(R.drawable.ic_minecraft_block);
-            icon.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            icon.setPadding(
-                    (int)(3 * density), (int)(3 * density),
-                    (int)(3 * density), (int)(3 * density)
-            );
-            iconWrapper.addView(icon);
-            row.addView(iconWrapper);
-
-            LinearLayout textLayout = new LinearLayout(context);
-            textLayout.setOrientation(LinearLayout.VERTICAL);
-            textLayout.setLayoutParams(new LinearLayout.LayoutParams(
-                    0, ViewGroup.LayoutParams.WRAP_CONTENT, 1
-            ));
-            textLayout.setPadding((int)(8 * density), 0, 0, 0);
 
             TextView nameText = new TextView(context);
             nameText.setText(instance.name);
             nameText.setTextColor(isSelected ? 0xFFFFFFFF : ContextCompat.getColor(context, R.color.text_primary));
             nameText.setTextSize(14);
             nameText.setTypeface(null, android.graphics.Typeface.BOLD);
-            textLayout.addView(nameText);
+            row.addView(nameText);
 
             TextView versionText = new TextView(context);
             versionText.setText(instance.version);
             versionText.setTextColor(isSelected ? 0xCCFFFFFF : ContextCompat.getColor(context, R.color.text_secondary));
             versionText.setTextSize(12);
-            textLayout.addView(versionText);
-
-            row.addView(textLayout);
-
-            if (isSelected) {
-                ImageView check = new ImageView(context);
-                check.setImageResource(R.drawable.ic_check);
-                check.setLayoutParams(new LinearLayout.LayoutParams(
-                        (int)(16 * density), (int)(16 * density)
-                ));
-                check.setColorFilter(0xFFFFFFFF);
-                row.addView(check);
-            }
+            row.addView(versionText);
 
             card.addView(row);
 
@@ -223,7 +181,7 @@ public class InstanceSelectorDialog {
 
     public static String getSavedVersion(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
-        return prefs.getString(KEY_VERSION, "Minecraft 1.21.30");
+        return prefs.getString(KEY_VERSION, "No instance selected");
     }
 
     private static void saveVersion(Context context, String version) {
