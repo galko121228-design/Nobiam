@@ -3,43 +3,41 @@ package org.nobiam.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.widget.Toast;
 
 public class MinecraftLauncher {
 
-    private static final String[] MINECRAFT_PACKAGES = {
-        "com.mojang.minecraftpe",
-        "com.mojang.minecraftpe.demo"
-    };
+    private static final String MINECRAFT_PACKAGE = "com.mojang.minecraftpe";
 
     public static boolean isMinecraftInstalled(Context context) {
         PackageManager pm = context.getPackageManager();
-        for (String pkg : MINECRAFT_PACKAGES) {
-            try {
-                pm.getPackageInfo(pkg, 0);
-                return true;
-            } catch (PackageManager.NameNotFoundException ignored) {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                pm.getPackageInfo(MINECRAFT_PACKAGE, PackageManager.PackageInfoFlags.of(0));
+            } else {
+                pm.getPackageInfo(MINECRAFT_PACKAGE, 0);
             }
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
         }
-        return false;
     }
 
     public static void launchMinecraft(Context context) {
         PackageManager pm = context.getPackageManager();
-        Intent intent = null;
 
-        for (String pkg : MINECRAFT_PACKAGES) {
-            try {
-                intent = pm.getLaunchIntentForPackage(pkg);
-                if (intent != null) break;
-            } catch (Exception ignored) {
-            }
+        if (!isMinecraftInstalled(context)) {
+            Toast.makeText(context, "Minecraft not installed", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        if (intent != null) {
-            context.startActivity(intent);
+        Intent launchIntent = pm.getLaunchIntentForPackage(MINECRAFT_PACKAGE);
+        if (launchIntent != null) {
+            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(launchIntent);
         } else {
-            Toast.makeText(context, "Minecraft not found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Cannot launch Minecraft", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <queries>
+        <package android:name="com.mojang.minecraftpe" />
+        <package android:name="com.mojang.minecraftpe.premium" />
+        <package android:name="com.mojang.minecraftpe.demo" />
+    </queries>
+
     <application
         android:name=".NobiamApplication"
         android:allowBackup="true"
