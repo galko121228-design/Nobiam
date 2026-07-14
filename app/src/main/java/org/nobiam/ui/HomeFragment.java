@@ -22,6 +22,7 @@ import org.nobiam.utils.MinecraftLauncher;
 public class HomeFragment extends Fragment {
 
     private View view;
+    private TextView versionText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,6 +30,7 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         applyAccentColor();
         setupListeners();
+        updateVersionDisplay();
         return view;
     }
 
@@ -36,6 +38,7 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         applyAccentColor();
+        updateVersionDisplay();
     }
 
     private void applyAccentColor() {
@@ -91,6 +94,15 @@ public class HomeFragment extends Fragment {
             textView.setCompoundDrawablesRelativeWithIntrinsicBounds(
                     wrapped, drawables[1], drawables[2], drawables[3]
             );
+        }
+    }
+
+    private void updateVersionDisplay() {
+        if (view == null) return;
+        versionText = view.findViewById(R.id.text_minecraft_version);
+        if (versionText != null) {
+            String version = MinecraftLauncher.getMinecraftVersionLabel(requireContext());
+            versionText.setText(version);
         }
     }
 

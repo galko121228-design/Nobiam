@@ -40,4 +40,25 @@ public class MinecraftLauncher {
             Toast.makeText(context, "Cannot launch Minecraft", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public static String getMinecraftVersion(Context context) {
+        PackageManager pm = context.getPackageManager();
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                return pm.getPackageInfo(MINECRAFT_PACKAGE, PackageManager.PackageInfoFlags.of(0)).versionName;
+            } else {
+                return pm.getPackageInfo(MINECRAFT_PACKAGE, 0).versionName;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
+    }
+
+    public static String getMinecraftVersionLabel(Context context) {
+        String version = getMinecraftVersion(context);
+        if (version != null) {
+            return "Minecraft " + version;
+        }
+        return "Minecraft not found";
+    }
 }
