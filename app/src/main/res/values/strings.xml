@@ -28,3 +28,7 @@
     <string name="developer_define">Define</string>
     <string name="made_with">Made with</string>
 </resources>
+    <string name="language">Language</string>
+    <string name="russian">Russian</string>
+    <string name="english">English</string>
+    <string name="author_coder">Author &amp; Coder</string>

@@ -34,3 +34,7 @@
     <!-- About -->
     <string name="about_title">О приложении</string>
 </resources>
+    <string name="language">Язык</string>
+    <string name="russian">Русский</string>
+    <string name="english">Английский</string>
+    <string name="author_coder">Автор &amp; Кодер</string>
