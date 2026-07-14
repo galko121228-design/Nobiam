@@ -13,9 +13,6 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
-import org.nobiam.ui.SkinPacksFragment;
-import org.nobiam.ui.ScreenshotsFragment;
-import org.nobiam.ui.BehaviorPacksFragment;
 import org.nobiam.utils.AccentColorManager;
 
 public class ContentManagementFragment extends Fragment {
@@ -66,6 +63,26 @@ public class ContentManagementFragment extends Fragment {
                     .commit();
         });
 
+        // Skin Packs
+        LinearLayout skinPacksRow = view.findViewById(R.id.content_skin_packs_row);
+        skinPacksRow.setOnClickListener(v -> {
+            SkinPacksFragment fragment = new SkinPacksFragment();
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
+
+        // Screenshots
+        LinearLayout screenshotsRow = view.findViewById(R.id.content_screenshots_row);
+        screenshotsRow.setOnClickListener(v -> {
+            ScreenshotsFragment fragment = new ScreenshotsFragment();
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
+
         // Resource Packs
         LinearLayout resourcePacksRow = view.findViewById(R.id.content_resource_packs_row);
         resourcePacksRow.setOnClickListener(v -> {
@@ -76,34 +93,7 @@ public class ContentManagementFragment extends Fragment {
                     .commit();
         });
 
-        // Skin Packs (тост)
-        LinearLayout skinPacksRow = view.findViewById(R.id.content_skin_packs_row);
-        LinearLayout skinPacksRow = view.findViewById(R.id.content_skin_packs_row);
-        skinPacksRow.setOnClickListener(v -> {
-            SkinPacksFragment fragment = new SkinPacksFragment();
-            requireActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, fragment)
-                    .addToBackStack(null)
-                    .commit();
-        });
-                Toast.makeText(getContext(), "Skin Packs (coming soon)", Toast.LENGTH_SHORT).show()
-        );
-
-        // Screenshots (тост)
-        LinearLayout screenshotsRow = view.findViewById(R.id.content_screenshots_row);
-        LinearLayout screenshotsRow = view.findViewById(R.id.content_screenshots_row);
-        screenshotsRow.setOnClickListener(v -> {
-            ScreenshotsFragment fragment = new ScreenshotsFragment();
-            requireActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, fragment)
-                    .addToBackStack(null)
-                    .commit();
-        });
-                Toast.makeText(getContext(), "Screenshots (coming soon)", Toast.LENGTH_SHORT).show()
-        );
-
-        // Behavior Packs (тост)
-        LinearLayout behaviorPacksRow = view.findViewById(R.id.content_behavior_packs_row);
+        // Behavior Packs
         LinearLayout behaviorPacksRow = view.findViewById(R.id.content_behavior_packs_row);
         behaviorPacksRow.setOnClickListener(v -> {
             BehaviorPacksFragment fragment = new BehaviorPacksFragment();
@@ -112,8 +102,6 @@ public class ContentManagementFragment extends Fragment {
                     .addToBackStack(null)
                     .commit();
         });
-                Toast.makeText(getContext(), "Behavior Packs (coming soon)", Toast.LENGTH_SHORT).show()
-        );
 
         return view;
     }
