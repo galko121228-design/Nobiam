@@ -7,7 +7,6 @@
     android:background="?android:attr/colorBackground"
     android:padding="16dp">
 
-    <!-- Верхняя панель -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,11 +29,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Worlds"
-        android:paddingStart="4dp"
             android:textColor="@color/neon_blue"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginStart="0dp"/>
+            android:paddingStart="4dp"/>
 
         <EditText
             android:id="@+id/search_input"
@@ -46,8 +44,7 @@
             android:hint="Search worlds..."
             android:textColor="?android:attr/textColorPrimary"
             android:textColorHint="@color/text_secondary"
-            android:background="@null"
-        android:background="@drawable/bg_search_field"
+            android:background="@drawable/bg_search_field"
             android:paddingHorizontal="16dp"
             android:inputType="text"
             android:maxLines="1"
@@ -72,7 +69,6 @@
 
     </LinearLayout>
 
-    <!-- Список миров -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
