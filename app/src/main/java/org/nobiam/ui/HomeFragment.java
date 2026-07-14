@@ -16,7 +16,6 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
-import org.nobiam.ui.ResourcePacksFragment;
 import org.nobiam.utils.AccentColorManager;
 
 public class HomeFragment extends Fragment {
@@ -95,6 +94,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void setupListeners() {
+        // Current Instance
         LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
         if (selectVersion != null) {
             selectVersion.setOnClickListener(v -> {
@@ -103,6 +103,7 @@ public class HomeFragment extends Fragment {
             });
         }
 
+        // Launch
         Button launchButton = view.findViewById(R.id.launch_button);
         if (launchButton != null) {
             launchButton.setOnClickListener(v ->
@@ -110,6 +111,7 @@ public class HomeFragment extends Fragment {
             );
         }
 
+        // Manage Mods
         Button manageMods = view.findViewById(R.id.manage_mods_button);
         if (manageMods != null) {
             manageMods.setOnClickListener(v ->
@@ -117,6 +119,7 @@ public class HomeFragment extends Fragment {
             );
         }
 
+        // Worlds
         LinearLayout worldsRow = view.findViewById(R.id.content_worlds_row);
         if (worldsRow != null) {
             worldsRow.setOnClickListener(v -> {
@@ -128,6 +131,7 @@ public class HomeFragment extends Fragment {
             });
         }
 
+        // Resource Packs
         LinearLayout resourcePacksRow = view.findViewById(R.id.content_resource_packs_row);
         if (resourcePacksRow != null) {
             resourcePacksRow.setOnClickListener(v -> {
@@ -137,7 +141,6 @@ public class HomeFragment extends Fragment {
                         .addToBackStack(null)
                         .commit();
             });
-            );
         }
     }
 }
