@@ -48,13 +48,7 @@
         android:textSize="14sp"
         android:layout_marginBottom="12dp"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#2A3A55"
-        android:layout_marginBottom="12dp"/>
-
-    <!-- Список с прокруткой -->
+    <!-- Список в карточках -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -70,18 +64,20 @@
                 android:id="@+id/content_worlds_row"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/card_background"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingVertical="12dp"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_world"
-                    app:tint="@color/text_primary"/>
+                    app:tint="@color/neon_blue"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -90,7 +86,8 @@
                     android:layout_marginStart="12dp"
                     android:text="Worlds"
                     android:textColor="@color/text_primary"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,28 +98,25 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A3A55"/>
-
             <!-- Skin Packs -->
             <LinearLayout
                 android:id="@+id/content_skin_packs_row"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/card_background"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingVertical="12dp"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_skin"
-                    app:tint="@color/text_primary"/>
+                    app:tint="@color/neon_blue"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -131,7 +125,8 @@
                     android:layout_marginStart="12dp"
                     android:text="Skin Packs"
                     android:textColor="@color/text_primary"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -142,28 +137,25 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A3A55"/>
-
             <!-- Screenshots -->
             <LinearLayout
                 android:id="@+id/content_screenshots_row"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/card_background"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingVertical="12dp"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_screenshot"
-                    app:tint="@color/text_primary"/>
+                    app:tint="@color/neon_blue"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -172,7 +164,8 @@
                     android:layout_marginStart="12dp"
                     android:text="Screenshots"
                     android:textColor="@color/text_primary"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -183,28 +176,25 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A3A55"/>
-
             <!-- Resource Packs -->
             <LinearLayout
                 android:id="@+id/content_resource_packs_row"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/card_background"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingVertical="12dp"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_photo"
-                    app:tint="@color/text_primary"/>
+                    app:tint="@color/neon_blue"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -213,7 +203,8 @@
                     android:layout_marginStart="12dp"
                     android:text="Resource Packs"
                     android:textColor="@color/text_primary"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -224,28 +215,25 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#2A3A55"/>
-
             <!-- Behavior Packs -->
             <LinearLayout
                 android:id="@+id/content_behavior_packs_row"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/card_background"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:paddingVertical="12dp"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:src="@drawable/ic_behavior"
-                    app:tint="@color/text_primary"/>
+                    app:tint="@color/neon_blue"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -254,7 +242,8 @@
                     android:layout_marginStart="12dp"
                     android:text="Behavior Packs"
                     android:textColor="@color/text_primary"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
