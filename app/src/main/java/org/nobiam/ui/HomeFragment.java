@@ -41,23 +41,23 @@ public class HomeFragment extends Fragment {
         if (view == null) return;
         int accentColor = AccentColorManager.getColor(requireContext());
 
-        // Заголовок "Minecraft"
+        // 1. Minecraft Title
         TextView minecraftTitle = view.findViewById(R.id.minecraft_title_text);
         if (minecraftTitle != null) {
             minecraftTitle.setTextColor(accentColor);
         }
 
-        // Кнопка Launch
+        // 2. Launch Button
         Button launchButton = view.findViewById(R.id.launch_button);
         if (launchButton != null) {
             launchButton.setBackgroundTintList(ColorStateList.valueOf(accentColor));
         }
 
-        // Mods
+        // --- MODS ---
         TextView modsTitle = view.findViewById(R.id.mods_title);
         if (modsTitle != null) {
             modsTitle.setTextColor(accentColor);
-            tintDrawableStart(modsTitle, accentColor);
+            tintDrawableStart(modsTitle, accentColor); // Иконка пазла
         }
 
         Button manageMods = view.findViewById(R.id.manage_mods_button);
@@ -67,11 +67,11 @@ public class HomeFragment extends Fragment {
             if (gd != null) gd.setStroke(1, accentColor);
         }
 
-        // Content Management
+        // --- CONTENT MANAGEMENT ---
         TextView contentTitle = view.findViewById(R.id.content_title);
         if (contentTitle != null) {
             contentTitle.setTextColor(accentColor);
-            tintDrawableStart(contentTitle, accentColor);
+            tintDrawableStart(contentTitle, accentColor); // Иконка куба
         }
 
         TextView viewAll = view.findViewById(R.id.content_view_all);
@@ -79,14 +79,15 @@ public class HomeFragment extends Fragment {
             viewAll.setTextColor(accentColor);
         }
 
-        // Miscellaneous
+        // --- MISCELLANEOUS ---
         TextView miscTitle = view.findViewById(R.id.misc_title);
         if (miscTitle != null) {
             miscTitle.setTextColor(accentColor);
-            tintDrawableStart(miscTitle, accentColor);
+            tintDrawableStart(miscTitle, accentColor); // Иконка архива
         }
     }
 
+    // Метод для покраски иконки слева от текста (drawableStart)
     private void tintDrawableStart(TextView textView, int color) {
         Drawable[] drawables = textView.getCompoundDrawables();
         if (drawables[0] != null) {

@@ -1,0 +1,36 @@
+<resources>
+    <!-- Common -->
+    <string name="app_name">Nobiam</string>
+    <string name="nobiam">Nobiam</string>
+    <string name="minecraft">Minecraft</string>
+    <string name="bedrock_edition">Bedrock Edition</string>
+    <string name="version">Версия 1.0</string>
+    <string name="made_with">Сделано с</string>
+    <string name="developer_define">Define</string>
+    <string name="developer_label">Разработчик: Define</string>
+
+    <!-- Home -->
+    <string name="current_instance">Текущий инстанс</string>
+    <string name="settings_tip">Настройки позволяют изменить тему, цвет, фон и другие параметры.</string>
+    <string name="mods">Моды</string>
+    <string name="manage_mods">Управление модами</string>
+    <string name="content_management">Управление контентом</string>
+    <string name="view_all">Все →</string>
+    <string name="worlds">Миры</string>
+    <string name="resource_packs">Ресурс-паки</string>
+    <string name="miscellaneous">Разное</string>
+    <string name="curseforge">CurseForge</string>
+    <string name="microsoft_accounts">Аккаунты Microsoft</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Настройки</string>
+    <string name="settings_subtitle">Настройте свой опыт</string>
+    <string name="theme_title">Тема</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Тёмная</string>
+    <string name="theme_system">Системная</string>
+    <string name="accent_color">Акцентный цвет</string>
+
+    <!-- About -->
+    <string name="about_title">О приложении</string>
+</resources>
