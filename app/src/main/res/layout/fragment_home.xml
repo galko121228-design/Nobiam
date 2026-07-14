@@ -76,7 +76,6 @@
                         android:clickable="true"
                         android:focusable="true">
 
-                        <!-- Иконка Minecraft с CardView -->
                         <androidx.cardview.widget.CardView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
@@ -88,9 +87,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/minecraft"
-                                android:scaleType="centerCrop"
-                                android:adjustViewBounds="true"
-                                android:cropToPadding="true" />
+                                android:scaleType="centerCrop"/>
 
                         </androidx.cardview.widget.CardView>
 
@@ -113,7 +110,7 @@
                                 android:layout_height="wrap_content"
                                 android:minWidth="60dp"
                                 android:maxWidth="140dp"
-                                android:text="Minecraft"
+                                android:text="Minecraft 1.21.30"
                                 android:textColor="@color/text_primary"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
@@ -297,41 +294,35 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <LinearLayout
-        <Button
-            android:id="@+id/content_worlds_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_instance_selector"
-            android:padding="12dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="Worlds"
-            android:textColor="@color/text_primary"
-            android:textSize="14sp"
-            android:drawableStart="@drawable/ic_world"
-            android:drawablePadding="12dp"
-            android:foreground="?attr/selectableItemBackground"/>
+                        <!-- Worlds Button -->
+                        <Button
+                            android:id="@+id/content_worlds_row"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_instance_selector"
+                            android:padding="12dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/worlds"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:drawableStart="@drawable/ic_world"
+                            android:drawablePadding="12dp"
+                            android:foreground="?attr/selectableItemBackground"/>
 
-                        <LinearLayout
-        <Button
-            android:id="@+id/content_resource_packs_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_instance_selector"
-            android:padding="12dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:clickable="true"
-            android:focusable="true"
-            android:text="Resource Packs"
-            android:textColor="@color/text_primary"
-            android:textSize="14sp"
-            android:drawableStart="@drawable/ic_photo"
-            android:drawablePadding="12dp"
-            android:foreground="?attr/selectableItemBackground"/>
+                        <!-- Resource Packs Button -->
+                        <Button
+                            android:id="@+id/content_resource_packs_row"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_instance_selector"
+                            android:padding="12dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/resource_packs"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:drawableStart="@drawable/ic_photo"
+                            android:drawablePadding="12dp"
+                            android:foreground="?attr/selectableItemBackground"/>
 
                     </LinearLayout>
 
