@@ -21,6 +21,7 @@ import org.nobiam.utils.AccentColorManager;
 public class HomeFragment extends Fragment {
 
     private View view;
+    private TextView versionText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,6 +29,7 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         applyAccentColor();
         setupListeners();
+        updateVersionDisplay();
         return view;
     }
 
@@ -35,25 +37,23 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         applyAccentColor();
+        updateVersionDisplay();
     }
 
     private void applyAccentColor() {
         if (view == null) return;
         int accentColor = AccentColorManager.getColor(requireContext());
 
-        // 1. Minecraft Title
         TextView minecraftTitle = view.findViewById(R.id.minecraft_title_text);
         if (minecraftTitle != null) {
             minecraftTitle.setTextColor(accentColor);
         }
 
-        // 2. Launch Button
         Button launchButton = view.findViewById(R.id.launch_button);
         if (launchButton != null) {
             launchButton.setBackgroundTintList(ColorStateList.valueOf(accentColor));
         }
 
-        // --- MODS ---
         TextView modsTitle = view.findViewById(R.id.mods_title);
         if (modsTitle != null) {
             modsTitle.setTextColor(accentColor);
@@ -67,7 +67,6 @@ public class HomeFragment extends Fragment {
             if (gd != null) gd.setStroke(1, accentColor);
         }
 
-        // --- CONTENT MANAGEMENT ---
         TextView contentTitle = view.findViewById(R.id.content_title);
         if (contentTitle != null) {
             contentTitle.setTextColor(accentColor);
@@ -79,7 +78,6 @@ public class HomeFragment extends Fragment {
             viewAll.setTextColor(accentColor);
         }
 
-        // --- MISCELLANEOUS ---
         TextView miscTitle = view.findViewById(R.id.misc_title);
         if (miscTitle != null) {
             miscTitle.setTextColor(accentColor);
@@ -87,7 +85,6 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    // ✅ РАБОЧИЙ МЕТОД (из интернета)
     private void applyTintToTextView(TextView textView, int color) {
         Drawable[] drawables = textView.getCompoundDrawablesRelative();
         if (drawables[0] != null) {
@@ -99,12 +96,22 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    private void updateVersionDisplay() {
+        if (view == null) return;
+        versionText = view.findViewById(R.id.text_minecraft_version);
+        if (versionText != null) {
+            String currentVersion = InstanceSelectorDialog.getSavedVersion(requireContext());
+            versionText.setText(currentVersion);
+        }
+    }
+
     private void setupListeners() {
         LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
         if (selectVersion != null) {
-            selectVersion.setOnClickListener(v ->
-                Toast.makeText(getContext(), "Instance selector (coming soon)", Toast.LENGTH_SHORT).show()
-            );
+            selectVersion.setOnClickListener(v -> {
+                TextView versionText = view.findViewById(R.id.text_minecraft_version);
+                InstanceSelectorDialog.show(requireContext(), versionText);
+            });
         }
 
         Button launchButton = view.findViewById(R.id.launch_button);
