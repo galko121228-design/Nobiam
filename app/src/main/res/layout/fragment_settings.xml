@@ -18,7 +18,7 @@
             android:id="@+id/settings_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="@string/settings_title"
             android:textColor="@color/neon_blue"
             android:textSize="28sp"
             android:textStyle="bold"
@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Customize your experience"
+            android:text="@string/settings_subtitle"
             android:textColor="@color/text_secondary"
             android:textSize="14sp"
             android:layout_marginBottom="20dp"/>
@@ -44,7 +44,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Theme"
+                android:text="@string/theme_title"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -56,7 +56,6 @@
                 android:orientation="horizontal"
                 android:gravity="center_horizontal">
 
-                <!-- Light -->
                 <LinearLayout
                     android:id="@+id/theme_light"
                     android:layout_width="0dp"
@@ -79,14 +78,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Light"
+                        android:text="@string/theme_light"
                         android:textColor="?android:attr/textColorSecondary"
                         android:textSize="12sp"
                         android:layout_marginTop="4dp"/>
 
                 </LinearLayout>
 
-                <!-- Dark -->
                 <LinearLayout
                     android:id="@+id/theme_dark"
                     android:layout_width="0dp"
@@ -109,14 +107,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dark"
+                        android:text="@string/theme_dark"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp"
                         android:layout_marginTop="4dp"/>
 
                 </LinearLayout>
 
-                <!-- System -->
                 <LinearLayout
                     android:id="@+id/theme_system"
                     android:layout_width="0dp"
@@ -139,7 +136,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="System"
+                        android:text="@string/theme_system"
                         android:textColor="?android:attr/textColorSecondary"
                         android:textSize="12sp"
                         android:layout_marginTop="4dp"/>
@@ -149,49 +146,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        <!-- Accent Color Card -->
-        <LinearLayout
-            android:id="@+id/accent_color_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/card_background"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginBottom="12dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Accent Color"
-                android:textColor="?android:attr/textColorPrimary"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="12dp"/>
-
-            <!-- Основные цвета (ряд) -->
-            <LinearLayout
-                android:id="@+id/color_preset_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:paddingBottom="8dp"/>
-
-        </LinearLayout>
-
-        <!-- Version -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Version 1.0"
-            android:textColor="#6B7280"
-            android:textSize="12sp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"/>
-
-    </LinearLayout>
-</ScrollView>
 
         <!-- Language Card -->
         <LinearLayout
@@ -233,7 +187,7 @@
                         android:id="@+id/language_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/language"
+                        android:text="@string/russian"
                         android:textColor="?android:attr/textColorPrimary"
                         android:textSize="14sp"
                         android:textStyle="bold"/>
@@ -250,3 +204,45 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <!-- Accent Color Card -->
+        <LinearLayout
+            android:id="@+id/accent_color_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_background"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/accent_color"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <LinearLayout
+                android:id="@+id/color_preset_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="8dp"/>
+
+        </LinearLayout>
+
+        <!-- Version -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/version"
+            android:textColor="#6B7280"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+</ScrollView>
