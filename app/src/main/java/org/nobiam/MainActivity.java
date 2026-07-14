@@ -16,7 +16,6 @@ import org.nobiam.ui.HomeFragment;
 import org.nobiam.ui.SettingsFragment;
 import org.nobiam.ui.AboutFragment;
 import org.nobiam.utils.AccentColorManager;
-import org.nobiam.utils.LanguageManager;
 import org.nobiam.utils.ThemeManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ThemeManager.applyTheme(this);
-        LanguageManager.loadSavedLanguage(this);
 
         super.onCreate(savedInstanceState);
 
