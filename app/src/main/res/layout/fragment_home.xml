@@ -298,92 +298,40 @@
                         android:orientation="vertical">
 
                         <LinearLayout
-                            android:id="@+id/content_worlds_row"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingVertical="6dp"
-                            android:clickable="true"
-                            android:focusable="true">
-
-                            <ImageView
-                                android:layout_width="14dp"
-                                android:layout_height="14dp"
-                                android:src="@drawable/ic_world"
-                                app:tint="@color/text_primary"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="6dp"
-                                android:text="@string/worlds"
-                                android:textColor="@color/text_primary"
-                                android:textSize="12sp"/>
-
-                            <TextView
-                                android:id="@+id/content_worlds_count"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="0"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="12sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="2dp"
-                                android:text="›"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="12sp"/>
-
-                        </LinearLayout>
+        <Button
+            android:id="@+id/content_worlds_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_instance_selector"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Worlds"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:drawableStart="@drawable/ic_world"
+            android:drawablePadding="12dp"
+            android:foreground="?attr/selectableItemBackground"/>
 
                         <LinearLayout
-                            android:id="@+id/content_resource_packs_row"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:paddingVertical="6dp"
-                            android:clickable="true"
-                            android:focusable="true">
-
-                            <ImageView
-                                android:layout_width="14dp"
-                                android:layout_height="14dp"
-                                android:src="@drawable/ic_photo"
-                                app:tint="@color/text_primary"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="6dp"
-                                android:text="@string/resource_packs"
-                                android:textColor="@color/text_primary"
-                                android:textSize="12sp"/>
-
-                            <TextView
-                                android:id="@+id/content_resource_packs_count"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="0"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="12sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="2dp"
-                                android:text="›"
-                                android:textColor="@color/text_secondary"
-                                android:textSize="12sp"/>
-
-                        </LinearLayout>
+        <Button
+            android:id="@+id/content_resource_packs_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_instance_selector"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Resource Packs"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:drawableStart="@drawable/ic_photo"
+            android:drawablePadding="12dp"
+            android:foreground="?attr/selectableItemBackground"/>
 
                     </LinearLayout>
 

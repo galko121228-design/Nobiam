@@ -16,6 +16,8 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
+import org.nobiam.ui.WorldsFragment;
+import org.nobiam.ui.ResourcePacksFragment;
 import org.nobiam.utils.AccentColorManager;
 
 public class HomeFragment extends Fragment {
@@ -29,6 +31,29 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         applyAccentColor();
         setupListeners();
+        // Worlds
+        Button worldsRow = view.findViewById(R.id.content_worlds_row);
+        if (worldsRow != null) {
+            worldsRow.setOnClickListener(v -> {
+                WorldsFragment fragment = new WorldsFragment();
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .addToBackStack(null)
+                        .commit();
+            });
+        }
+
+        // Resource Packs
+        Button resourcePacksRow = view.findViewById(R.id.content_resource_packs_row);
+        if (resourcePacksRow != null) {
+            resourcePacksRow.setOnClickListener(v -> {
+                ResourcePacksFragment fragment = new ResourcePacksFragment();
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .addToBackStack(null)
+                        .commit();
+            });
+        }
         updateVersionDisplay();
         return view;
     }
@@ -106,6 +131,29 @@ public class HomeFragment extends Fragment {
     }
 
     private void setupListeners() {
+        // Worlds
+        Button worldsRow = view.findViewById(R.id.content_worlds_row);
+        if (worldsRow != null) {
+            worldsRow.setOnClickListener(v -> {
+                WorldsFragment fragment = new WorldsFragment();
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .addToBackStack(null)
+                        .commit();
+            });
+        }
+
+        // Resource Packs
+        Button resourcePacksRow = view.findViewById(R.id.content_resource_packs_row);
+        if (resourcePacksRow != null) {
+            resourcePacksRow.setOnClickListener(v -> {
+                ResourcePacksFragment fragment = new ResourcePacksFragment();
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .addToBackStack(null)
+                        .commit();
+            });
+        }
         LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
         if (selectVersion != null) {
             selectVersion.setOnClickListener(v -> {
