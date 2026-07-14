@@ -2,7 +2,7 @@ package org.nobiam.ui;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.SharedPreferences;
+importandroid.content.SharedPreferences;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -51,15 +51,22 @@ public class InstanceSelectorDialog {
         if (window != null) {
             WindowManager.LayoutParams params = window.getAttributes();
 
-            // Позиционируем под кнопкой
             int[] location = new int[2];
             anchor.getLocationOnScreen(location);
 
-            params.width = (int) (340 * context.getResources().getDisplayMetrics().density);
+            float density = context.getResources().getDisplayMetrics().density;
+            int dialogWidth = (int) (320 * density);
+            int screenWidth = context.getResources().getDisplayMetrics().widthPixels;
+            int x = location[0];
+            if (x + dialogWidth > screenWidth) {
+                x = screenWidth - dialogWidth - (int)(16 * density);
+            }
+
+            params.width = dialogWidth;
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
             params.gravity = Gravity.TOP | Gravity.START;
-            params.x = location[0] + anchor.getWidth() - params.width;
-            params.y = location[1] + anchor.getHeight() + 8;
+            params.x = x;
+            params.y = location[1] + anchor.getHeight() + (int)(4 * density);
 
             window.setAttributes(params);
             window.setBackgroundDrawableResource(android.R.color.transparent);
@@ -143,7 +150,6 @@ public class InstanceSelectorDialog {
             row.setOrientation(LinearLayout.HORIZONTAL);
             row.setGravity(Gravity.CENTER_VERTICAL);
 
-            // Иконка
             CardView iconWrapper = new CardView(context);
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(
                     (int)(32 * density), (int)(32 * density)
@@ -169,7 +175,6 @@ public class InstanceSelectorDialog {
             iconWrapper.addView(icon);
             row.addView(iconWrapper);
 
-            // Текст
             LinearLayout textLayout = new LinearLayout(context);
             textLayout.setOrientation(LinearLayout.VERTICAL);
             textLayout.setLayoutParams(new LinearLayout.LayoutParams(
@@ -192,7 +197,6 @@ public class InstanceSelectorDialog {
 
             row.addView(textLayout);
 
-            // Галочка
             if (isSelected) {
                 ImageView check = new ImageView(context);
                 check.setImageResource(R.drawable.ic_check);
