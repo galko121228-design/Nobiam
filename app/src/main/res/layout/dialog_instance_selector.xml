@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="360dp"
+    android:layout_width="320dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/bg_dropdown"
     android:elevation="16dp"
-    android:padding="16dp">
+    android:padding="12dp"
+    android:maxHeight="380dp">
 
     <!-- Поле поиска -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:orientation="horizontal"
         android:background="@drawable/bg_search_field"
-        android:padding="12dp"
+        android:paddingHorizontal="10dp"
         android:gravity="center_vertical">
 
         <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
             android:src="@drawable/ic_search"
             app:tint="@color/text_secondary"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginEnd="6dp"/>
 
         <EditText
             android:id="@+id/search_input"
@@ -35,32 +36,39 @@
             android:background="@null"
             android:inputType="text"
             android:maxLines="1"
-            android:textSize="14sp"/>
+            android:textSize="13sp"/>
 
     </LinearLayout>
 
-    <!-- Разделитель Instances -->
+    <!-- Instances -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="6dp"
         android:text="Instances"
         android:textColor="@color/text_primary"
-        android:textSize="13sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:gravity="center"
         android:background="@drawable/bg_pill"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="4dp"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="3dp"
         android:layout_gravity="center_horizontal"/>
 
-    <!-- Список -->
-    <LinearLayout
-        android:id="@+id/instance_list"
+    <!-- ScrollView для списка -->
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:maxHeight="320dp"/>
+        android:maxHeight="260dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/instance_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+    </ScrollView>
 
 </LinearLayout>

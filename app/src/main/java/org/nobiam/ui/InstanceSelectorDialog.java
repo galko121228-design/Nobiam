@@ -3,8 +3,6 @@ package org.nobiam.ui;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -47,17 +45,22 @@ public class InstanceSelectorDialog {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_instance_selector, null);
         dialog.setContentView(view);
 
-        // Закрытие по клику вне диалога
         dialog.setCanceledOnTouchOutside(true);
 
         Window window = dialog.getWindow();
         if (window != null) {
             WindowManager.LayoutParams params = window.getAttributes();
-            params.width = (int) (380 * context.getResources().getDisplayMetrics().density);
+
+            // Позиционируем под кнопкой
+            int[] location = new int[2];
+            anchor.getLocationOnScreen(location);
+
+            params.width = (int) (340 * context.getResources().getDisplayMetrics().density);
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            params.gravity = Gravity.TOP | Gravity.END;
-            params.x = (int) (16 * context.getResources().getDisplayMetrics().density);
-            params.y = (int) (80 * context.getResources().getDisplayMetrics().density);
+            params.gravity = Gravity.TOP | Gravity.START;
+            params.x = location[0] + anchor.getWidth() - params.width;
+            params.y = location[1] + anchor.getHeight() + 8;
+
             window.setAttributes(params);
             window.setBackgroundDrawableResource(android.R.color.transparent);
         }
@@ -115,9 +118,9 @@ public class InstanceSelectorDialog {
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
             );
-            cardParams.setMargins(0, (int)(6 * density), 0, (int)(6 * density));
+            cardParams.setMargins(0, (int)(4 * density), 0, (int)(4 * density));
             card.setLayoutParams(cardParams);
-            card.setRadius(14 * density);
+            card.setRadius(12 * density);
             card.setCardElevation(0);
             card.setUseCompatPadding(true);
             card.setPreventCornerOverlap(true);
@@ -125,14 +128,14 @@ public class InstanceSelectorDialog {
             if (isSelected) {
                 card.setCardBackgroundColor(accentColor);
                 card.setContentPadding(
-                        (int)(12 * density), (int)(8 * density),
-                        (int)(12 * density), (int)(8 * density)
+                        (int)(10 * density), (int)(6 * density),
+                        (int)(10 * density), (int)(6 * density)
                 );
             } else {
                 card.setCardBackgroundColor(ContextCompat.getColor(context, R.color.bg_glass));
                 card.setContentPadding(
-                        (int)(12 * density), (int)(8 * density),
-                        (int)(12 * density), (int)(8 * density)
+                        (int)(10 * density), (int)(6 * density),
+                        (int)(10 * density), (int)(6 * density)
                 );
             }
 
@@ -140,12 +143,13 @@ public class InstanceSelectorDialog {
             row.setOrientation(LinearLayout.HORIZONTAL);
             row.setGravity(Gravity.CENTER_VERTICAL);
 
+            // Иконка
             CardView iconWrapper = new CardView(context);
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(
-                    (int)(40 * density), (int)(40 * density)
+                    (int)(32 * density), (int)(32 * density)
             );
             iconWrapper.setLayoutParams(iconParams);
-            iconWrapper.setRadius(8 * density);
+            iconWrapper.setRadius(6 * density);
             iconWrapper.setCardElevation(0);
             iconWrapper.setUseCompatPadding(true);
             iconWrapper.setPreventCornerOverlap(true);
@@ -159,39 +163,41 @@ public class InstanceSelectorDialog {
             icon.setImageResource(R.drawable.ic_minecraft_block);
             icon.setScaleType(ImageView.ScaleType.CENTER_CROP);
             icon.setPadding(
-                    (int)(4 * density), (int)(4 * density),
-                    (int)(4 * density), (int)(4 * density)
+                    (int)(3 * density), (int)(3 * density),
+                    (int)(3 * density), (int)(3 * density)
             );
             iconWrapper.addView(icon);
             row.addView(iconWrapper);
 
+            // Текст
             LinearLayout textLayout = new LinearLayout(context);
             textLayout.setOrientation(LinearLayout.VERTICAL);
             textLayout.setLayoutParams(new LinearLayout.LayoutParams(
                     0, ViewGroup.LayoutParams.WRAP_CONTENT, 1
             ));
-            textLayout.setPadding((int)(12 * density), 0, 0, 0);
+            textLayout.setPadding((int)(8 * density), 0, 0, 0);
 
             TextView nameText = new TextView(context);
             nameText.setText(instance.name);
             nameText.setTextColor(isSelected ? 0xFFFFFFFF : ContextCompat.getColor(context, R.color.text_primary));
-            nameText.setTextSize(16);
+            nameText.setTextSize(14);
             nameText.setTypeface(null, android.graphics.Typeface.BOLD);
             textLayout.addView(nameText);
 
             TextView versionText = new TextView(context);
             versionText.setText(instance.version);
             versionText.setTextColor(isSelected ? 0xCCFFFFFF : ContextCompat.getColor(context, R.color.text_secondary));
-            versionText.setTextSize(13);
+            versionText.setTextSize(12);
             textLayout.addView(versionText);
 
             row.addView(textLayout);
 
+            // Галочка
             if (isSelected) {
                 ImageView check = new ImageView(context);
                 check.setImageResource(R.drawable.ic_check);
                 check.setLayoutParams(new LinearLayout.LayoutParams(
-                        (int)(20 * density), (int)(20 * density)
+                        (int)(16 * density), (int)(16 * density)
                 ));
                 check.setColorFilter(0xFFFFFFFF);
                 row.addView(check);
