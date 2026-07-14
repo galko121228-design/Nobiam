@@ -25,16 +25,16 @@
     <!-- Settings -->
     <string name="settings_title">Настройки</string>
     <string name="settings_subtitle">Настройте свой опыт</string>
+    <string name="language">Язык</string>
     <string name="theme_title">Тема</string>
     <string name="theme_light">Светлая</string>
     <string name="theme_dark">Тёмная</string>
     <string name="theme_system">Системная</string>
     <string name="accent_color">Акцентный цвет</string>
+    <string name="russian">Русский</string>
+    <string name="english">Английский</string>
 
     <!-- About -->
     <string name="about_title">О приложении</string>
+    <string name="author_coder">Автор и Кодер</string>
 </resources>
-    <string name="language">Язык</string>
-    <string name="russian">Русский</string>
-    <string name="english">Английский</string>
-    <string name="author_coder">Автор &amp; Кодер</string>
