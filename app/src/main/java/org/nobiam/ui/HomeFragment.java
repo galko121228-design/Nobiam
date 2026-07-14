@@ -16,6 +16,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
+import org.nobiam.utils.MinecraftLauncher;
 import org.nobiam.utils.AccentColorManager;
 
 public class HomeFragment extends Fragment {
@@ -106,7 +107,13 @@ public class HomeFragment extends Fragment {
         // Launch
         Button launchButton = view.findViewById(R.id.launch_button);
         if (launchButton != null) {
-            launchButton.setOnClickListener(v ->
+        launchButton.setOnClickListener(v -> {
+            if (MinecraftLauncher.isMinecraftInstalled(requireContext())) {
+                MinecraftLauncher.launchMinecraft(requireContext());
+            } else {
+                Toast.makeText(getContext(), "Minecraft not installed", Toast.LENGTH_SHORT).show();
+            }
+        });
                 Toast.makeText(getContext(), "Launching Minecraft...", Toast.LENGTH_SHORT).show()
             );
         }
