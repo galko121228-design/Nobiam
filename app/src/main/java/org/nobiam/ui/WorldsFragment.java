@@ -2,7 +2,7 @@ package org.nobiam.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-android.view.View;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -15,7 +15,6 @@ public class WorldsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Просто создаём TextView с текстом
         TextView tv = new TextView(getContext());
         tv.setText("Worlds Fragment");
         tv.setTextSize(24);

@@ -14,10 +14,8 @@ import android.widget.Toast;
 
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import org.nobiam.R;
-import org.nobiam.ui.WorldsFragment;
 import org.nobiam.utils.AccentColorManager;
 
 public class HomeFragment extends Fragment {
@@ -111,7 +109,6 @@ public class HomeFragment extends Fragment {
             );
         }
 
-        // Кнопка Manage Mods
         Button manageMods = view.findViewById(R.id.manage_mods_button);
         if (manageMods != null) {
             manageMods.setOnClickListener(v ->
@@ -119,7 +116,6 @@ public class HomeFragment extends Fragment {
             );
         }
 
-        // Worlds (LinearLayout)
         LinearLayout worldsRow = view.findViewById(R.id.content_worlds_row);
         if (worldsRow != null) {
             worldsRow.setOnClickListener(v -> {
@@ -129,16 +125,8 @@ public class HomeFragment extends Fragment {
                         .addToBackStack(null)
                         .commit();
             });
-                // Временно отключаем переход, чтобы проверить, крашит ли сам фрагмент
-                // WorldsFragment fragment = new WorldsFragment();
-                // requireActivity().getSupportFragmentManager().beginTransaction()
-                //         .replace(R.id.container, fragment)
-                //         .addToBackStack(null)
-                //         .commit();
-            });
         }
 
-        // Resource Packs (LinearLayout)
         LinearLayout resourcePacksRow = view.findViewById(R.id.content_resource_packs_row);
         if (resourcePacksRow != null) {
             resourcePacksRow.setOnClickListener(v ->
