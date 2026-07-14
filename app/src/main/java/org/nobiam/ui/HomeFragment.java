@@ -14,16 +14,14 @@ import android.widget.Toast;
 
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import org.nobiam.R;
-import org.nobiam.ui.WorldsFragment;
-import org.nobiam.ui.ResourcePacksFragment;
 import org.nobiam.utils.AccentColorManager;
 
 public class HomeFragment extends Fragment {
 
     private View view;
-    private TextView versionText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,30 +29,6 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         applyAccentColor();
         setupListeners();
-        // Worlds
-        Button worldsRow = view.findViewById(R.id.content_worlds_row);
-        if (worldsRow != null) {
-            worldsRow.setOnClickListener(v -> {
-                WorldsFragment fragment = new WorldsFragment();
-                requireActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, fragment)
-                        .addToBackStack(null)
-                        .commit();
-            });
-        }
-
-        // Resource Packs
-        Button resourcePacksRow = view.findViewById(R.id.content_resource_packs_row);
-        if (resourcePacksRow != null) {
-            resourcePacksRow.setOnClickListener(v -> {
-                ResourcePacksFragment fragment = new ResourcePacksFragment();
-                requireActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, fragment)
-                        .addToBackStack(null)
-                        .commit();
-            });
-        }
-        updateVersionDisplay();
         return view;
     }
 
@@ -62,7 +36,6 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         applyAccentColor();
-        updateVersionDisplay();
     }
 
     private void applyAccentColor() {
@@ -82,7 +55,7 @@ public class HomeFragment extends Fragment {
         TextView modsTitle = view.findViewById(R.id.mods_title);
         if (modsTitle != null) {
             modsTitle.setTextColor(accentColor);
-            applyTintToTextView(modsTitle, accentColor);
+            tintDrawableStart(modsTitle, accentColor);
         }
 
         Button manageMods = view.findViewById(R.id.manage_mods_button);
@@ -95,7 +68,7 @@ public class HomeFragment extends Fragment {
         TextView contentTitle = view.findViewById(R.id.content_title);
         if (contentTitle != null) {
             contentTitle.setTextColor(accentColor);
-            applyTintToTextView(contentTitle, accentColor);
+            tintDrawableStart(contentTitle, accentColor);
         }
 
         TextView viewAll = view.findViewById(R.id.content_view_all);
@@ -106,11 +79,11 @@ public class HomeFragment extends Fragment {
         TextView miscTitle = view.findViewById(R.id.misc_title);
         if (miscTitle != null) {
             miscTitle.setTextColor(accentColor);
-            applyTintToTextView(miscTitle, accentColor);
+            tintDrawableStart(miscTitle, accentColor);
         }
     }
 
-    private void applyTintToTextView(TextView textView, int color) {
+    private void tintDrawableStart(TextView textView, int color) {
         Drawable[] drawables = textView.getCompoundDrawablesRelative();
         if (drawables[0] != null) {
             Drawable wrapped = DrawableCompat.wrap(drawables[0].mutate());
@@ -121,39 +94,7 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private void updateVersionDisplay() {
-        if (view == null) return;
-        versionText = view.findViewById(R.id.text_minecraft_version);
-        if (versionText != null) {
-            String currentVersion = InstanceSelectorDialog.getSavedVersion(requireContext());
-            versionText.setText(currentVersion);
-        }
-    }
-
     private void setupListeners() {
-        // Worlds
-        Button worldsRow = view.findViewById(R.id.content_worlds_row);
-        if (worldsRow != null) {
-            worldsRow.setOnClickListener(v -> {
-                WorldsFragment fragment = new WorldsFragment();
-                requireActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, fragment)
-                        .addToBackStack(null)
-                        .commit();
-            });
-        }
-
-        // Resource Packs
-        Button resourcePacksRow = view.findViewById(R.id.content_resource_packs_row);
-        if (resourcePacksRow != null) {
-            resourcePacksRow.setOnClickListener(v -> {
-                ResourcePacksFragment fragment = new ResourcePacksFragment();
-                requireActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, fragment)
-                        .addToBackStack(null)
-                        .commit();
-            });
-        }
         LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
         if (selectVersion != null) {
             selectVersion.setOnClickListener(v -> {
@@ -166,6 +107,36 @@ public class HomeFragment extends Fragment {
         if (launchButton != null) {
             launchButton.setOnClickListener(v ->
                 Toast.makeText(getContext(), "Launching Minecraft...", Toast.LENGTH_SHORT).show()
+            );
+        }
+
+        // Кнопка Manage Mods
+        Button manageMods = view.findViewById(R.id.manage_mods_button);
+        if (manageMods != null) {
+            manageMods.setOnClickListener(v ->
+                Toast.makeText(getContext(), "Manage Mods (coming soon)", Toast.LENGTH_SHORT).show()
+            );
+        }
+
+        // Worlds (LinearLayout)
+        LinearLayout worldsRow = view.findViewById(R.id.content_worlds_row);
+        if (worldsRow != null) {
+            worldsRow.setOnClickListener(v -> {
+                Toast.makeText(getContext(), "Opening Worlds...", Toast.LENGTH_SHORT).show();
+                // Временно отключаем переход, чтобы проверить, крашит ли сам фрагмент
+                // WorldsFragment fragment = new WorldsFragment();
+                // requireActivity().getSupportFragmentManager().beginTransaction()
+                //         .replace(R.id.container, fragment)
+                //         .addToBackStack(null)
+                //         .commit();
+            });
+        }
+
+        // Resource Packs (LinearLayout)
+        LinearLayout resourcePacksRow = view.findViewById(R.id.content_resource_packs_row);
+        if (resourcePacksRow != null) {
+            resourcePacksRow.setOnClickListener(v ->
+                Toast.makeText(getContext(), "Resource Packs (coming soon)", Toast.LENGTH_SHORT).show()
             );
         }
     }
