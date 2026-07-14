@@ -22,13 +22,14 @@
             android:background="@drawable/nav_inactive"
             android:scaleType="center"
             android:padding="8dp"
+            android:contentDescription="@null"
             android:stateListAnimator="@null"/>
 
         <TextView
             android:id="@+id/title_packs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Resource Packs"
+            android:text="@string/resource_packs_title"
             android:textColor="@color/neon_blue"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -40,7 +41,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_marginStart="12dp"
-            android:hint="Search packs..."
+            android:hint="@string/search_packs"
             android:textColor="?android:attr/textColorPrimary"
             android:textColorHint="@color/text_secondary"
             android:background="@drawable/bg_search_field"
@@ -51,17 +52,34 @@
 
     </LinearLayout>
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/packs_list"
+        <ScrollView
+            android:id="@+id/scroll_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
-    </ScrollView>
+            <LinearLayout
+                android:id="@+id/packs_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/empty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_packs"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            android:visibility="visible"/>
+
+    </FrameLayout>
 
 </LinearLayout>

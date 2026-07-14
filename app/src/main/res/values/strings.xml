@@ -38,3 +38,10 @@
     <string name="about_title">About</string>
     <string name="author_coder">Author and Coder</string>
 </resources>
+    <string name="worlds_title">Worlds</string>
+    <string name="resource_packs_title">Resource Packs</string>
+    <string name="search_worlds">Search worlds...</string>
+    <string name="search_packs">Search packs...</string>
+    <string name="no_worlds">No worlds found</string>
+    <string name="no_packs">No resource packs found</string>
+    <string name="create_flat">Create Flat</string>

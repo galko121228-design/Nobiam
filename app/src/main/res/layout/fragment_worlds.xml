@@ -22,13 +22,14 @@
             android:background="@drawable/nav_inactive"
             android:scaleType="center"
             android:padding="8dp"
+            android:contentDescription="@null"
             android:stateListAnimator="@null"/>
 
         <TextView
             android:id="@+id/title_worlds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Worlds"
+            android:text="@string/worlds_title"
             android:textColor="@color/neon_blue"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -41,7 +42,7 @@
             android:layout_weight="1"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:hint="Search worlds..."
+            android:hint="@string/search_worlds"
             android:textColor="?android:attr/textColorPrimary"
             android:textColorHint="@color/text_secondary"
             android:background="@drawable/bg_search_field"
@@ -51,15 +52,14 @@
             android:textSize="14sp"/>
 
         <Button
-            android:id="@+id/btn_custom_flat"
+            android:id="@+id/btn_create_flat"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:paddingHorizontal="16dp"
             android:background="@drawable/bg_launch_button"
-            app:backgroundTint="@null"
-            android:text="Create Flat"
+            android:text="@string/create_flat"
             android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold"
@@ -69,17 +69,34 @@
 
     </LinearLayout>
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/worlds_list"
+        <ScrollView
+            android:id="@+id/scroll_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
-    </ScrollView>
+            <LinearLayout
+                android:id="@+id/worlds_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/empty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_worlds"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            android:visibility="visible"/>
+
+    </FrameLayout>
 
 </LinearLayout>
