@@ -7,6 +7,7 @@
     android:background="?android:attr/colorBackground"
     android:padding="16dp">
 
+    <!-- Верхняя панель -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,31 +26,33 @@
             android:stateListAnimator="@null"/>
 
         <TextView
+            android:id="@+id/title_packs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Resource Packs"
             android:textColor="@color/neon_blue"
-            android:textSize="22sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="0dp"/>
 
         <EditText
             android:id="@+id/search_input"
             android:layout_width="0dp"
-            android:layout_height="36dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_marginStart="12dp"
-            android:hint="Search..."
+            android:hint="Search packs..."
             android:textColor="?android:attr/textColorPrimary"
             android:textColorHint="@color/text_secondary"
-            android:background="@drawable/bg_search_field"
-            android:paddingHorizontal="12dp"
+            android:background="@drawable/bg_search_field_light"
+            android:paddingHorizontal="16dp"
             android:inputType="text"
             android:maxLines="1"
             android:textSize="14sp"/>
 
     </LinearLayout>
 
+    <!-- Список ресурс-паков -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
