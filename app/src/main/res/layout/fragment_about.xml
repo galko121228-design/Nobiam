@@ -103,7 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/developer_define"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_secondary"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
 
@@ -111,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" @string/author_coder "
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_secondary"
                     android:textSize="11sp"
                     android:textStyle="bold"
                     android:background="@drawable/bg_green_tag"

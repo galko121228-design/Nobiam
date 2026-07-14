@@ -44,7 +44,7 @@
                         android:id="@+id/minecraft_title_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/minecraft"
+                        android:text="Minecraft"
                         android:textColor="@color/neon_blue"
                         android:textSize="28sp"
                         android:textStyle="bold"/>
@@ -53,7 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="0dp"
-                        android:text="@string/bedrock_edition"
+                        android:text="Bedrock Edition"
                         android:textColor="@color/text_secondary"
                         android:textSize="14sp"/>
 
@@ -74,14 +74,25 @@
                         android:orientation="horizontal"
                         android:paddingHorizontal="8dp"
                         android:clickable="true"
-                        android:focusable="true"
-                        android:foreground="?attr/selectableItemBackground">
+                        android:focusable="true">
 
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:src="@drawable/minecraft"
-                            android:scaleType="centerCrop"/>
+                        <!-- Иконка Minecraft с CardView -->
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            app:cardCornerRadius="6dp"
+                            app:cardElevation="0dp">
+
+                            <ImageView
+                                android:id="@+id/ivMinecraftIcon"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/minecraft"
+                                android:scaleType="centerCrop"
+                                android:adjustViewBounds="true"
+                                android:cropToPadding="true" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -92,7 +103,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/current_instance"
+                                android:text="Current Instance"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="9sp"/>
 
@@ -102,7 +113,7 @@
                                 android:layout_height="wrap_content"
                                 android:minWidth="60dp"
                                 android:maxWidth="140dp"
-                                android:text="@string/minecraft"
+                                android:text="Minecraft"
                                 android:textColor="@color/text_primary"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
@@ -129,7 +140,6 @@
                         android:paddingHorizontal="14dp"
                         android:layout_marginStart="8dp"
                         android:background="@drawable/bg_launch_button"
-                        android:foreground="?attr/selectableItemBackground"
                         app:backgroundTint="@null"
                         android:drawableStart="@drawable/ic_rocket_launch"
                         android:drawablePadding="6dp"
@@ -164,7 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="@string/settings_tip"
+                    android:text="Settings lets you adjust theme, color, background, and other appearance options to match your setup."
                     android:textColor="@color/text_secondary"
                     android:textSize="11sp"/>
 
@@ -202,7 +212,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/mods"
+                        android:text="Mods"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
@@ -220,9 +230,8 @@
                         android:insetTop="0dp"
                         android:insetBottom="0dp"
                         android:background="@drawable/bg_mod_menu_toggle"
-                        android:foreground="?attr/selectableItemBackground"
                         app:backgroundTint="@null"
-                        android:text="@string/manage_mods"
+                        android:text="Manage Mods"
                         android:textColor="@color/neon_blue"
                         android:textSize="9sp"
                         android:textStyle="bold"
@@ -254,7 +263,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/content_management"
+                        android:text="Content Management"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
@@ -265,12 +274,11 @@
                         android:id="@+id/content_view_all"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/view_all"
+                        android:text="View All →"
                         android:textColor="@color/text_secondary"
                         android:textSize="10sp"
                         android:clickable="true"
-                        android:focusable="true"
-                        android:foreground="?attr/selectableItemBackground"/>
+                        android:focusable="true"/>
 
                 </LinearLayout>
 
@@ -297,8 +305,7 @@
                             android:gravity="center_vertical"
                             android:paddingVertical="6dp"
                             android:clickable="true"
-                            android:focusable="true"
-                            android:foreground="?attr/selectableItemBackground">
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="14dp"
@@ -311,7 +318,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
-                                android:text="@string/worlds"
+                                android:text="Worlds"
                                 android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
@@ -342,8 +349,7 @@
                             android:gravity="center_vertical"
                             android:paddingVertical="6dp"
                             android:clickable="true"
-                            android:focusable="true"
-                            android:foreground="?attr/selectableItemBackground">
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="14dp"
@@ -356,7 +362,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
-                                android:text="@string/resource_packs"
+                                android:text="Resource Packs"
                                 android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
@@ -407,7 +413,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/miscellaneous"
+                        android:text="Miscellaneous"
                         android:textColor="@color/text_primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
@@ -439,8 +445,7 @@
                             android:gravity="center_vertical"
                             android:paddingVertical="6dp"
                             android:clickable="true"
-                            android:focusable="true"
-                            android:foreground="?attr/selectableItemBackground">
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="14dp"
@@ -453,7 +458,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
-                                android:text="@string/curseforge"
+                                android:text="CurseForge"
                                 android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
@@ -474,21 +479,21 @@
                             android:gravity="center_vertical"
                             android:paddingVertical="6dp"
                             android:clickable="true"
-                            android:focusable="true"
-                            android:foreground="?attr/selectableItemBackground">
+                            android:focusable="true">
 
                             <ImageView
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
                                 android:src="@drawable/ic_account"
-                                android:scaleType="fitCenter"/>
+                                android:scaleType="fitCenter"
+                                app:tint="@color/text_secondary"/>
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="6dp"
-                                android:text="@string/microsoft_accounts"
+                                android:text="Microsoft Accounts"
                                 android:textColor="@color/text_primary"
                                 android:textSize="12sp"/>
 
