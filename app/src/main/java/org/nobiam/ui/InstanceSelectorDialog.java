@@ -3,11 +3,16 @@ package org.nobiam.ui;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -37,17 +42,25 @@ public class InstanceSelectorDialog {
             new Instance("Minecraft", "1.20.60")
     );
 
-    public static void show(Context context, TextView targetText) {
-        Dialog dialog = new Dialog(context, android.R.style.Theme_Translucent_NoTitleBar);
+    public static void show(Context context, View anchor, TextView targetText) {
+        Dialog dialog = new Dialog(context, R.style.TransparentDialog);
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_instance_selector, null);
         dialog.setContentView(view);
 
-        // Настройка размеров
-        dialog.getWindow().setLayout(
-                (int) (context.getResources().getDisplayMetrics().widthPixels * 0.9),
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        // Закрытие по клику вне диалога
+        dialog.setCanceledOnTouchOutside(true);
+
+        Window window = dialog.getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams params = window.getAttributes();
+            params.width = (int) (380 * context.getResources().getDisplayMetrics().density);
+            params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            params.gravity = Gravity.TOP | Gravity.END;
+            params.x = (int) (16 * context.getResources().getDisplayMetrics().density);
+            params.y = (int) (80 * context.getResources().getDisplayMetrics().density);
+            window.setAttributes(params);
+            window.setBackgroundDrawableResource(android.R.color.transparent);
+        }
 
         EditText searchInput = view.findViewById(R.id.search_input);
         LinearLayout instanceList = view.findViewById(R.id.instance_list);
@@ -55,10 +68,8 @@ public class InstanceSelectorDialog {
         String currentVersion = getSavedVersion(context);
         List<Instance> filteredList = new ArrayList<>(INSTANCES);
 
-        // Заполняем список
         populateList(instanceList, filteredList, currentVersion, context, dialog, targetText);
 
-        // Поиск
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -84,9 +95,6 @@ public class InstanceSelectorDialog {
             }
         });
 
-        // Клик вне дропдауна
-        view.setOnClickListener(v -> dialog.dismiss());
-
         dialog.show();
     }
 
@@ -96,63 +104,73 @@ public class InstanceSelectorDialog {
         container.removeAllViews();
 
         int accentColor = AccentColorManager.getColor(context);
+        float density = context.getResources().getDisplayMetrics().density;
 
         for (Instance instance : instances) {
+            String instanceFullName = instance.name + " " + instance.version;
+            boolean isSelected = instanceFullName.equals(currentVersion);
+
             CardView card = new CardView(context);
-            card.setLayoutParams(new LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
-            ));
-            card.setRadius(12 * context.getResources().getDisplayMetrics().density);
-            card.setCardElevation(4 * context.getResources().getDisplayMetrics().density);
+            );
+            cardParams.setMargins(0, (int)(6 * density), 0, (int)(6 * density));
+            card.setLayoutParams(cardParams);
+            card.setRadius(14 * density);
+            card.setCardElevation(0);
             card.setUseCompatPadding(true);
             card.setPreventCornerOverlap(true);
-
-            boolean isSelected = (instance.name + " " + instance.version).equals(currentVersion);
 
             if (isSelected) {
                 card.setCardBackgroundColor(accentColor);
                 card.setContentPadding(
-                        (int)(12 * context.getResources().getDisplayMetrics().density),
-                        (int)(8 * context.getResources().getDisplayMetrics().density),
-                        (int)(12 * context.getResources().getDisplayMetrics().density),
-                        (int)(8 * context.getResources().getDisplayMetrics().density)
+                        (int)(12 * density), (int)(8 * density),
+                        (int)(12 * density), (int)(8 * density)
                 );
             } else {
                 card.setCardBackgroundColor(ContextCompat.getColor(context, R.color.bg_glass));
                 card.setContentPadding(
-                        (int)(12 * context.getResources().getDisplayMetrics().density),
-                        (int)(8 * context.getResources().getDisplayMetrics().density),
-                        (int)(12 * context.getResources().getDisplayMetrics().density),
-                        (int)(8 * context.getResources().getDisplayMetrics().density)
+                        (int)(12 * density), (int)(8 * density),
+                        (int)(12 * density), (int)(8 * density)
                 );
             }
 
-            // Содержимое карточки
             LinearLayout row = new LinearLayout(context);
             row.setOrientation(LinearLayout.HORIZONTAL);
-            row.setGravity(android.view.Gravity.CENTER_VERTICAL);
+            row.setGravity(Gravity.CENTER_VERTICAL);
 
-            // Иконка блока Minecraft
+            CardView iconWrapper = new CardView(context);
+            LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(
+                    (int)(40 * density), (int)(40 * density)
+            );
+            iconWrapper.setLayoutParams(iconParams);
+            iconWrapper.setRadius(8 * density);
+            iconWrapper.setCardElevation(0);
+            iconWrapper.setUseCompatPadding(true);
+            iconWrapper.setPreventCornerOverlap(true);
+            iconWrapper.setCardBackgroundColor(ContextCompat.getColor(context, R.color.bg_surface));
+
             ImageView icon = new ImageView(context);
+            icon.setLayoutParams(new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+            ));
             icon.setImageResource(R.drawable.ic_minecraft_block);
-            icon.setLayoutParams(new LinearLayout.LayoutParams(32, 32));
             icon.setScaleType(ImageView.ScaleType.CENTER_CROP);
             icon.setPadding(
-                    (int)(4 * context.getResources().getDisplayMetrics().density),
-                    (int)(4 * context.getResources().getDisplayMetrics().density),
-                    (int)(4 * context.getResources().getDisplayMetrics().density),
-                    (int)(4 * context.getResources().getDisplayMetrics().density)
+                    (int)(4 * density), (int)(4 * density),
+                    (int)(4 * density), (int)(4 * density)
             );
-            row.addView(icon);
+            iconWrapper.addView(icon);
+            row.addView(iconWrapper);
 
-            // Текст
             LinearLayout textLayout = new LinearLayout(context);
             textLayout.setOrientation(LinearLayout.VERTICAL);
-            textLayout.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
-            textLayout.setPadding(
-                    (int)(12 * context.getResources().getDisplayMetrics().density), 0, 0, 0
-            );
+            textLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                    0, ViewGroup.LayoutParams.WRAP_CONTENT, 1
+            ));
+            textLayout.setPadding((int)(12 * density), 0, 0, 0);
 
             TextView nameText = new TextView(context);
             nameText.setText(instance.name);
@@ -164,28 +182,27 @@ public class InstanceSelectorDialog {
             TextView versionText = new TextView(context);
             versionText.setText(instance.version);
             versionText.setTextColor(isSelected ? 0xCCFFFFFF : ContextCompat.getColor(context, R.color.text_secondary));
-            versionText.setTextSize(12);
+            versionText.setTextSize(13);
             textLayout.addView(versionText);
 
             row.addView(textLayout);
 
-            // Галочка
             if (isSelected) {
                 ImageView check = new ImageView(context);
-                check.setImageResource(R.drawable.ic_check_instance);
-                check.setLayoutParams(new LinearLayout.LayoutParams(24, 24));
+                check.setImageResource(R.drawable.ic_check);
+                check.setLayoutParams(new LinearLayout.LayoutParams(
+                        (int)(20 * density), (int)(20 * density)
+                ));
                 check.setColorFilter(0xFFFFFFFF);
                 row.addView(check);
             }
 
             card.addView(row);
 
-            // Клик по карточке
             card.setOnClickListener(v -> {
-                String selected = instance.name + " " + instance.version;
-                saveVersion(context, selected);
+                saveVersion(context, instanceFullName);
                 if (targetText != null) {
-                    targetText.setText(selected);
+                    targetText.setText(instanceFullName);
                 }
                 dialog.dismiss();
             });

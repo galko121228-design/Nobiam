@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="360dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/bg_dropdown"
     android:elevation="16dp"
-    android:padding="16dp"
-    android:layout_margin="8dp">
+    android:padding="16dp">
 
     <!-- Поле поиска -->
     <LinearLayout
@@ -19,8 +18,8 @@
         android:gravity="center_vertical">
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:src="@drawable/ic_search"
             app:tint="@color/text_secondary"
             android:layout_marginEnd="8dp"/>
@@ -35,29 +34,33 @@
             android:textColorHint="@color/text_secondary"
             android:background="@null"
             android:inputType="text"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:textSize="14sp"/>
 
     </LinearLayout>
 
     <!-- Разделитель Instances -->
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="8dp"
         android:text="Instances"
         android:textColor="@color/text_primary"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:textStyle="bold"
         android:gravity="center"
         android:background="@drawable/bg_pill"
-        android:padding="6dp"/>
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
+        android:layout_gravity="center_horizontal"/>
 
-    <!-- Список инстансов -->
+    <!-- Список -->
     <LinearLayout
         android:id="@+id/instance_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"/>
+        android:orientation="vertical"
+        android:maxHeight="320dp"/>
 
 </LinearLayout>

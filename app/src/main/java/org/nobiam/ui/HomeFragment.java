@@ -110,7 +110,7 @@ public class HomeFragment extends Fragment {
         if (selectVersion != null) {
             selectVersion.setOnClickListener(v -> {
                 TextView versionText = view.findViewById(R.id.text_minecraft_version);
-                InstanceSelectorDialog.show(requireContext(), versionText);
+                InstanceSelectorDialog.show(requireContext(), v, versionText);
             });
         }
 
