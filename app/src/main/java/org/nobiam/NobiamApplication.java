@@ -11,5 +11,8 @@ public class NobiamApplication extends Application {
         super.onCreate();
         ThemeManager.applyTheme(this);
         LanguageManager.loadSavedLanguage(this);
+        // Принудительно проверяем язык
+        String lang = LanguageManager.getLanguage(this);
+        android.util.Log.d("Nobiam", "Current language: " + lang);
     }
 }

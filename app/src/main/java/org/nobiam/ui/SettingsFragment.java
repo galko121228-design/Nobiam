@@ -34,6 +34,7 @@ public class SettingsFragment extends Fragment {
         // Язык
         TextView langText = view.findViewById(R.id.language_text);
         if (langText != null) {
+        android.util.Log.d("Nobiam", "Settings language: " + currentLang);
             String currentLang = LanguageManager.getLanguage(requireContext());
             langText.setText(currentLang.equals("ru") ? "Русский" : "English");
         }
@@ -100,6 +101,7 @@ public class SettingsFragment extends Fragment {
         TextView langText = view.findViewById(R.id.language_text);
         if (langSelector != null) {
             langSelector.setOnClickListener(v -> {
+        android.util.Log.d("Nobiam", "Settings language: " + currentLang);
                 String currentLang = LanguageManager.getLanguage(requireContext());
                 String newLang = currentLang.equals("ru") ? "en" : "ru";
                 LanguageManager.setLanguage(requireContext(), newLang);
