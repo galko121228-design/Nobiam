@@ -2,7 +2,7 @@ package org.nobiam.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.View;
+android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -15,20 +15,13 @@ public class WorldsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_worlds, container, false);
-
-        // Просто показываем текст для теста
+        // Просто создаём TextView с текстом
         TextView tv = new TextView(getContext());
-        tv.setText("WORLDS FRAGMENT WORKS!");
+        tv.setText("Worlds Fragment");
         tv.setTextSize(24);
+        tv.setTextColor(0xFFFFFFFF);
         tv.setGravity(View.TEXT_ALIGNMENT_CENTER);
         tv.setPadding(0, 200, 0, 0);
-
-        // Заменяем содержимое на простой текст
-        ViewGroup parent = (ViewGroup) view;
-        parent.removeAllViews();
-        parent.addView(tv);
-
-        return view;
+        return tv;
     }
 }

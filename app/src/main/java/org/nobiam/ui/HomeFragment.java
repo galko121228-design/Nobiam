@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import org.nobiam.R;
+import org.nobiam.ui.WorldsFragment;
 import org.nobiam.utils.AccentColorManager;
 
 public class HomeFragment extends Fragment {
@@ -122,7 +123,12 @@ public class HomeFragment extends Fragment {
         LinearLayout worldsRow = view.findViewById(R.id.content_worlds_row);
         if (worldsRow != null) {
             worldsRow.setOnClickListener(v -> {
-                Toast.makeText(getContext(), "Opening Worlds...", Toast.LENGTH_SHORT).show();
+                WorldsFragment fragment = new WorldsFragment();
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .addToBackStack(null)
+                        .commit();
+            });
                 // Временно отключаем переход, чтобы проверить, крашит ли сам фрагмент
                 // WorldsFragment fragment = new WorldsFragment();
                 // requireActivity().getSupportFragmentManager().beginTransaction()
