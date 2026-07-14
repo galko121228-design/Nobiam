@@ -16,6 +16,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
+import org.nobiam.ui.ContentManagementFragment;
 import org.nobiam.utils.AccentColorManager;
 
 public class HomeFragment extends Fragment {
@@ -72,32 +73,14 @@ public class HomeFragment extends Fragment {
 
         TextView viewAll = view.findViewById(R.id.content_view_all);
         if (viewAll != null) {
-            viewAll.setTextColor(accentColor);
+            viewAll.setOnClickListener(v -> {
+                ContentManagementFragment fragment = new ContentManagementFragment();
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .addToBackStack(null)
+                        .commit();
+            });
         }
-
-        TextView miscTitle = view.findViewById(R.id.misc_title);
-        if (miscTitle != null) {
-            miscTitle.setTextColor(accentColor);
-            tintDrawableStart(miscTitle, accentColor);
-        }
-    }
-
-    private void tintDrawableStart(TextView textView, int color) {
-        Drawable[] drawables = textView.getCompoundDrawablesRelative();
-        if (drawables[0] != null) {
-            Drawable wrapped = DrawableCompat.wrap(drawables[0].mutate());
-            DrawableCompat.setTint(wrapped, color);
-            textView.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                    wrapped, drawables[1], drawables[2], drawables[3]
-            );
-        }
-    }
-
-    private void setupListeners() {
-        // Current Instance
-        LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
-        if (selectVersion != null) {
-            selectVersion.setOnClickListener(v -> {
                 TextView versionText = view.findViewById(R.id.text_minecraft_version);
                 InstanceSelectorDialog.show(requireContext(), v, versionText);
             });
