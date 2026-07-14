@@ -59,6 +59,7 @@
             android:minHeight="0dp"
             android:paddingHorizontal="16dp"
             android:background="@drawable/bg_launch_button"
+            app:backgroundTint="@null"
             android:text="@string/create_flat"
             android:textColor="#FFFFFF"
             android:textSize="12sp"
