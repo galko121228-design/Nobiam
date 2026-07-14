@@ -13,12 +13,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
-import org.nobiam.utils.AccentColorManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,13 +49,10 @@ public class WorldsFragment extends Fragment {
         searchInput = view.findViewById(R.id.search_input);
         worldsList = view.findViewById(R.id.worlds_list);
 
-        // Временные данные (позже заменим на реальные)
-        loadDemoWorlds();
-
-        // Обновляем список
+        // Показываем пустой список
         updateWorldsList();
 
-        // Поиск в реальном времени
+        // Поиск
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -72,19 +67,6 @@ public class WorldsFragment extends Fragment {
         });
 
         return view;
-    }
-
-    private void loadDemoWorlds() {
-        allWorlds.clear();
-        // Временные демо-миры (потом заменим на реальные из папки Minecraft)
-        allWorlds.add("My Survival World");
-        allWorlds.add("Creative Flat");
-        allWorlds.add("Hardcore Island");
-        allWorlds.add("Skyblock v2");
-        allWorlds.add("Redstone Lab");
-        allWorlds.add("Parkour Adventure");
-        allWorlds.add("Castle Siege");
-        allWorlds.add("Underwater City");
     }
 
     private void filterWorlds(String query) {
@@ -114,69 +96,6 @@ public class WorldsFragment extends Fragment {
             emptyText.setGravity(View.TEXT_ALIGNMENT_CENTER);
             emptyText.setPadding(0, 80, 0, 80);
             worldsList.addView(emptyText);
-            return;
-        }
-
-        float density = getResources().getDisplayMetrics().density;
-        int accentColor = AccentColorManager.getColor(requireContext());
-
-        for (String world : displayList) {
-            // Карточка мира
-            CardView card = new CardView(getContext());
-            LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-            );
-            cardParams.setMargins(0, (int)(6 * density), 0, (int)(6 * density));
-            card.setLayoutParams(cardParams);
-            card.setRadius(12 * density);
-            card.setCardElevation(2 * density);
-            card.setUseCompatPadding(true);
-            card.setPreventCornerOverlap(true);
-            card.setCardBackgroundColor(ContextCompat.getColor(getContext(), R.color.bg_glass));
-
-            // Строка с миром
-            LinearLayout row = new LinearLayout(getContext());
-            row.setOrientation(LinearLayout.HORIZONTAL);
-            row.setGravity(View.TEXT_ALIGNMENT_CENTER);
-            row.setPadding(
-                    (int)(16 * density), (int)(12 * density),
-                    (int)(16 * density), (int)(12 * density)
-            );
-
-            // Иконка мира (эмодзи/символ)
-            TextView iconView = new TextView(getContext());
-            iconView.setText("🗺️");
-            iconView.setTextSize(22);
-            iconView.setPadding(0, 0, (int)(12 * density), 0);
-            row.addView(iconView);
-
-            // Название мира
-            TextView nameText = new TextView(getContext());
-            nameText.setText(world);
-            nameText.setTextColor(ContextCompat.getColor(getContext(), R.color.text_primary));
-            nameText.setTextSize(16);
-            nameText.setTypeface(null, android.graphics.Typeface.BOLD);
-            nameText.setLayoutParams(new LinearLayout.LayoutParams(
-                    0, ViewGroup.LayoutParams.WRAP_CONTENT, 1
-            ));
-            row.addView(nameText);
-
-            // Стрелка вправо (индикатор)
-            TextView arrowView = new TextView(getContext());
-            arrowView.setText("›");
-            arrowView.setTextColor(ContextCompat.getColor(getContext(), R.color.text_secondary));
-            arrowView.setTextSize(22);
-            row.addView(arrowView);
-
-            card.addView(row);
-
-            // Клик по карточке
-            card.setOnClickListener(v -> {
-                Toast.makeText(getContext(), "Open world: " + world, Toast.LENGTH_SHORT).show();
-            });
-
-            worldsList.addView(card);
         }
     }
 }
