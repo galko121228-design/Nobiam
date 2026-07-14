@@ -2,7 +2,7 @@ package org.nobiam.ui;
 
 import android.app.Dialog;
 import android.content.Context;
-importandroid.content.SharedPreferences;
+import android.content.SharedPreferences;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
