@@ -4,10 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
@@ -19,14 +17,17 @@ public class WorldsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_worlds, container, false);
 
-        ImageButton btnBack = view.findViewById(R.id.btn_back);
-        btnBack.setOnClickListener(v -> {
-            requireActivity().getSupportFragmentManager().popBackStack();
-        });
+        // Просто показываем текст для теста
+        TextView tv = new TextView(getContext());
+        tv.setText("WORLDS FRAGMENT WORKS!");
+        tv.setTextSize(24);
+        tv.setGravity(View.TEXT_ALIGNMENT_CENTER);
+        tv.setPadding(0, 200, 0, 0);
 
-        TextView emptyText = view.findViewById(R.id.worlds_list);
-        // Если worlds_list это LinearLayout, создаём TextView программно
-        // Но проще показать заглушку
+        // Заменяем содержимое на простой текст
+        ViewGroup parent = (ViewGroup) view;
+        parent.removeAllViews();
+        parent.addView(tv);
 
         return view;
     }
