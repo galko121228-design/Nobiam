@@ -194,7 +194,7 @@ public class InstanceSelectorDialog {
         }
     }
 
-    private static String getSavedVersion(Context context) {
+    public static String getSavedVersion(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
         return prefs.getString(KEY_VERSION, "Minecraft 1.21.30");
     }
