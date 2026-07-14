@@ -8,12 +8,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
 import org.nobiam.utils.AccentColorManager;
+import org.nobiam.utils.MinecraftLauncher;
 
 public class ContentManagementFragment extends Fragment {
 
@@ -28,7 +28,14 @@ public class ContentManagementFragment extends Fragment {
         TextView title = view.findViewById(R.id.title);
         if (title != null) title.setTextColor(accentColor);
 
-        // Красим все иконки в акцентный цвет
+        // Версия Minecraft — реальная
+        TextView versionText = view.findViewById(R.id.content_version);
+        if (versionText != null) {
+            String version = MinecraftLauncher.getMinecraftVersionLabel(requireContext());
+            versionText.setText(version);
+        }
+
+        // Красим иконки
         int[] iconIds = {
             R.id.content_worlds_row,
             R.id.content_skin_packs_row,
