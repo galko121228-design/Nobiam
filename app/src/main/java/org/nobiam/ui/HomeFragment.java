@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 
@@ -58,7 +57,7 @@ public class HomeFragment extends Fragment {
         TextView modsTitle = view.findViewById(R.id.mods_title);
         if (modsTitle != null) {
             modsTitle.setTextColor(accentColor);
-            tintDrawableStart(modsTitle, accentColor);
+            applyTintToTextView(modsTitle, accentColor);
         }
 
         Button manageMods = view.findViewById(R.id.manage_mods_button);
@@ -72,7 +71,7 @@ public class HomeFragment extends Fragment {
         TextView contentTitle = view.findViewById(R.id.content_title);
         if (contentTitle != null) {
             contentTitle.setTextColor(accentColor);
-            tintDrawableStart(contentTitle, accentColor);
+            applyTintToTextView(contentTitle, accentColor);
         }
 
         TextView viewAll = view.findViewById(R.id.content_view_all);
@@ -84,19 +83,19 @@ public class HomeFragment extends Fragment {
         TextView miscTitle = view.findViewById(R.id.misc_title);
         if (miscTitle != null) {
             miscTitle.setTextColor(accentColor);
-            tintDrawableStart(miscTitle, accentColor);
+            applyTintToTextView(miscTitle, accentColor);
         }
     }
 
-    private void tintDrawableStart(TextView textView, int color) {
-        Drawable[] drawables = textView.getCompoundDrawables();
+    // ✅ РАБОЧИЙ МЕТОД (из интернета)
+    private void applyTintToTextView(TextView textView, int color) {
+        Drawable[] drawables = textView.getCompoundDrawablesRelative();
         if (drawables[0] != null) {
-            // Создаём копию, чтобы не портить оригинал
-            Drawable wrapped = drawables[0].mutate();
-            wrapped = DrawableCompat.wrap(wrapped);
+            Drawable wrapped = DrawableCompat.wrap(drawables[0].mutate());
             DrawableCompat.setTint(wrapped, color);
-            // Принудительно переустанавливаем
-            textView.setCompoundDrawablesWithIntrinsicBounds(wrapped, null, null, null);
+            textView.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    wrapped, drawables[1], drawables[2], drawables[3]
+            );
         }
     }
 
