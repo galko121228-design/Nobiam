@@ -13,6 +13,9 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
+import org.nobiam.ui.SkinPacksFragment;
+import org.nobiam.ui.ScreenshotsFragment;
+import org.nobiam.ui.BehaviorPacksFragment;
 import org.nobiam.utils.AccentColorManager;
 
 public class ContentManagementFragment extends Fragment {
@@ -75,19 +78,40 @@ public class ContentManagementFragment extends Fragment {
 
         // Skin Packs (тост)
         LinearLayout skinPacksRow = view.findViewById(R.id.content_skin_packs_row);
-        skinPacksRow.setOnClickListener(v ->
+        LinearLayout skinPacksRow = view.findViewById(R.id.content_skin_packs_row);
+        skinPacksRow.setOnClickListener(v -> {
+            SkinPacksFragment fragment = new SkinPacksFragment();
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
                 Toast.makeText(getContext(), "Skin Packs (coming soon)", Toast.LENGTH_SHORT).show()
         );
 
         // Screenshots (тост)
         LinearLayout screenshotsRow = view.findViewById(R.id.content_screenshots_row);
-        screenshotsRow.setOnClickListener(v ->
+        LinearLayout screenshotsRow = view.findViewById(R.id.content_screenshots_row);
+        screenshotsRow.setOnClickListener(v -> {
+            ScreenshotsFragment fragment = new ScreenshotsFragment();
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
                 Toast.makeText(getContext(), "Screenshots (coming soon)", Toast.LENGTH_SHORT).show()
         );
 
         // Behavior Packs (тост)
         LinearLayout behaviorPacksRow = view.findViewById(R.id.content_behavior_packs_row);
-        behaviorPacksRow.setOnClickListener(v ->
+        LinearLayout behaviorPacksRow = view.findViewById(R.id.content_behavior_packs_row);
+        behaviorPacksRow.setOnClickListener(v -> {
+            BehaviorPacksFragment fragment = new BehaviorPacksFragment();
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
                 Toast.makeText(getContext(), "Behavior Packs (coming soon)", Toast.LENGTH_SHORT).show()
         );
 
