@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
 import org.nobiam.utils.AccentColorManager;
+import org.nobiam.utils.LanguageManager;
 import org.nobiam.utils.ThemeManager;
 
 public class SettingsFragment extends Fragment {
@@ -29,6 +30,13 @@ public class SettingsFragment extends Fragment {
         TextView settingsTitle = view.findViewById(R.id.settings_title);
         if (settingsTitle != null) {
             settingsTitle.setTextColor(AccentColorManager.getColor(requireContext()));
+        }
+
+        // Язык
+        TextView langText = view.findViewById(R.id.language_text);
+        if (langText != null) {
+            String currentLang = LanguageManager.getLanguage(requireContext());
+            langText.setText(currentLang.equals("ru") ? "Русский" : "English");
         }
 
         // Темы
@@ -57,6 +65,7 @@ public class SettingsFragment extends Fragment {
             requireActivity().recreate();
         });
 
+        setupLanguageSelector(view);
         setupAccentColorPicker(view);
 
         return view;
@@ -86,6 +95,20 @@ public class SettingsFragment extends Fragment {
             activeTile.setBackgroundResource(R.drawable.theme_selector_active);
             GradientDrawable gd = (GradientDrawable) activeTile.getBackground();
             if (gd != null) gd.setStroke(2, accentColor);
+        }
+    }
+
+    private void setupLanguageSelector(View view) {
+        LinearLayout langSelector = view.findViewById(R.id.language_selector);
+        TextView langText = view.findViewById(R.id.language_text);
+        if (langSelector != null) {
+            langSelector.setOnClickListener(v -> {
+                String currentLang = LanguageManager.getLanguage(requireContext());
+                String newLang = currentLang.equals("ru") ? "en" : "ru";
+                LanguageManager.setLanguage(requireContext(), newLang);
+                langText.setText(newLang.equals("ru") ? "Русский" : "English");
+                // Библиотека сама пересоздаст Activity, recreate() не нужен!
+            });
         }
     }
 

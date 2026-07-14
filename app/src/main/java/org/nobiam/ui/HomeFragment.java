@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 
@@ -57,7 +58,7 @@ public class HomeFragment extends Fragment {
         TextView modsTitle = view.findViewById(R.id.mods_title);
         if (modsTitle != null) {
             modsTitle.setTextColor(accentColor);
-            tintDrawableStart(modsTitle, accentColor); // Иконка пазла
+            tintDrawableStart(modsTitle, accentColor);
         }
 
         Button manageMods = view.findViewById(R.id.manage_mods_button);
@@ -71,7 +72,7 @@ public class HomeFragment extends Fragment {
         TextView contentTitle = view.findViewById(R.id.content_title);
         if (contentTitle != null) {
             contentTitle.setTextColor(accentColor);
-            tintDrawableStart(contentTitle, accentColor); // Иконка куба
+            tintDrawableStart(contentTitle, accentColor);
         }
 
         TextView viewAll = view.findViewById(R.id.content_view_all);
@@ -83,16 +84,19 @@ public class HomeFragment extends Fragment {
         TextView miscTitle = view.findViewById(R.id.misc_title);
         if (miscTitle != null) {
             miscTitle.setTextColor(accentColor);
-            tintDrawableStart(miscTitle, accentColor); // Иконка архива
+            tintDrawableStart(miscTitle, accentColor);
         }
     }
 
-    // Метод для покраски иконки слева от текста (drawableStart)
     private void tintDrawableStart(TextView textView, int color) {
         Drawable[] drawables = textView.getCompoundDrawables();
         if (drawables[0] != null) {
-            Drawable wrapped = DrawableCompat.wrap(drawables[0]);
+            // Создаём копию, чтобы не портить оригинал
+            Drawable wrapped = drawables[0].mutate();
+            wrapped = DrawableCompat.wrap(wrapped);
             DrawableCompat.setTint(wrapped, color);
+            // Принудительно переустанавливаем
+            textView.setCompoundDrawablesWithIntrinsicBounds(wrapped, null, null, null);
         }
     }
 

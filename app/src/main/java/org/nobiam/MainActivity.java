@@ -16,6 +16,7 @@ import org.nobiam.ui.HomeFragment;
 import org.nobiam.ui.SettingsFragment;
 import org.nobiam.ui.AboutFragment;
 import org.nobiam.utils.AccentColorManager;
+import org.nobiam.utils.LanguageManager;
 import org.nobiam.utils.ThemeManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,9 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ThemeManager.applyTheme(this);
-
+        // Применяем тему и язык ДО super (через Application и loadSavedLanguage)
         super.onCreate(savedInstanceState);
+
+        // Язык уже загружен в Application, но на всякий случай обновим
+        LanguageManager.loadSavedLanguage(this);
+        ThemeManager.applyTheme(this);
 
         Window window = getWindow();
         WindowCompat.setDecorFitsSystemWindows(window, false);
@@ -46,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         hideSystemBars();
 
         int accentColor = AccentColorManager.getColor(this);
-
         headerTitle = findViewById(R.id.header_title);
         if (headerTitle != null) {
             headerTitle.setTextColor(accentColor);
@@ -101,6 +104,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        hideSystemBars();
+        if (headerTitle != null) {
+            headerTitle.setTextColor(AccentColorManager.getColor(this));
+        }
+    }
+
     private void switchFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
@@ -132,14 +144,5 @@ public class MainActivity extends AppCompatActivity {
         controller.setSystemBarsBehavior(
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         );
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        hideSystemBars();
-        if (headerTitle != null) {
-            headerTitle.setTextColor(AccentColorManager.getColor(this));
-        }
     }
 }
