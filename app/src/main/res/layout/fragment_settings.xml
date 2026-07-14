@@ -13,11 +13,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Заголовок -->
         <TextView
             android:id="@+id/settings_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/settings_title"
+            android:text="Settings"
             android:textColor="@color/neon_blue"
             android:textSize="28sp"
             android:textStyle="bold"
@@ -26,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/settings_subtitle"
+            android:text="Customize your experience"
             android:textColor="@color/text_secondary"
             android:textSize="14sp"
             android:layout_marginBottom="20dp"/>
@@ -43,7 +44,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/theme_title"
+                android:text="Theme"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -55,6 +56,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_horizontal">
 
+                <!-- Light -->
                 <LinearLayout
                     android:id="@+id/theme_light"
                     android:layout_width="0dp"
@@ -77,13 +79,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/theme_light"
+                        android:text="Light"
                         android:textColor="?android:attr/textColorSecondary"
                         android:textSize="12sp"
                         android:layout_marginTop="4dp"/>
 
                 </LinearLayout>
 
+                <!-- Dark -->
                 <LinearLayout
                     android:id="@+id/theme_dark"
                     android:layout_width="0dp"
@@ -106,13 +109,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/theme_dark"
+                        android:text="Dark"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp"
                         android:layout_marginTop="4dp"/>
 
                 </LinearLayout>
 
+                <!-- System -->
                 <LinearLayout
                     android:id="@+id/theme_system"
                     android:layout_width="0dp"
@@ -135,66 +139,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/theme_system"
+                        android:text="System"
                         android:textColor="?android:attr/textColorSecondary"
                         android:textSize="12sp"
                         android:layout_marginTop="4dp"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/card_background"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginBottom="12dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/language"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:background="@drawable/bg_instance_selector"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="12dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <TextView
-                        android:id="@+id/language_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/russian"
-                        android:textColor="?android:attr/textColorPrimary"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
-
-                    <ImageView
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
-                        android:src="@drawable/ic_arrow_down"
-                        android:layout_marginStart="6dp"
-                        app:tint="?android:attr/textColorSecondary"/>
 
                 </LinearLayout>
 
@@ -215,7 +163,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/accent_color"
+                android:text="Accent Color"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -230,36 +178,13 @@
                 android:gravity="center"
                 android:paddingBottom="8dp"/>
 
-            <!-- More Colors кнопка + скрытая сетка -->
-            <TextView
-                android:id="@+id/more_colors_toggle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/more_colors"
-                android:textColor="@color/neon_blue"
-                android:textSize="13sp"
-                android:textStyle="bold"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:padding="8dp"
-                android:layout_gravity="center_horizontal"/>
-
-            <LinearLayout
-                android:id="@+id/color_full_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone"
-                android:paddingTop="8dp"/>
-
         </LinearLayout>
 
         <!-- Version -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/version"
+            android:text="Version 1.0"
             android:textColor="#6B7280"
             android:textSize="12sp"
             android:layout_gravity="center_horizontal"
