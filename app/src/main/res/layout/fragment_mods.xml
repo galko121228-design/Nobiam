@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground"
+    android:padding="16dp">
+
+    <!-- Верхняя панель -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@drawable/nav_inactive"
+            android:scaleType="center"
+            android:padding="8dp"
+            android:stateListAnimator="@null"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage Mods"
+            android:textColor="@color/neon_blue"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingStart="4dp"/>
+
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:hint="Search mods..."
+            android:textColor="?android:attr/textColorPrimary"
+            android:textColorHint="@color/text_secondary"
+            android:background="@drawable/bg_search_field"
+            android:paddingHorizontal="16dp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textSize="14sp"/>
+
+        <Button
+            android:id="@+id/btn_add_mod"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_launch_button"
+            android:text="Add"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"/>
+
+    </LinearLayout>
+
+    <!-- Список модов -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/mods_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+    </ScrollView>
+
+    <!-- Пустое состояние -->
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="No mods found"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+</LinearLayout>
