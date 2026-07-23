@@ -18,19 +18,24 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Button playButton = view.findViewById(R.id.play_button); // ВАЖНО
+        Button launchButton = view.findViewById(R.id.launch_button);
 
-        if (playButton != null) {
-            playButton.setOnClickListener(v -> {
-                Log.d("NOBIAM", "Кнопка нажата");
+        if (launchButton != null) {
+            launchButton.setOnClickListener(v -> {
+                Log.d("NOBIAM", "Launch button clicked");
 
-                Intent intent = new Intent();
-                intent.setClassName(
-                        "com.mojang.minecraftpe",
-                        "com.mojang.minecraftpe.MainActivity"
-                );
+                try {
+                    Intent intent = new Intent();
+                    intent.setClassName(
+                            "com.mojang.minecraftpe",
+                            "com.mojang.minecraftpe.MainActivity"
+                    );
 
-                startActivity(intent);
+                    startActivity(intent);
+
+                } catch (Exception e) {
+                    Log.e("NOBIAM", "Ошибка запуска: " + e.getMessage());
+                }
             });
         }
 
