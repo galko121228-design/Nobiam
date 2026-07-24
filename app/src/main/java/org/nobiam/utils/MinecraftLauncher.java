@@ -27,6 +27,10 @@ public class MinecraftLauncher {
     }
 
     public static void launchMinecraft(Context context) {
+        android.util.Log.d("Nobiam", "Old launcher blocked");
+    }
+
+    public static void old_launchMinecraft_disabled(Context context) {
         if (!isMinecraftInstalled(context)) {
             Toast.makeText(context, "Minecraft не установлен", Toast.LENGTH_SHORT).show();
             return;
@@ -43,7 +47,7 @@ public class MinecraftLauncher {
 
         if (intent != null) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            // context.startActivity(intent);
+            // 
         }
     }
 }
