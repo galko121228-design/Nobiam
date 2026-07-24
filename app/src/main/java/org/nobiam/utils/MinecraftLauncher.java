@@ -1,16 +1,14 @@
-package org.nobiam;
+package org.nobiam.utils;
 
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import org.nobiam.utils.InstanceManager;
-
 public class MinecraftLauncher {
 
     private static final String PACKAGE_NAME = "com.mojang.minecraftpe";
 
-    public static boolean isInstalled(Context context) {
+    public static boolean isMinecraftInstalled(Context context) {
         try {
             context.getPackageManager().getPackageInfo(PACKAGE_NAME, 0);
             return true;
@@ -19,7 +17,7 @@ public class MinecraftLauncher {
         }
     }
 
-    public static String getVersion(Context context) {
+    public static String getMinecraftVersionLabel(Context context) {
         try {
             return context.getPackageManager()
                     .getPackageInfo(PACKAGE_NAME, 0).versionName;
@@ -28,16 +26,17 @@ public class MinecraftLauncher {
         }
     }
 
-    public static void launch(Context context) {
-        if (!isInstalled(context)) {
+    public static void launchMinecraft(Context context) {
+        if (!isMinecraftInstalled(context)) {
             Toast.makeText(context, "Minecraft не установлен", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // 🔥 ВАЖНО — оставляем
+        // 🔥 подготовка инстанса
         InstanceManager.prepareInstance(context);
 
-        ClientManager.init(context);
+        // если есть ClientManager — раскомментируй
+        // ClientManager.init(context);
 
         Intent intent = context.getPackageManager()
                 .getLaunchIntentForPackage(PACKAGE_NAME);
