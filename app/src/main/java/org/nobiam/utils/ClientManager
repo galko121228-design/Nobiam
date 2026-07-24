@@ -1,0 +1,12 @@
+private static void prepareEnvironment(Context context) {
+    try {
+        File mcDir = InstanceManager.getMinecraftDir();
+        File instanceDir = InstanceManager.getInstanceDir("default");
+
+        // копируем текущий Minecraft → в instance
+        FileUtils.copy(mcDir, instanceDir);
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
