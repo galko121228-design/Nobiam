@@ -43,7 +43,7 @@ public class MinecraftLauncher {
 
         if (intent != null) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);
+            // context.startActivity(intent);
         }
     }
 }

@@ -17,7 +17,9 @@ import androidx.fragment.app.Fragment;
 
 import org.nobiam.R;
 import org.nobiam.utils.AccentColorManager;
-import org.nobiam.utils.MinecraftLauncher;
+
+// ❗ НОВЫЙ ИМПОРТ
+import org.nobiam.core.launcher.IsolatedLauncher;
 
 public class HomeFragment extends Fragment {
 
@@ -101,12 +103,13 @@ public class HomeFragment extends Fragment {
         if (view == null) return;
         versionText = view.findViewById(R.id.text_minecraft_version);
         if (versionText != null) {
-            String version = MinecraftLauncher.getMinecraftVersionLabel(requireContext());
-            versionText.setText(version);
+            // ❗ можно оставить или позже переписать
+            versionText.setText("Isolated Mode");
         }
     }
 
     private void setupListeners() {
+
         // Current Instance
         LinearLayout selectVersion = view.findViewById(R.id.select_version_button);
         if (selectVersion != null) {
@@ -116,15 +119,11 @@ public class HomeFragment extends Fragment {
             });
         }
 
-        // Launch
+        // 🚀 НОВЫЙ ЗАПУСК
         Button launchButton = view.findViewById(R.id.launch_button);
         if (launchButton != null) {
             launchButton.setOnClickListener(v -> {
-                if (MinecraftLauncher.isMinecraftInstalled(requireContext())) {
-                    MinecraftLauncher.launchMinecraft(requireContext());
-                } else {
-                    Toast.makeText(getContext(), "Minecraft not installed", Toast.LENGTH_SHORT).show();
-                }
+                IsolatedLauncher.launch(requireContext());
             });
         }
 
